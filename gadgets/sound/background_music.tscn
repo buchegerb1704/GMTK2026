@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cf1dppfodewdt"]
+
+[ext_resource type="Script" uid="uid://bg33r3jmje3aw" path="res://scripts/sound/background_music_manager.gd" id="1_ddl64"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" unique_id=1725897897]
+script = ExtResource("1_ddl64")
+tracks = Array[AudioStream]([null])
