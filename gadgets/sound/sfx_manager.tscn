@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://tij88shksmbi"]
-
-[ext_resource type="Script" uid="uid://cc8snvd7nau8l" path="res://scripts/sound/sfx_manager.gd" id="1_cn82p"]
-
-[node name="SfxManager" type="AudioStreamPlayer" unique_id=1774757870]
-script = ExtResource("1_cn82p")

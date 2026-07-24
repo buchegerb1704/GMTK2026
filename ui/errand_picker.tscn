@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://ci7kxa41nxyjb"]
+
+[ext_resource type="Script" uid="uid://dhyoqx1xstk28" path="res://ui/errand_picker.gd" id="1_kd6fg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e71bs"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_akgpf"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="ErrandPicker" type="Control" unique_id=389440812]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kd6fg")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1133354355]
+layout_mode = 0
+offset_right = 1277.0
+offset_bottom = 717.0
+color = Color(0.19, 0.15656, 0.1064, 1)
+
+[node name="Paper" type="ColorRect" parent="." unique_id=1303601477]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 146.0
+offset_right = 580.87646
+offset_bottom = 804.2324
+rotation = -0.12812912
+
+[node name="ErrandContainer" type="VBoxContainer" parent="Paper" unique_id=442051594]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Errands Header" type="Label" parent="Paper/ErrandContainer" unique_id=1281170967]
+layout_mode = 2
+text = "Today's Errands"
+label_settings = SubResource("LabelSettings_e71bs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1773084720]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 89.0
+offset_right = 1221.0
+offset_bottom = 481.0
+color = Color(1, 1, 1, 0.5019608)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=2099069586]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 150.0
+grow_horizontal = 2
+text = "Errand Info Goes Gere"
+label_settings = SubResource("LabelSettings_akgpf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ErrandDesc" type="Label" parent="ColorRect" unique_id=1769778394]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -339.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_akgpf")
+horizontal_alignment = 1
+vertical_alignment = 1

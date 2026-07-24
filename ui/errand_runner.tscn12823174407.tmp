@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dtjn5ielrodc"]
+
+[ext_resource type="Script" uid="uid://cswvf7dm3e61r" path="res://ui/errand_runner.gd" id="1_s3umi"]
+[ext_resource type="Texture2D" uid="uid://bpumqn85kacaq" path="res://assets/sprites/parkingmeter/meter_corner.png" id="2_cfl4u"]
+[ext_resource type="FontFile" uid="uid://cqjtwqtn3ltto" path="res://assets/fonts/Silkscreen-Bold.ttf" id="3_qkoeb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kka6a"]
+font = ExtResource("3_qkoeb")
+font_size = 42
+
+[node name="ErrandRunner" type="Control" unique_id=1701065804]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s3umi")
+
+[node name="ErrandContainer" type="Control" parent="." unique_id=1255216395]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CornerMeter" type="TextureRect" parent="." unique_id=699052485]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 1080.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_cfl4u")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="MeterTimer" type="Label" parent="CornerMeter" unique_id=939678459]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 640.0
+offset_right = 163.0
+offset_bottom = 701.0
+text = "123"
+label_settings = SubResource("LabelSettings_kka6a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1450280761]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

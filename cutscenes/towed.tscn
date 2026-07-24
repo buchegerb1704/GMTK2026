@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://tjqrjith8hta"]
+
+[ext_resource type="Script" uid="uid://c3x26bapcky4i" path="res://classes/cutscene.gd" id="1_kka6a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_akgpf"]
+font_size = 72
+
+[node name="Towed" type="Control" unique_id=71245673]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kka6a")
+metadata/_custom_type_script = "uid://c3x26bapcky4i"
+
+[node name="Label" type="Label" parent="." unique_id=1488374197]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 359.0
+offset_right = 523.0
+offset_bottom = 470.0
+text = "you got towed."
+label_settings = SubResource("LabelSettings_akgpf")
+
+[node name="Button" type="Button" parent="." unique_id=878761721]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 483.0
+offset_right = 730.0
+offset_bottom = 517.0
+text = "click here to go to the main menu"
+
+[connection signal="pressed" from="Button" to="." method="end_cutscene"]

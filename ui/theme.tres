@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://bdo0r1xwf3gkc"]
+
+[ext_resource type="FontFile" uid="uid://day5cuy3bgnaa" path="res://assets/fonts/StampatelloFaceto.otf" id="1_rqugq"]
+
+[resource]
+default_font = ExtResource("1_rqugq")

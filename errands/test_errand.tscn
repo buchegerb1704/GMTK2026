@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://lw8y5q87sga6"]
+
+[ext_resource type="Script" uid="uid://ckpjtc51qps3c" path="res://classes/errand.gd" id="1_5ubsl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_akgpf"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[node name="TestErrand" type="Control" unique_id=175874958]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ubsl")
+metadata/_custom_type_script = "uid://ckpjtc51qps3c"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=301800075]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8310154, 0.8204646, 0.94037986, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1896100273]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 242.0
+offset_right = 893.0
+offset_bottom = 316.0
+text = "This is a test errand."
+label_settings = SubResource("LabelSettings_akgpf")
+
+[node name="Button" type="Button" parent="." unique_id=834772522]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 373.0
+offset_right = 821.0
+offset_bottom = 457.0
+theme_override_font_sizes/font_size = 32
+text = "click to pass"
+
+[connection signal="pressed" from="Button" to="." method="finish_errand"]

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c7omfug6o77vj"]
+
+[ext_resource type="Script" uid="uid://cpccv46pe820s" path="res://ui/main_menu.gd" id="1_t7e0r"]
+
+[node name="MainMenu" type="Control" unique_id=681916578]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7e0r")
+
+[node name="BackgroundImage" type="Panel" parent="." unique_id=720822976]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuitButton" type="Button" parent="." unique_id=1277425270]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 395.0
+offset_right = 573.9652
+offset_bottom = 490.91614
+rotation = 0.17104226
+text = "QUIT"
+
+[node name="StartButton" type="Button" parent="." unique_id=503445176]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 294.0
+offset_right = 1089.9458
+offset_bottom = 427.92825
+rotation = -0.0418879
+text = "START"
+
+[node name="OptionsButton" type="Button" parent="." unique_id=428287078]
+layout_mode = 0
+offset_left = 772.86597
+offset_top = 492.06888
+offset_right = 1050.0292
+offset_bottom = 584.9132
+rotation = 0.04363323
+text = "OPTIONS"
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
