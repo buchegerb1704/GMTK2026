@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Paying for Parking"
-config/version="v0"
+config/version="0.1"
 run/main_scene="uid://c7omfug6o77vj"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0.7162962, 0.7162962, 0.7162962, 1)
