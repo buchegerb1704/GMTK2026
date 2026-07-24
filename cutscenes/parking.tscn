@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0hpbdl044ex3"]
 
-[ext_resource type="Theme" uid="uid://bdo0r1xwf3gkc" path="res://ui/theme.tres" id="1_6ne0u"]
+[ext_resource type="Theme" uid="uid://bdo0r1xwf3gkc" path="res://themes/menu_button_theme.tres" id="1_6ne0u"]
 [ext_resource type="Script" uid="uid://c3x26bapcky4i" path="res://classes/cutscene.gd" id="1_350o7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_akgpf"]
