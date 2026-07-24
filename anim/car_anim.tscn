@@ -97,7 +97,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"launch",
-"speed": 30.0
+"speed": 12.0
 }]
 
 [node name="CarAnim" type="AnimatedSprite2D" unique_id=236629270]
