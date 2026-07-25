@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dvq5s0fijq4ag"]
+
+[ext_resource type="Texture2D" uid="uid://blvxt0ffvnkq3" path="res://assets/sprites/Game_DanceShow/ProgressTracker_DanceShow.png" id="1_t4eru"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi4ws"]
+atlas = ExtResource("1_t4eru")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjp05"]
+atlas = ExtResource("1_t4eru")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pedoj"]
+atlas = ExtResource("1_t4eru")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65lef"]
+atlas = ExtResource("1_t4eru")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01b7x"]
+atlas = ExtResource("1_t4eru")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg6sd"]
+atlas = ExtResource("1_t4eru")
+region = Rect2(6400, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyyw4"]
+atlas = ExtResource("1_t4eru")
+region = Rect2(7680, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uaj5b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi4ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjp05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pedoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65lef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01b7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg6sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyyw4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="ProgressTrackerDanceShowAnim" type="AnimatedSprite2D" unique_id=987003197]
+sprite_frames = SubResource("SpriteFrames_uaj5b")
+frame_progress = 0.65917385

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://2s3p2svrae6d"]
+
+[ext_resource type="Texture2D" uid="uid://ds8q2cm7wf6ix" path="res://assets/sprites/Game_Balloons/PokingHand_464x376.png" id="1_tmnww"]
+[ext_resource type="Texture2D" uid="uid://ctpef7qqlc2ne" path="res://assets/sprites/Hands/HandPointer.png" id="2_fk4kl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk4kl"]
+atlas = ExtResource("1_tmnww")
+region = Rect2(0, 0, 376, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1jtg"]
+atlas = ExtResource("1_tmnww")
+region = Rect2(376, 0, 376, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v6o6"]
+atlas = ExtResource("1_tmnww")
+region = Rect2(752, 0, 376, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yo7s"]
+atlas = ExtResource("1_tmnww")
+region = Rect2(1128, 0, 376, 464)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57gmt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk4kl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1jtg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v6o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yo7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fk4kl")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="HandPokeAnim" type="AnimatedSprite2D" unique_id=307547356]
+sprite_frames = SubResource("SpriteFrames_57gmt")
+frame = 4
+frame_progress = 1.0

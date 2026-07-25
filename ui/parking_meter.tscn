@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://diwgn1u7dfmye" path="res://assets/sprites/parkingmeter/red_unpressed.png" id="7_ft7yh"]
 [ext_resource type="Texture2D" uid="uid://dic118ydk5qbk" path="res://assets/sprites/parkingmeter/red_pressed.png" id="8_7lx55"]
 [ext_resource type="FontFile" uid="uid://cqjtwqtn3ltto" path="res://assets/fonts/Silkscreen-Bold.ttf" id="9_70vjj"]
+[ext_resource type="Texture2D" uid="uid://xy3w6afqv6xd" path="res://assets/sprites/Game_GrabGrocery/HandPointer_FlipME.png" id="10_0bhvu"]
+[ext_resource type="Script" uid="uid://cx8wy6agky1c2" path="res://ui/follow_mouse_with_click.gd" id="11_0bhvu"]
+[ext_resource type="PackedScene" uid="uid://2s3p2svrae6d" path="res://anim/hand_poke_anim.tscn" id="12_ft7yh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_akgpf"]
 font = ExtResource("9_70vjj")
@@ -97,6 +100,34 @@ offset_right = 40.0
 offset_bottom = 26.0
 text = "you have %d coins left"
 label_settings = SubResource("LabelSettings_70vjj")
+
+[node name="HandPoke" type="TextureRect" parent="." unique_id=1988395355 node_paths=PackedStringArray("hand_poke_anim")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 449.1507
+offset_top = -16.52948
+offset_right = 449.15063
+offset_bottom = -16.52948
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.46721554
+pivot_offset = Vector2(626.11865, 191.50531)
+mouse_filter = 2
+texture = ExtResource("10_0bhvu")
+expand_mode = 3
+stretch_mode = 3
+flip_h = true
+script = ExtResource("11_0bhvu")
+hand_poke_anim = NodePath("../HandPokeAnim")
+
+[node name="HandPokeAnim" parent="." unique_id=307547356 instance=ExtResource("12_ft7yh")]
+visible = false
+position = Vector2(430.00003, 286)
+rotation = -0.4672155
+offset = Vector2(76.39374, 203.7804)
+flip_h = true
 
 [connection signal="pressed" from="MeterSprite/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MeterSprite/PlusButton" to="." method="_on_plus_button_pressed"]
