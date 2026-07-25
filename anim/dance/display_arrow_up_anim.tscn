@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cxfe140nra5l5"]
+
+[ext_resource type="Texture2D" uid="uid://cp0bet8rrs2v" path="res://assets/sprites/Game_DanceShow/ReactiveDisplayArrow_UP_DanceShow.png" id="1_i5e4k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pahen"]
+atlas = ExtResource("1_i5e4k")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuhol"]
+atlas = ExtResource("1_i5e4k")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h8ie"]
+atlas = ExtResource("1_i5e4k")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7n8x"]
+atlas = ExtResource("1_i5e4k")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtuuq"]
+atlas = ExtResource("1_i5e4k")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t15dt"]
+atlas = ExtResource("1_i5e4k")
+region = Rect2(6400, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wp0p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pahen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuhol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h8ie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7n8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtuuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t15dt")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="DisplayArrowUpAnim" type="AnimatedSprite2D" unique_id=992875532]
+sprite_frames = SubResource("SpriteFrames_3wp0p")
+frame = 4
+frame_progress = 0.8998879

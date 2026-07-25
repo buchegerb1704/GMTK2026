@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnhbottuom8t6"
-path="res://.godot/imported/Crowd_DanceShow.png-bc97fe3e29314590b9d84d2c384e9c5e.ctex"
+uid="uid://csrf676efvwws"
+path="res://.godot/imported/Crowd_DanceShow_Split2.png-5dab1e119631bcbe86b3c156244dc21e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Game_DanceShow/Crowd_DanceShow.png"
-dest_files=["res://.godot/imported/Crowd_DanceShow.png-bc97fe3e29314590b9d84d2c384e9c5e.ctex"]
+source_file="res://assets/sprites/Game_DanceShow/CrowdDanceShow/Crowd_DanceShow_Split2.png"
+dest_files=["res://.godot/imported/Crowd_DanceShow_Split2.png-5dab1e119631bcbe86b3c156244dc21e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfb5lm00563nj"
-path="res://.godot/imported/BKG_DanceShow.png-84d5d36556a176220c442f1d389ad7f4.ctex"
+uid="uid://c7ocuyt5dwdxc"
+path="res://.godot/imported/Crowd_DanceShow_Split3.png-efaeac0456582d0c28ce0380a5f8c169.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Game_DanceShow/BKG_DanceShow.png"
-dest_files=["res://.godot/imported/BKG_DanceShow.png-84d5d36556a176220c442f1d389ad7f4.ctex"]
+source_file="res://assets/sprites/Game_DanceShow/CrowdDanceShow/Crowd_DanceShow_Split3.png"
+dest_files=["res://.godot/imported/Crowd_DanceShow_Split3.png-efaeac0456582d0c28ce0380a5f8c169.ctex"]
 
 [params]
 

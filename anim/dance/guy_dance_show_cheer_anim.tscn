@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://rf284oufql2w"]
+
+[ext_resource type="Texture2D" uid="uid://clywwp42kbsnr" path="res://assets/sprites/Game_DanceShow/Guy_DanceShowCheer.png" id="1_ixrd7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktfvt"]
+atlas = ExtResource("1_ixrd7")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6dqa"]
+atlas = ExtResource("1_ixrd7")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptdu0"]
+atlas = ExtResource("1_ixrd7")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8d37"]
+atlas = ExtResource("1_ixrd7")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7kpo"]
+atlas = ExtResource("1_ixrd7")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jgrr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktfvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6dqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptdu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8d37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7kpo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GuyDanceShowCheerAnim" type="AnimatedSprite2D" unique_id=733535903]
+sprite_frames = SubResource("SpriteFrames_1jgrr")
+frame_progress = 0.67638284
