@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Paying for Parking"
-config/version="v0"
+config/version="0.1"
 run/main_scene="uid://c7omfug6o77vj"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0.7162962, 0.7162962, 0.7162962, 1)
@@ -21,7 +21,7 @@ config/icon="uid://c556d04yp3mkv"
 
 [autoload]
 
-Options="*uid://c5xkbrpwxyswg"
+Config="*uid://oto8vibxjpwj"
 Scenes="*uid://c4igynb6rm8hh"
 Errands="*uid://bipq2xl1x6tpq"
 
@@ -44,7 +44,7 @@ window/stretch/aspect="expand"
 
 [gui]
 
-theme/custom="uid://bdo0r1xwf3gkc"
+theme/custom="uid://des20c0pwof7a"
 
 [input]
 

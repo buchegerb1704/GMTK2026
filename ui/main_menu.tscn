@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cpccv46pe820s" path="res://ui/main_menu.gd" id="1_t7e0r"]
 [ext_resource type="Texture2D" uid="uid://ningg2wsknbn" path="res://assets/sprites/GUI/main_menu/menusign_base.png" id="2_8uxxo"]
-[ext_resource type="Texture2D" uid="uid://bfw1pc22o74vv" path="res://assets/sprites/GUI/main_menu/menusign_play.png" id="3_ei257"]
+[ext_resource type="Texture2D" uid="uid://c8rngf243nmku" path="res://assets/sprites/main_menu/menusign_quit.png" id="2_wk0pr"]
+[ext_resource type="Texture2D" uid="uid://br63seveicvjq" path="res://assets/sprites/main_menu/menusign_options_sat.png" id="3_p8ri8"]
+[ext_resource type="Texture2D" uid="uid://1wi3elm7kx77" path="res://assets/sprites/main_menu/menusign_play.png" id="4_8uxxo"]
 [ext_resource type="Theme" uid="uid://bdo0r1xwf3gkc" path="res://themes/menu_button_theme.tres" id="4_ei257"]
-[ext_resource type="Texture2D" uid="uid://b8tdmjnmkrso1" path="res://assets/sprites/GUI/main_menu/menusign_quit.png" id="4_p8ri8"]
-[ext_resource type="Texture2D" uid="uid://c8gfotg5fbwkj" path="res://assets/sprites/GUI/main_menu/menusign_options.png" id="5_ubpvv"]
+[ext_resource type="Script" uid="uid://bmf3a2m3cmycj" path="res://classes/texture_button_automask.gd" id="4_p8ri8"]
+[ext_resource type="Texture2D" uid="uid://c077lif2b8n5h" path="res://assets/sprites/main_menu/menusign_options.png" id="5_ei257"]
+[ext_resource type="Texture2D" uid="uid://dbdyan3imalp1" path="res://assets/sprites/main_menu/menusign_quit_sat.png" id="6_ubpvv"]
+[ext_resource type="Texture2D" uid="uid://d2whbd3bxfsdi" path="res://assets/sprites/main_menu/menusign_play_sat.png" id="9_arv2f"]
 
 [node name="MainMenu" type="Control" unique_id=681916578]
 layout_mode = 3
@@ -24,54 +28,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OptionsSprite" type="TextureRect" parent="." unique_id=1966752681]
+[node name="OptionsButton" type="TextureButton" parent="." unique_id=1975456541]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("5_ubpvv")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="OptionsButton" type="Button" parent="." unique_id=428287078]
-layout_mode = 0
-offset_left = 593.0
-offset_top = 589.0
-offset_right = 838.0047
-offset_bottom = 686.42163
-rotation = -0.3525565
 theme = ExtResource("4_ei257")
+texture_normal = ExtResource("5_ei257")
+texture_hover = ExtResource("3_p8ri8")
+texture_focused = ExtResource("3_p8ri8")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("4_p8ri8")
+metadata/_custom_type_script = "uid://bmf3a2m3cmycj"
 
-[node name="QuitSprite" type="TextureRect" parent="." unique_id=1827389846]
+[node name="QuitButton" type="TextureButton" parent="." unique_id=640413704]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("4_p8ri8")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="QuitButton" type="Button" parent="." unique_id=1277425270]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -323.0
-offset_top = 114.0
-offset_right = -106.540405
-offset_bottom = 247.27454
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.018354943
 theme = ExtResource("4_ei257")
+texture_normal = ExtResource("2_wk0pr")
+texture_hover = ExtResource("6_ubpvv")
+texture_focused = ExtResource("6_ubpvv")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("4_p8ri8")
+metadata/_custom_type_script = "uid://bmf3a2m3cmycj"
 
 [node name="MenuSprite" type="TextureRect" parent="." unique_id=634031306]
 layout_mode = 1
@@ -85,27 +72,22 @@ texture = ExtResource("2_8uxxo")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="PlaySprite" type="TextureRect" parent="." unique_id=1792656048]
+[node name="PlayButton" type="TextureButton" parent="." unique_id=1649975333]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("3_ei257")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="StartButton" type="Button" parent="." unique_id=503445176]
-layout_mode = 0
-offset_left = 508.33588
-offset_top = 365.7913
-offset_right = 1034.397
-offset_bottom = 536.9695
-rotation = -0.40142572
 theme = ExtResource("4_ei257")
+texture_normal = ExtResource("4_8uxxo")
+texture_hover = ExtResource("9_arv2f")
+texture_focused = ExtResource("9_arv2f")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("4_p8ri8")
+metadata/_custom_type_script = "uid://bmf3a2m3cmycj"
 
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_start_button_pressed"]

@@ -4,19 +4,22 @@ const TOW_RISK_PER_SECOND: float = 0.15
 
 var errand_node: Errand
 
+@export var errand_container: Control
+@export var meter_timer: Label
+
 func _ready() -> void:
 	errand_node = Errands.current_errand_packed_scene.instantiate()
 	
-	$ErrandContainer.add_child(errand_node)
+	errand_container.add_child(errand_node)
 	
-	$CornerMeter/MeterTimer.text = str(Errands.meter_time)
+	meter_timer.text = str(Errands.meter_time)
 	Errands.meter_running = true
 
 func _on_timer_timeout() -> void:
 	if Errands.meter_running:
 		if Errands.meter_time > 0:
 			Errands.meter_time -= 1
-			$CornerMeter/MeterTimer.text = str(Errands.meter_time)
+			meter_timer.text = str(Errands.meter_time)
 		else:
 			var roll := randf()
 			

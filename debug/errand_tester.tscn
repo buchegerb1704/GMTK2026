@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b224pj7nt46h7"]
+
+[sub_resource type="GDScript" id="GDScript_akgpf"]
+resource_name = "errand_tester"
+script/source = "extends Control
+
+func _ready() -> void:
+	var errand_container: Container = $VBoxContainer/ItemList
+	
+	for errand_id: StringName in Config.ERRAND_DB:
+		var errand: ErrandInfo = Config.ERRAND_DB[errand_id]
+		var errand_option := Button.new()
+		
+		errand_option.text = errand.title
+		
+		@warning_ignore(\"return_value_discarded\")
+		errand_option.pressed.connect(func() -> void: errand_selected(errand_id))
+		
+		errand_container.add_child(errand_option)
+
+func errand_selected(errand_id: StringName) -> void:
+	var errand: ErrandInfo = Config.ERRAND_DB[errand_id]
+	
+	Errands.current_errand_id = errand_id
+	Errands.current_errand_packed_scene = Scenes.load_by_name(errand.scene_file)
+	
+	Scenes.goto_by_name(\"res://ui/errand_runner.tscn\")
+"
+
+[node name="ErrandTester" type="Control" unique_id=2053567483]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_akgpf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1520607900]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="BoxContainer" parent="VBoxContainer" unique_id=786800025]
+custom_minimum_size = Vector2(0, 660)
+layout_mode = 2
+vertical = true
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer" unique_id=948125423]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/buttons_width = 32
+alignment = 1
+suffix = " seconds"
