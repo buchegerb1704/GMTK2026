@@ -3,13 +3,6 @@
 [ext_resource type="Script" uid="uid://x7awhwcgr2wr" path="res://classes/resources/errand_info.gd" id="1_xppy2"]
 [ext_resource type="Script" uid="uid://bf5jhq58m38as" path="res://classes/resources/game_config.gd" id="2_xppy2"]
 
-[sub_resource type="Resource" id="Resource_ldx4k"]
-script = ExtResource("1_xppy2")
-title = "Grafitti Cleanup"
-description = "Some hooligans tagged a wall downtown. Do your civic duty!"
-scene_file = "uid://dyu38bcxqxjy4"
-metadata/_custom_type_script = "uid://x7awhwcgr2wr"
-
 [sub_resource type="Resource" id="Resource_kd6fg"]
 script = ExtResource("1_xppy2")
 title = "Test Errand"
@@ -17,10 +10,81 @@ description = "This errand is a test!"
 scene_file = "uid://lw8y5q87sga6"
 metadata/_custom_type_script = "uid://x7awhwcgr2wr"
 
+[sub_resource type="Resource" id="Resource_f076m"]
+script = ExtResource("1_xppy2")
+title = "Ruin a bitrhday party"
+description = "Some kids are having fun. Don't let them."
+scene_file = "uid://bveo1qxpqbsbo"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_0c62p"]
+script = ExtResource("1_xppy2")
+title = "Swat some flies"
+description = "They're gross."
+scene_file = "uid://m684heup8lfb"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_m6wdc"]
+script = ExtResource("1_xppy2")
+title = "Clean up graffiti"
+description = "Some hooligans tagged a wall. Do your civic duty!"
+scene_file = "uid://dyu38bcxqxjy4"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_ia6oi"]
+script = ExtResource("1_xppy2")
+title = "Go grocery shopping"
+description = "Hope you find everything on your shopping list!"
+scene_file = "uid://4r052velm0wy"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_e8crw"]
+script = ExtResource("1_xppy2")
+title = "Buy some milk"
+description = "This can be notoriously difficult."
+scene_file = "uid://dk7jtlwgps0mh"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_15yu5"]
+script = ExtResource("1_xppy2")
+title = "Run your laundry"
+description = "So much to wash, so much to sort."
+scene_file = "uid://p5xjketgrqjm"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_werku"]
+script = ExtResource("1_xppy2")
+title = "Make Nicos pay"
+description = "He borrowed some money from you. Get it back."
+scene_file = "uid://b0j5divivmk2r"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_5r3la"]
+script = ExtResource("1_xppy2")
+title = "Sort your recycling"
+description = "Go green!"
+scene_file = "uid://c1e5a6tfnjey1"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_wffru"]
+script = ExtResource("1_xppy2")
+title = "Put on a show"
+description = "Give the people what they want!"
+scene_file = "uid://biyb0bqh0xwv8"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
 [resource]
 script = ExtResource("2_xppy2")
 errand_database = Dictionary[StringName, ExtResource("1_xppy2")]({
-&"grafitti": SubResource("Resource_ldx4k"),
+&"balloons": SubResource("Resource_f076m"),
+&"flyswat": SubResource("Resource_0c62p"),
+&"graffiti": SubResource("Resource_m6wdc"),
+&"grocery_ispy": SubResource("Resource_ia6oi"),
+&"grocery_maze": SubResource("Resource_e8crw"),
+&"laundry": SubResource("Resource_15yu5"),
+&"nicos": SubResource("Resource_werku"),
+&"recycle": SubResource("Resource_5r3la"),
+&"show": SubResource("Resource_wffru"),
 &"test": SubResource("Resource_kd6fg")
 })
 metadata/_custom_type_script = "uid://bf5jhq58m38as"
