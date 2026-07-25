@@ -23,6 +23,7 @@ func errand_selected(errand_id: StringName) -> void:
 	
 	Errands.current_errand_id = errand_id
 	Errands.current_errand_packed_scene = Scenes.load_by_name(errand.scene_file)
+	Errands.meter_time = $VBoxContainer/SpinBox.value
 	
 	Scenes.goto_by_name(\"res://ui/errand_runner.tscn\")
 "
@@ -53,5 +54,8 @@ vertical = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_constants/buttons_width = 32
+max_value = 600.0
+value = 30.0
 alignment = 1
 suffix = " seconds"
+custom_arrow_step = 15.0

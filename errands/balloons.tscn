@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bveo1qxpqbsbo"]
+
+[ext_resource type="Script" uid="uid://f4017mqgcr54" path="res://errands/balloons.gd" id="1_hlgcd"]
+
+[node name="Balloons" type="Control" unique_id=688174250]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hlgcd")
+metadata/_custom_type_script = "uid://ckpjtc51qps3c"
+
+[node name="Button" type="Button" parent="." unique_id=1097964147]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 373.0
+offset_right = 821.0
+offset_bottom = 457.0
+theme_override_font_sizes/font_size = 32
+text = "click to pass"
+
+[connection signal="pressed" from="Button" to="." method="finish_errand"]

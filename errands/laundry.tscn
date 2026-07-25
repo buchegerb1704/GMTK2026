@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://p5xjketgrqjm"]
+
+[ext_resource type="Script" uid="uid://cujwg732s8fpk" path="res://errands/laundry.gd" id="1_migd3"]
+
+[node name="Laundry" type="Control" unique_id=1071540385]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_migd3")
+metadata/_custom_type_script = "uid://ckpjtc51qps3c"
+
+[node name="Button" type="Button" parent="." unique_id=1249263965]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 373.0
+offset_right = 821.0
+offset_bottom = 457.0
+theme_override_font_sizes/font_size = 32
+text = "click to pass"
+
+[connection signal="pressed" from="Button" to="." method="finish_errand"]
