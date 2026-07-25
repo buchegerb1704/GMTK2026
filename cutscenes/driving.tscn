@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://di4d4x0d33uxc"]
 
-[ext_resource type="Script" uid="uid://c3x26bapcky4i" path="res://classes/cutscene.gd" id="1_350o7"]
+[ext_resource type="Script" uid="uid://x5umqmxenu7x" path="res://cutscenes/driving.gd" id="1_ed50m"]
 [ext_resource type="Texture2D" uid="uid://c45gwkh0tjo7c" path="res://assets/sprites/Transition/Transition_BackgroundSky_Other.png" id="3_ybfsm"]
 [ext_resource type="Texture2D" uid="uid://dtw3aoioby6im" path="res://assets/sprites/Transition/Transition_Background_Sun.png" id="4_ed50m"]
 [ext_resource type="Texture2D" uid="uid://bqqsmjwria67a" path="res://assets/sprites/Transition/Transition_Building_Background.png" id="5_wi7rs"]
@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dnh1lik5wo3k0" path="res://assets/sprites/Transition/Transition_Building_Foreground_Blured.png" id="9_koxrv"]
 [ext_resource type="Texture2D" uid="uid://cjxk8sldna1tw" path="res://assets/sprites/Transition/Transition_Road_2.png" id="10_wnu3t"]
 [ext_resource type="PackedScene" uid="uid://cel63mf4vsf4k" path="res://anim/car_anim.tscn" id="11_ed50m"]
+[ext_resource type="PackedScene" uid="uid://bh27f25d1beo7" path="res://anim/car_slide_park_anim.tscn" id="11_wi7rs"]
 
 [sub_resource type="Animation" id="Animation_350o7"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -37,10 +37,46 @@ tracks/1/keys = {
 "update": 1,
 "values": [199.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CarSlideParkAnim:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TransitionRect:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CarSlideParkAnim:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_x0smv"]
 resource_name = "car_crossing"
-length = 1.8
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -48,15 +84,38 @@ tracks/0/path = NodePath("CarAnim:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 1.8),
+"times": PackedFloat32Array(0, 1.2, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [&"default", &"launch", &"default"]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionRect:color:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CarAnim:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-228.0, 199.0]
+}
 
 [sub_resource type="Animation" id="Animation_ybfsm"]
 resource_name = "car_move_animation"
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -64,7 +123,7 @@ tracks/0/path = NodePath("CarAnim:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [199.0, 1504.0]
@@ -81,12 +140,65 @@ tracks/1/keys = {
 "update": 1,
 "values": [&"default"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TransitionRect:color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_5qs8m"]
+resource_name = "car_park_animation"
+length = 1.3333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CarSlideParkAnim:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CarSlideParkAnim:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TransitionRect:color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_psm7m"]
 _data = {
 &"RESET": SubResource("Animation_350o7"),
 &"car_crossing": SubResource("Animation_x0smv"),
-&"car_move_animation": SubResource("Animation_ybfsm")
+&"car_move_animation": SubResource("Animation_ybfsm"),
+&"car_park_animation": SubResource("Animation_5qs8m")
 }
 
 [node name="Driving" type="Control" unique_id=1511914633]
@@ -96,7 +208,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_350o7")
+script = ExtResource("1_ed50m")
 metadata/_custom_type_script = "uid://c3x26bapcky4i"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=506071329]
@@ -105,6 +217,7 @@ autoplay = &"RESET"
 playback_auto_capture = false
 next/RESET = &"car_crossing"
 next/car_crossing = &"car_move_animation"
+next/car_move_animation = &"car_park_animation"
 
 [node name="Parallax" type="Node2D" parent="." unique_id=225234836]
 
@@ -182,4 +295,17 @@ autoplay = "default"
 frame = 0
 frame_progress = 0.0
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="end_cutscene"]
+[node name="CarSlideParkAnim" parent="." unique_id=11782902 instance=ExtResource("11_wi7rs")]
+visible = false
+position = Vector2(640, 360)
+
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=1257929717]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

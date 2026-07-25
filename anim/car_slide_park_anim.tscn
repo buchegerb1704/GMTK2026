@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://bh27f25d1beo7"]
+
+[ext_resource type="Texture2D" uid="uid://dqnqti8d3wlia" path="res://assets/sprites/Car/CarSlidePark_720x1280.png" id="1_j06pc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j06pc"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiepu"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omadp"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wkma"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7ig0"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gj1a"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(6400, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk7v4"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(7680, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2et05"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(8960, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6uwa"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(10240, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynsjj"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(11520, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb2dp"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(12800, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evm6p"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(14080, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shs6i"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(15360, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhmxy"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(16640, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dinm7"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(17920, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jjac"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(19200, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_domfu"]
+atlas = ExtResource("1_j06pc")
+region = Rect2(20480, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_towjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j06pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tiepu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omadp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wkma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7ig0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gj1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk7v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2et05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6uwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynsjj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb2dp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evm6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shs6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhmxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dinm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jjac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_domfu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 17.0
+}]
+
+[node name="CarSlideParkAnim" type="AnimatedSprite2D" unique_id=11782902]
+sprite_frames = SubResource("SpriteFrames_towjo")
+autoplay = "default"
