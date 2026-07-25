@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bh27f25d1beo7" path="res://anim/car_slide_park_anim.tscn" id="11_wi7rs"]
 
 [sub_resource type="Animation" id="Animation_350o7"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
