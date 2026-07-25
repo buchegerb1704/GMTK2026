@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://em4ehan5xlqu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_akgpf"]
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_dfa8t"]
+font_size = 24
+
+[sub_resource type="GDScript" id="GDScript_7dp3f"]
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	Scenes.goto_by_name(\"res://ui/main_menu.tscn\")
+"
+
+[node name="WinScreen" type="Control" unique_id=427337819]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=2031238725]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 220.0
+offset_right = 745.0
+offset_bottom = 331.0
+text = "you win!"
+label_settings = SubResource("LabelSettings_akgpf")
+
+[node name="Label2" type="Label" parent="." unique_id=1112232801]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 332.0
+offset_right = 847.0
+offset_bottom = 443.0
+text = "yay!"
+label_settings = SubResource("LabelSettings_dfa8t")
+
+[node name="Button" type="Button" parent="." unique_id=527040951]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 416.0
+offset_right = 737.0
+offset_bottom = 486.0
+text = "main menu"
+script = SubResource("GDScript_7dp3f")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -1,6 +1,6 @@
 extends Node
 
-var selected_errands: Array[StringName] = []
+var selected_errands: Dictionary[StringName, bool] # bool is whether completed
 var current_errand_id: StringName
 var current_errand_packed_scene: PackedScene
 
@@ -16,7 +16,9 @@ func reset_errands() -> void:
 	var errand_ids := Config.ERRAND_DB.keys()
 	errand_ids.shuffle()
 	
-	selected_errands = errand_ids.slice(0, number_of_errands)
+	var id_slice := errand_ids.slice(0, number_of_errands)
+	for id: StringName in id_slice:
+		selected_errands[id] = false
 
 func select(errand_id: StringName) -> void:
 	var errand: ErrandInfo = Config.ERRAND_DB[errand_id]
@@ -31,7 +33,17 @@ func start() -> void:
 	Scenes.goto_by_name("res://ui/errand_runner.tscn")
 
 func finish() -> void:
-	Scenes.goto_by_name("res://ui/errand_picker.tscn")
+	self.selected_errands[self.current_errand_id] = true
+	
+	var done_with_errands: bool = false
+	for errand_id: StringName in self.selected_errands:
+		if self.selected_errands[errand_id]:
+			done_with_errands = false
+	
+	if done_with_errands:
+		pass # TODO: go to a win screen
+	else:
+		Scenes.goto_by_name("res://ui/errand_picker.tscn")
 
 func _ready() -> void:
 	reset_errands()
