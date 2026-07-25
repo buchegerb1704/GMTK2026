@@ -15,9 +15,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_s3umi")
 errand_container = NodePath("ErrandContainer")
 meter_timer = NodePath("CornerMeter/MeterTimer")
+
+[node name="Timer" type="Timer" parent="." unique_id=1450280761]
+autostart = true
 
 [node name="ErrandContainer" type="Control" parent="." unique_id=1255216395]
 layout_mode = 1
@@ -26,6 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="CornerMeter" type="TextureRect" parent="." unique_id=699052485]
 layout_mode = 1
@@ -48,8 +53,5 @@ text = "123"
 label_settings = SubResource("LabelSettings_kka6a")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Timer" type="Timer" parent="." unique_id=1450280761]
-autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
