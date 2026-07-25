@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqnqti8d3wlia"
-path="res://.godot/imported/CarSlidePark_720x1280.png-07b239bbe2815262252c7b9c83f73bbb.ctex"
+uid="uid://bvnohdc1vgx"
+path="res://.godot/imported/CarSlidePark_Split1_720x1280.png-f247c7cd6157512abd75c3856d409d68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Car/CarSlidePark_720x1280.png"
-dest_files=["res://.godot/imported/CarSlidePark_720x1280.png-07b239bbe2815262252c7b9c83f73bbb.ctex"]
+source_file="res://assets/sprites/Car/CarSlidePark_Split1_720x1280.png"
+dest_files=["res://.godot/imported/CarSlidePark_Split1_720x1280.png-f247c7cd6157512abd75c3856d409d68.ctex"]
 
 [params]
 

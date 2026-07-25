@@ -1,87 +1,79 @@
 [gd_scene format=3 uid="uid://bh27f25d1beo7"]
 
-[ext_resource type="Texture2D" uid="uid://dqnqti8d3wlia" path="res://assets/sprites/Car/CarSlidePark_720x1280.png" id="1_j06pc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j06pc"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(0, 0, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tiepu"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(1280, 0, 1280, 720)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_omadp"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(2560, 0, 1280, 720)
+[ext_resource type="Texture2D" uid="uid://bvnohdc1vgx" path="res://assets/sprites/Car/CarSlidePark_Split1_720x1280.png" id="1_tiepu"]
+[ext_resource type="Texture2D" uid="uid://duw7naupforba" path="res://assets/sprites/Car/CarSlidePark_Split2_720x1280.png" id="2_omadp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8wkma"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(3840, 0, 1280, 720)
+atlas = ExtResource("1_tiepu")
+region = Rect2(0, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7ig0"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(5120, 0, 1280, 720)
+atlas = ExtResource("1_tiepu")
+region = Rect2(1280, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8gj1a"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(6400, 0, 1280, 720)
+atlas = ExtResource("1_tiepu")
+region = Rect2(2560, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lk7v4"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(7680, 0, 1280, 720)
+atlas = ExtResource("1_tiepu")
+region = Rect2(3840, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2et05"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(8960, 0, 1280, 720)
+atlas = ExtResource("1_tiepu")
+region = Rect2(5120, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6uwa"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(10240, 0, 1280, 720)
+atlas = ExtResource("1_tiepu")
+region = Rect2(6400, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynsjj"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(11520, 0, 1280, 720)
+atlas = ExtResource("1_tiepu")
+region = Rect2(7680, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xb2dp"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(12800, 0, 1280, 720)
+atlas = ExtResource("1_tiepu")
+region = Rect2(8960, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evm6p"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(14080, 0, 1280, 720)
+atlas = ExtResource("1_tiepu")
+region = Rect2(10240, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_shs6i"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(15360, 0, 1280, 720)
+atlas = ExtResource("2_omadp")
+region = Rect2(0, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xhmxy"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(16640, 0, 1280, 720)
+atlas = ExtResource("2_omadp")
+region = Rect2(1280, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dinm7"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(17920, 0, 1280, 720)
+atlas = ExtResource("2_omadp")
+region = Rect2(2560, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jjac"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(19200, 0, 1280, 720)
+atlas = ExtResource("2_omadp")
+region = Rect2(3840, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_domfu"]
-atlas = ExtResource("1_j06pc")
-region = Rect2(20480, 0, 1280, 720)
+atlas = ExtResource("2_omadp")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifehp"]
+atlas = ExtResource("2_omadp")
+region = Rect2(6400, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey07d"]
+atlas = ExtResource("2_omadp")
+region = Rect2(7680, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0byv6"]
+atlas = ExtResource("2_omadp")
+region = Rect2(8960, 0, 1280, 720)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_towjo"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j06pc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tiepu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_omadp")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8wkma")
 }, {
@@ -123,6 +115,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_domfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifehp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey07d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0byv6")
 }],
 "loop": 0,
 "name": &"default",
@@ -132,3 +133,5 @@ animations = [{
 [node name="CarSlideParkAnim" type="AnimatedSprite2D" unique_id=11782902]
 sprite_frames = SubResource("SpriteFrames_towjo")
 autoplay = "default"
+frame = 16
+frame_progress = 1.0
