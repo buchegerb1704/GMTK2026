@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://m684heup8lfb"]
+
+[ext_resource type="Script" uid="uid://cjmhsab8e1u5l" path="res://errands/flyswat.gd" id="1_debba"]
+
+[node name="Flyswat" type="Control" unique_id=253384316]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_debba")
+metadata/_custom_type_script = "uid://ckpjtc51qps3c"
+
+[node name="Button" type="Button" parent="." unique_id=213294005]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 373.0
+offset_right = 821.0
+offset_bottom = 457.0
+theme_override_font_sizes/font_size = 32
+text = "click to pass"
+
+[connection signal="pressed" from="Button" to="." method="finish_errand"]
