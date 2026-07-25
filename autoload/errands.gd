@@ -2,6 +2,7 @@ extends Node
 
 var selected_errands: Dictionary[StringName, bool] # bool is whether completed
 var current_errand_id: StringName
+var current_errand_scene_file: String
 var current_errand_packed_scene: PackedScene
 
 var coins: int = 20
@@ -24,24 +25,27 @@ func select(errand_id: StringName) -> void:
 	var errand: ErrandInfo = Config.ERRAND_DB[errand_id]
 	
 	current_errand_id = errand_id
-	current_errand_packed_scene = Scenes.load_by_name(errand.scene_file)
+	current_errand_scene_file = errand.scene_file
+	@warning_ignore("return_value_discarded")
+	ResourceLoader.load_threaded_request(current_errand_scene_file, "PackedScene")
 	
 	Scenes.next = preload("res://ui/parking_meter.tscn")
 	Scenes.goto_by_name("res://cutscenes/parking.tscn")
 
 func start() -> void:
+	current_errand_packed_scene = ResourceLoader.load_threaded_get(current_errand_scene_file)
 	Scenes.goto_by_name("res://ui/errand_runner.tscn")
 
 func finish() -> void:
 	self.selected_errands[self.current_errand_id] = true
 	
-	var done_with_errands: bool = false
+	var done_with_errands: bool = true
 	for errand_id: StringName in self.selected_errands:
-		if self.selected_errands[errand_id]:
+		if self.selected_errands[errand_id] == false:
 			done_with_errands = false
 	
 	if done_with_errands:
-		pass # TODO: go to a win screen
+		Scenes.goto_by_name("res://ui/win_screen.tscn")
 	else:
 		Scenes.goto_by_name("res://ui/errand_picker.tscn")
 
