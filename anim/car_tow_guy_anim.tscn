@@ -186,8 +186,6 @@ animations = [{
 }]
 
 [node name="CarTowGuyAnim" type="AnimatedSprite2D" unique_id=1500691246]
-position = Vector2(-1106, 53)
 sprite_frames = SubResource("SpriteFrames_2r8yx")
 frame = 24
 frame_progress = 1.0
-offset = Vector2(1106, -53)

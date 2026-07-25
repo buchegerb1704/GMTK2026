@@ -9,7 +9,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/path = NodePath("TransitionRect:color:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -65,7 +65,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/path = NodePath("TransitionRect:color:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -91,15 +91,14 @@ metadata/_custom_type_script = "uid://c3x26bapcky4i"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1819884494]
 libraries/ = SubResource("AnimationLibrary_bd1cg")
 autoplay = &"RESET"
-next/fade-in = &"button_in"
 next/RESET = &"fade-in"
+next/fade-in = &"button_in"
 
 [node name="CarTowGuyAnim" parent="." unique_id=1500691246 instance=ExtResource("2_jdi7i")]
 position = Vector2(640, 360)
 autoplay = "default"
 frame = 1
 frame_progress = 0.0
-offset = Vector2(0, 0)
 
 [node name="Button" type="Button" parent="." unique_id=878761721]
 layout_mode = 0
@@ -110,7 +109,7 @@ offset_bottom = 797.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 text = "return to the main menu"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=92484142]
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=92484142]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

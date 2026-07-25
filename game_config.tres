@@ -3,13 +3,6 @@
 [ext_resource type="Script" uid="uid://x7awhwcgr2wr" path="res://classes/resources/errand_info.gd" id="1_xppy2"]
 [ext_resource type="Script" uid="uid://bf5jhq58m38as" path="res://classes/resources/game_config.gd" id="2_xppy2"]
 
-[sub_resource type="Resource" id="Resource_kd6fg"]
-script = ExtResource("1_xppy2")
-title = "Test Errand"
-description = "This errand is a test!"
-scene_file = "uid://lw8y5q87sga6"
-metadata/_custom_type_script = "uid://x7awhwcgr2wr"
-
 [sub_resource type="Resource" id="Resource_f076m"]
 script = ExtResource("1_xppy2")
 title = "Ruin a bitrhday party"
@@ -71,6 +64,13 @@ script = ExtResource("1_xppy2")
 title = "Put on a show"
 description = "Give the people what they want!"
 scene_file = "uid://biyb0bqh0xwv8"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_kd6fg"]
+script = ExtResource("1_xppy2")
+title = "Test Errand"
+description = "This errand is a test!"
+scene_file = "uid://lw8y5q87sga6"
 metadata/_custom_type_script = "uid://x7awhwcgr2wr"
 
 [resource]
