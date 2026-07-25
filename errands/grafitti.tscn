@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dyu38bcxqxjy4"]
+
+[ext_resource type="Script" uid="uid://cgh511vebu83a" path="res://errands/grafitti.gd" id="1_b8mll"]
+[ext_resource type="Script" uid="uid://dnoygywctbqeg" path="res://classes/erasable_image.gd" id="2_b8mll"]
+[ext_resource type="Texture2D" uid="uid://tguy5ydgktuh" path="res://assets/sprites/exclamations/nice.png" id="2_l13dd"]
+[ext_resource type="Texture2D" uid="uid://1vj7coxnh0vb" path="res://assets/sprites/exclamations/wow.png" id="3_img5p"]
+[ext_resource type="Texture2D" uid="uid://60x7skipjv8g" path="res://assets/sprites/graffiti/word_graffiti.png" id="4_06555"]
+[ext_resource type="Texture2D" uid="uid://bt0ufnflp7wux" path="res://assets/sprites/graffiti/lemon.png" id="5_3aeeb"]
+[ext_resource type="Texture2D" uid="uid://dxvciaqx0gd7i" path="res://assets/sprites/graffiti/eat_rocks.png" id="6_kfqnu"]
+[ext_resource type="Texture2D" uid="uid://dvgei4frgctge" path="res://assets/sprites/graffiti/things_hate.png" id="7_j5eyu"]
+
+[node name="Grafitti" type="Control" unique_id=348876710 node_paths=PackedStringArray("grafitti_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b8mll")
+GRAFITTI_DB = [ExtResource("2_l13dd"), ExtResource("3_img5p"), ExtResource("4_06555"), ExtResource("5_3aeeb"), ExtResource("6_kfqnu"), ExtResource("7_j5eyu")]
+grafitti_container = NodePath("GrafittiContainer")
+metadata/_custom_type_script = "uid://ckpjtc51qps3c"
+
+[node name="GrafittiContainer" type="Control" parent="." unique_id=336637555]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+
+[node name="ErasableImage" type="Sprite2D" parent="GrafittiContainer" unique_id=686427297]
+position = Vector2(519, 294)
+script = ExtResource("2_b8mll")
+tex = ExtResource("5_3aeeb")
+metadata/_custom_type_script = "uid://dnoygywctbqeg"

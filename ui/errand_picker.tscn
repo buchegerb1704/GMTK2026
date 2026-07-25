@@ -10,7 +10,7 @@ font_color = Color(0, 0, 0, 1)
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
-[node name="ErrandPicker" type="Control" unique_id=389440812]
+[node name="ErrandPicker" type="Control" unique_id=389440812 node_paths=PackedStringArray("errand_container", "errand_desc")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +18,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kd6fg")
+errand_container = NodePath("Paper/ErrandList")
+errand_desc = NodePath("ColorRect/ErrandDesc")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1133354355]
 layout_mode = 0
@@ -33,7 +35,7 @@ offset_right = 580.87646
 offset_bottom = 804.2324
 rotation = -0.12812912
 
-[node name="ErrandContainer" type="VBoxContainer" parent="Paper" unique_id=442051594]
+[node name="ErrandList" type="VBoxContainer" parent="Paper" unique_id=442051594]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +43,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Errands Header" type="Label" parent="Paper/ErrandContainer" unique_id=1281170967]
+[node name="Errands Header" type="Label" parent="Paper/ErrandList" unique_id=1281170967]
 layout_mode = 2
 text = "Today's Errands"
 label_settings = SubResource("LabelSettings_e71bs")
@@ -79,3 +81,4 @@ grow_vertical = 0
 label_settings = SubResource("LabelSettings_akgpf")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3

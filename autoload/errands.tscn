@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ctepb8pn1p5sl"]
+
+[ext_resource type="Script" uid="uid://bipq2xl1x6tpq" path="res://autoload/errands.gd" id="1_m3w5s"]
+[ext_resource type="Script" uid="uid://x7awhwcgr2wr" path="res://classes/resources/errand_info.gd" id="2_ofjfl"]
+
+[sub_resource type="Resource" id="Resource_0qw6c"]
+script = ExtResource("2_ofjfl")
+title = "Grafitti Cleanup"
+description = "Some hooligans tagged a wall downtown. Do your civic duty!"
+scene_file = "uid://dyu38bcxqxjy4"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_ofjfl"]
+script = ExtResource("2_ofjfl")
+title = "Test Errand"
+description = "This errand is a test!"
+scene_file = "uid://lw8y5q87sga6"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[node name="Errands" type="Node" unique_id=376976093]
+script = ExtResource("1_m3w5s")
+ERRAND_DB = Dictionary[StringName, ExtResource("2_ofjfl")]({
+&"grafitti": SubResource("Resource_0qw6c"),
+&"test": SubResource("Resource_ofjfl")
+})
