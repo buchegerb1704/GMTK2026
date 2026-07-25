@@ -165,6 +165,6 @@ animations = [{
 
 [node name="GuyCarDashAnim" type="AnimatedSprite2D" unique_id=724286219]
 sprite_frames = SubResource("SpriteFrames_o7ppx")
-animation = &"tow"
-frame = 9
+animation = &"dash"
+frame = 10
 frame_progress = 1.0
