@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://c6vyyn8luc02h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2lfyp"]
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxEmpty_2lfyp")
