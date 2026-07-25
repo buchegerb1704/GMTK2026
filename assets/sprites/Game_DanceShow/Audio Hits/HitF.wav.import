@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bafhw3wu6sfvt"
+path="res://.godot/imported/HitF.wav-aecd9122d946f7a01e23cfa570dba618.sample"
+
+[deps]
+
+source_file="res://assets/sprites/Game_DanceShow/Audio Hits/HitF.wav"
+dest_files=["res://.godot/imported/HitF.wav-aecd9122d946f7a01e23cfa570dba618.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
