@@ -6,11 +6,13 @@ extends Control
 func _ready() -> void:
 	for errand_id: StringName in Errands.selected_errands:
 		var errand: ErrandInfo = Config.ERRAND_DB[errand_id]
+		var completed: bool = Errands.selected_errands[errand_id]
 		
 		var errand_option := Button.new()
 		
 		errand_option.text = errand.title
 		errand_option.focus_mode = Control.FOCUS_ALL
+		errand_option.disabled = completed
 		
 		@warning_ignore_start("return_value_discarded")
 		errand_option.pressed.connect(func() -> void: errand_selected(errand_id))
