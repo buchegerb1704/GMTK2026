@@ -21,9 +21,9 @@ config/icon="uid://c556d04yp3mkv"
 
 [autoload]
 
+Config="*uid://bgsixefgrxrjs"
 Scenes="*uid://c4igynb6rm8hh"
 Errands="*uid://bipq2xl1x6tpq"
-Config="*uid://oto8vibxjpwj"
 
 [debug]
 

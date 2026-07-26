@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://biyb0bqh0xwv8"]
+
+[ext_resource type="Script" uid="uid://be2mqnolywkt7" path="res://errands/dance.gd" id="1_0v2xy"]
+[ext_resource type="Texture2D" uid="uid://d0mijqf1p2lid" path="res://assets/sprites/arrows_single_spirtesheet-export.png" id="2_vs1oc"]
+
+[node name="Dance" type="Control" unique_id=1803756147 node_paths=PackedStringArray("demo_key")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0v2xy")
+KEY_FRAMES = Dictionary[int, int]({
+0: 2,
+1: 6,
+2: 4,
+3: 8
+})
+demo_key = NodePath("Demo Key")
+metadata/_custom_type_script = "uid://ckpjtc51qps3c"
+
+[node name="Demo Key" type="Sprite2D" parent="." unique_id=1417813171]
+visible = false
+position = Vector2(645, 339)
+texture = ExtResource("2_vs1oc")
+hframes = 10

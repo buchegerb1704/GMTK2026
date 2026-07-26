@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LaundryDB" format=3 uid="uid://dw3ysinwervkn"]
+
+[ext_resource type="Script" uid="uid://b70ccs42ibmd0" path="res://classes/resources/user/laundry_item.gd" id="1_sec55"]
+[ext_resource type="Script" path="res://classes/resources/laundry_db.gd" id="2_84uds"]
+[ext_resource type="Texture2D" uid="uid://bt0ufnflp7wux" path="res://assets/sprites/graffiti/lemon.png" id="2_p0k0t"]
+
+[sub_resource type="Resource" id="Resource_migd3"]
+script = ExtResource("1_sec55")
+color = 1
+texture = ExtResource("2_p0k0t")
+metadata/_custom_type_script = "uid://b70ccs42ibmd0"
+
+[resource]
+script = ExtResource("2_84uds")
+data = Array[ExtResource("1_sec55")]([SubResource("Resource_migd3")])
+metadata/_custom_type_script = "uid://ddqv4ukebak5o"

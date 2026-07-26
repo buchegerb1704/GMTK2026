@@ -1,20 +1,69 @@
 [gd_scene format=3 uid="uid://p5xjketgrqjm"]
 
 [ext_resource type="Script" uid="uid://cujwg732s8fpk" path="res://errands/laundry.gd" id="1_migd3"]
+[ext_resource type="Script" uid="uid://b70ccs42ibmd0" path="res://classes/resources/user/laundry_item.gd" id="2_xee87"]
 
-[node name="Laundry" type="Control" unique_id=1071540385]
+[sub_resource type="Resource" id="Resource_migd3"]
+script = ExtResource("2_xee87")
+metadata/_custom_type_script = "uid://b70ccs42ibmd0"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akgpf"]
+bg_color = Color(0.7275, 0.93362504, 0.97, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e71bs"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogp2i"]
+bg_color = Color(0.9226372, 0.37754568, 0.6235009, 1)
+
+[node name="Laundry" type="Control" unique_id=1071540385 node_paths=PackedStringArray("washers")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_migd3")
+CLOTHES_DB = Array[ExtResource("2_xee87")]([SubResource("Resource_migd3")])
+washers = {
+0: NodePath("RedWashing"),
+1: NodePath("WhiteWashing"),
+2: NodePath("BlueWashing")
+}
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
-[node name="Button" type="Button" parent="." unique_id=1249263965]
+[node name="BlueWashing" type="Button" parent="." unique_id=1996350245]
 layout_mode = 0
-offset_left = 505.0
-offset_top = 373.0
-offset_right = 821.0
-offset_bottom = 457.0
-theme_override_font_sizes/font_size = 32
-text = "click to pass"
+offset_left = 68.0
+offset_top = 70.0
+offset_right = 268.0
+offset_bottom = 326.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_akgpf")
 
-[connection signal="pressed" from="Button" to="." method="finish_errand"]
+[node name="BlueMarker" type="Marker2D" parent="BlueWashing" unique_id=675822059]
+position = Vector2(98, 190)
+
+[node name="WhiteWashing" type="Button" parent="." unique_id=332139904]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 76.0
+offset_right = 735.0
+offset_bottom = 332.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_e71bs")
+
+[node name="WhiteMarker" type="Marker2D" parent="WhiteWashing" unique_id=836763753]
+position = Vector2(101, 198)
+
+[node name="RedWashing" type="Button" parent="." unique_id=1504558982]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 75.0
+offset_right = 1186.0
+offset_bottom = 331.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ogp2i")
+
+[node name="RedMarker" type="Marker2D" parent="RedWashing" unique_id=819112092]
+position = Vector2(103, 191)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=308193725]
+position = Vector2(590, 597)
+
+[connection signal="pressed" from="BlueWashing" to="." method="_on_blue_washing_pressed"]
+[connection signal="pressed" from="WhiteWashing" to="." method="_on_white_washing_pressed"]
+[connection signal="pressed" from="RedWashing" to="." method="_on_red_washing_pressed"]

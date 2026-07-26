@@ -7,8 +7,8 @@ script/source = "extends Control
 func _ready() -> void:
 	var errand_container: Container = $VBoxContainer/ItemList
 	
-	for errand_id: StringName in Config.ERRAND_DB:
-		var errand: ErrandInfo = Config.ERRAND_DB[errand_id]
+	for errand_id: StringName in Errands.ERRAND_DB:
+		var errand: ErrandInfo = Errands.ERRAND_DB[errand_id]
 		var errand_option := Button.new()
 		
 		errand_option.text = errand.title
@@ -19,7 +19,7 @@ func _ready() -> void:
 		errand_container.add_child(errand_option)
 
 func errand_selected(errand_id: StringName) -> void:
-	var errand: ErrandInfo = Config.ERRAND_DB[errand_id]
+	var errand: ErrandInfo = Errands.ERRAND_DB[errand_id]
 	
 	Errands.current_errand_id = errand_id
 	Errands.current_errand_packed_scene = Scenes.load_by_name(errand.scene_file)

@@ -1,4 +1,6 @@
 extends Node
 
-var data: GameConfig = preload("res://game_config.tres")
-var ERRAND_DB := data.errand_database
+const ERRANDS_MIN: int = 4
+const ERRANDS_MAX: int = 7
+
+const START_COINS: int = 20
