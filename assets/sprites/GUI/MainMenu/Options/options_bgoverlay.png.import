@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbdyan3imalp1"
-path="res://.godot/imported/menusign_quit_sat.png-ac8fdc5cfccf56a5b21058f4e68c83bc.ctex"
+uid="uid://bkkqkur0q2kyv"
+path="res://.godot/imported/options_bgoverlay.png-5d1262a9ae6bd94fb501effa2de4da08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/main_menu/menusign_quit_sat.png"
-dest_files=["res://.godot/imported/menusign_quit_sat.png-ac8fdc5cfccf56a5b21058f4e68c83bc.ctex"]
+source_file="res://assets/sprites/GUI/MainMenu/Options/options_bgoverlay.png"
+dest_files=["res://.godot/imported/options_bgoverlay.png-5d1262a9ae6bd94fb501effa2de4da08.ctex"]
 
 [params]
 

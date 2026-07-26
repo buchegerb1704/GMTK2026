@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2whbd3bxfsdi"
-path="res://.godot/imported/menusign_play_sat.png-9236c53e5bcb302198467077e39ed290.ctex"
+uid="uid://dijixctnj11hn"
+path="res://.godot/imported/options_sign_back_hover.png-b29619f3af737c5bbbf3291d57760c07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/main_menu/menusign_play_sat.png"
-dest_files=["res://.godot/imported/menusign_play_sat.png-9236c53e5bcb302198467077e39ed290.ctex"]
+source_file="res://assets/sprites/GUI/MainMenu/Options/options_sign_back_hover.png"
+dest_files=["res://.godot/imported/options_sign_back_hover.png-b29619f3af737c5bbbf3291d57760c07.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt6y76l5js4en"
-path="res://.godot/imported/menusign_base.png-abf3ec18c4c860ab6b5d3fc36edff5be.ctex"
+uid="uid://blgiyoti3lnoc"
+path="res://.godot/imported/options_sign_music_louder.png-7be462506ccbd04ba2d5d7c0d5e789c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/main_menu/menusign_base.png"
-dest_files=["res://.godot/imported/menusign_base.png-abf3ec18c4c860ab6b5d3fc36edff5be.ctex"]
+source_file="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_louder.png"
+dest_files=["res://.godot/imported/options_sign_music_louder.png-7be462506ccbd04ba2d5d7c0d5e789c1.ctex"]
 
 [params]
 

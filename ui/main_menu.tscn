@@ -10,6 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://dsj4b4yofmngx" path="res://assets/sprites/GUI/MainMenu/menu_quit.png" id="8_kaxbk"]
 [ext_resource type="Texture2D" uid="uid://b8gjy75m4fvvd" path="res://assets/sprites/GUI/MainMenu/menu_play_base.png" id="10_0nobx"]
 [ext_resource type="Texture2D" uid="uid://b84nk86pj1jkc" path="res://assets/sprites/GUI/MainMenu/menu_play.png" id="11_iyrh0"]
+[ext_resource type="Texture2D" uid="uid://bkkqkur0q2kyv" path="res://assets/sprites/GUI/MainMenu/Options/options_bgoverlay.png" id="11_jiymt"]
+[ext_resource type="Texture2D" uid="uid://crrkjsu25al6s" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_back.png" id="12_bgtsx"]
+[ext_resource type="Texture2D" uid="uid://bpc7n3tly1fi7" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_base.png" id="13_iyrh0"]
+[ext_resource type="Texture2D" uid="uid://qjhqfkc2rb2y" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_indicator_maybe.png" id="14_8jgmr"]
+[ext_resource type="Texture2D" uid="uid://blgiyoti3lnoc" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_louder.png" id="15_q75kt"]
+[ext_resource type="Texture2D" uid="uid://c7osjtfnmrjsy" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_louder_hover.png" id="16_0i0gl"]
+[ext_resource type="Texture2D" uid="uid://bw3hkdwtnft8g" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_quieter.png" id="17_q75kt"]
+[ext_resource type="Texture2D" uid="uid://cdg4svfgnwvgv" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_quieter_hover.png" id="18_0i0gl"]
 
 [node name="MainMenu" type="Control" unique_id=681916578]
 layout_mode = 3
@@ -24,11 +32,14 @@ script = ExtResource("1_t7e0r")
 position = Vector2(640, 360)
 autoplay = "default"
 
-[node name="OptionsButton" type="TextureButton" parent="." unique_id=1975456541]
-layout_mode = 1
+[node name="OptionsButton" type="TextureButton" parent="MainMenuAnim" unique_id=1975456541]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_ei257")
@@ -40,11 +51,14 @@ stretch_mode = 5
 script = ExtResource("4_p8ri8")
 metadata/_custom_type_script = "uid://bmf3a2m3cmycj"
 
-[node name="QuitButton" type="TextureButton" parent="." unique_id=640413704]
-layout_mode = 1
+[node name="QuitButton" type="TextureButton" parent="MainMenuAnim" unique_id=640413704]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_ei257")
@@ -56,11 +70,14 @@ stretch_mode = 5
 script = ExtResource("4_p8ri8")
 metadata/_custom_type_script = "uid://bmf3a2m3cmycj"
 
-[node name="PlayButton" type="TextureButton" parent="." unique_id=1649975333]
-layout_mode = 1
+[node name="PlayButton" type="TextureButton" parent="MainMenuAnim" unique_id=1649975333]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_ei257")
@@ -72,6 +89,73 @@ stretch_mode = 5
 script = ExtResource("4_p8ri8")
 metadata/_custom_type_script = "uid://bmf3a2m3cmycj"
 
-[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="PlayButton" to="." method="_on_start_button_pressed"]
+[node name="OptionsBackground" type="TextureRect" parent="." unique_id=1649563332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_jiymt")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="OptionsBackButton" type="TextureButton" parent="." unique_id=387967612]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("12_bgtsx")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="OptionsSignBase" type="TextureRect" parent="." unique_id=867118193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_iyrh0")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="OptionsSignMusicIndicator" type="TextureRect" parent="." unique_id=694645091]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_8jgmr")
+stretch_mode = 5
+
+[node name="MusicLouderButton" type="TextureButton" parent="." unique_id=35954242]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_q75kt")
+texture_hover = ExtResource("16_0i0gl")
+texture_focused = ExtResource("16_0i0gl")
+stretch_mode = 5
+
+[node name="MusicQuieterButton" type="TextureButton" parent="." unique_id=1661763560]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("17_q75kt")
+texture_hover = ExtResource("18_0i0gl")
+texture_focused = ExtResource("18_0i0gl")
+stretch_mode = 5
+
+[connection signal="pressed" from="MainMenuAnim/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainMenuAnim/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenuAnim/PlayButton" to="." method="_on_start_button_pressed"]
