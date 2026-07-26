@@ -32,6 +32,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=350364797]
+position = Vector2(29, 640)
+color = Color(0.08, 0.08, 0.08, 1)
+polygon = PackedVector2Array(126, -21, 73, -44, 13, -34, -22, 4, -25, 77, 155.02576, 76.715, 155.02576, 16.694504)
+uv = PackedVector2Array(98.5, -54, -18.5, 5, 60.5, 54, 224.5, 66, 215.5, -26)
+
 [node name="CornerMeter" type="TextureRect" parent="." unique_id=699052485]
 layout_mode = 1
 anchors_preset = 9

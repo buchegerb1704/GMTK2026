@@ -30,7 +30,7 @@ func spawn_front() -> void:
 	item_sprite.scale = Vector2(0.5, 0.5)
 	self.add_child(item_sprite)
 	item_sprite.position = ($Marker2D as Marker2D).position + Vector2(0, 300)
-	var tween := get_tree().create_tween()
+	var tween := create_tween()
 	
 	@warning_ignore_start("return_value_discarded")
 	tween.tween_property(item_sprite, "position", ($Marker2D as Marker2D).position, 0.5)
@@ -47,7 +47,7 @@ func throw_item(color: LaundryItem.CLOTH_COLOR) -> void:
 	@warning_ignore("unsafe_cast")
 	SFX.play_sound(throw_sounds.pick_random() as AudioStream)
 	
-	var tween := get_tree().create_tween()
+	var tween := create_tween()
 	@warning_ignore_start("return_value_discarded")
 	tween.tween_property(current_item, "global_position", washers[color].global_position, 1)
 	tween.parallel().tween_property(current_item, "scale", Vector2(0.2, 0.2), 1)
@@ -69,9 +69,10 @@ func item_correct() -> void:
 		spawn_front()
 
 func item_wrong() -> void:
-	print("wrong")
-	var tween := get_tree().create_tween()
+	SFX.play_sound(preload("res://assets/sounds/incorrectbuzzer.wav"))
+	SFX.play_sound(Config.SFX_DEMEANING.pick_random())
 	
+	var tween := create_tween()
 	@warning_ignore_start("return_value_discarded")
 	tween.tween_property(current_item, "global_position", ($Marker2D as Marker2D).position, 1)
 	tween.tween_property(current_item, "scale", Vector2(0.5, 0.5), 1)

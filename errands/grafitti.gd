@@ -48,6 +48,12 @@ func _process(_delta: float) -> void:
 	_prev_mouse = pos
 
 func _on_scrubbed_clean(node: ScrubTexture) -> void:
+	@warning_ignore("unsafe_cast")
+	SFX.play_sound([
+		preload("res://assets/sounds/Clean1.wav"),
+		preload("res://assets/sounds/Clean2.wav"),
+		preload("res://assets/sounds/Clean3.wav")
+	].pick_random() as AudioStream)
 	_scrubbers.erase(node)
 	node.queue_free()
 	if _scrubbers.is_empty():

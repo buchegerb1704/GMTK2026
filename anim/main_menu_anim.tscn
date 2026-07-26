@@ -146,4 +146,3 @@ animations = [{
 
 [node name="MainMenuAnim" type="AnimatedSprite2D" unique_id=774052823]
 sprite_frames = SubResource("SpriteFrames_5f6or")
-frame_progress = 0.7023084

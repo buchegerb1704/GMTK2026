@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://ml1boq1kabf" path="res://assets/sprites/WIN GAME/Credits_Molly.png" id="26_o0att"]
 [ext_resource type="Texture2D" uid="uid://ckmhfhujhjlsn" path="res://assets/sprites/WIN GAME/Credits_Nicos.png" id="27_it50h"]
 [ext_resource type="Texture2D" uid="uid://3vjdj2v7qfwk" path="res://assets/sprites/WIN GAME/Credits_Riley.png" id="28_il32h"]
+[ext_resource type="Texture2D" uid="uid://bdk6euk2nsxws" path="res://assets/sprites/you_win.png" id="29_31485"]
 [ext_resource type="Texture2D" uid="uid://dosr31oi4cw8e" path="res://assets/sprites/WIN GAME/Credits_Thanks.png" id="29_py611"]
 
 [sub_resource type="Animation" id="Animation_350o7"]
@@ -680,6 +681,10 @@ offset_right = 737.0
 offset_bottom = 424.0
 text = "main menu"
 script = SubResource("GDScript_7dp3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Button" unique_id=1058497050]
+position = Vector2(128, -94)
+texture = ExtResource("29_31485")
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=154413560]
 stream = ExtResource("12_43ovl")

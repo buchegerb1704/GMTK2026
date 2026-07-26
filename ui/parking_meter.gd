@@ -2,10 +2,6 @@ extends Control
 
 const SECS_PER_COIN: int = 10
 
-@export var meter_audio_player: AudioStreamPlayer
-@export var music_player: AudioStreamPlayer
-@export var meter_sounds: Array[AudioStreamWAV]
-
 @export var meter_screen: Label
 @export var coins_label: Label
 
@@ -14,6 +10,7 @@ const SECS_PER_COIN: int = 10
 
 @export var add_time_button: TextureButton
 @export var go_button: TextureButton
+@export var add_time_area: ClickableArea2D
 
 var current_inserted_coins: int = 0
 var current_meter_time: int = 0
@@ -21,12 +18,10 @@ var current_meter_time: int = 0
 func _ready() -> void:
 	var coins_left: int = Errands.coins - current_inserted_coins
 	coins_label.text = "%d" % coins_left
+	SFX.play_sound(preload("res://assets/sounds/footstep1.wav"))
 
 func _on_start_button_pressed() -> void:
-	if (!music_player.playing):
-		music_player.play()
-
-func _on_music_player_finished() -> void:
+	SFX.play_sound(preload("res://assets/sounds/ui/confirm1.wav"))
 	Errands.coins -= current_inserted_coins
 	Errands.meter_time = current_meter_time
 	Errands.start()
@@ -41,8 +36,7 @@ func _on_minus_button_pressed() -> void:
 
 func add_coin() -> void:
 	if hand_deposit_anim.is_playing(): return
-	meter_audio_player.stream = meter_sounds[0]
-	meter_audio_player.play()
+	SFX.play_sound(preload("res://assets/sounds/Coinslot.wav"))
 	hand_deposit_anim.play("deposit")
 	parking_meter_anim.play("deposit")
 	current_inserted_coins += 1
@@ -67,6 +61,7 @@ func _on_parking_meter_anim_animation_finished() -> void:
 	if (parking_meter_anim.animation == "runup"):
 		hand_deposit_anim.visible = true
 		add_time_button.visible = true
+		add_time_area.visible = true
 		go_button.visible = true
 		coins_label.visible = true
 		meter_screen.visible = true

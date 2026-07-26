@@ -110,6 +110,7 @@ func failure() -> void:
 	guy.play("dance1")
 	guy.visible = false
 	SFX.play_sound(lose_sound)
+	SFX.play_sound(Config.SFX_DEMEANING.pick_random())
 	demo_dance()
 
 func _input(event: InputEvent) -> void:

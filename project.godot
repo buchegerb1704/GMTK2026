@@ -10,13 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Paying for Parking"
+config/name="The Price of Parking"
 config/version="0.1"
 run/main_scene="uid://c7omfug6o77vj"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0.7162962, 0.7162962, 0.7162962, 1)
 boot_splash/stretch_mode=3
-boot_splash/image="uid://c556d04yp3mkv"
+boot_splash/image="uid://dd6kwws8rwy6g"
 config/icon="uid://c556d04yp3mkv"
 
 [audio]
@@ -45,6 +45,7 @@ gdscript/warnings/missing_await=1
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
