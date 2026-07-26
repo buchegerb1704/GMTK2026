@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://rs8omah20ixi"]
 
 [ext_resource type="Script" uid="uid://dbunyimx2ea2i" path="res://ui/parking_meter.gd" id="1_y4a7b"]
+[ext_resource type="AudioStream" uid="uid://xep6ig4lwt4a" path="res://assets/sounds/Coinslot.wav" id="2_ef6s3"]
 [ext_resource type="PackedScene" uid="uid://cto5aeij4gffy" path="res://anim/parking_meter/parking_meter_anim.tscn" id="2_ft7yh"]
 [ext_resource type="PackedScene" uid="uid://cmk0hfh5pybpe" path="res://anim/parking_meter/hand_deposit_anim.tscn" id="3_7lx55"]
 [ext_resource type="Texture2D" uid="uid://dnevggx63kmj6" path="res://assets/sprites/GUI/parkingmeter/sign_addtime.png" id="4_jiovp"]
@@ -9,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cl016j8oi4l8e" path="res://assets/sprites/GUI/parkingmeter/sign_go.png" id="6_jiovp"]
 [ext_resource type="Texture2D" uid="uid://cmkwvuh3t7usu" path="res://assets/sprites/GUI/parkingmeter/sign_go_hover.png" id="8_1rck0"]
 [ext_resource type="FontFile" uid="uid://cqjtwqtn3ltto" path="res://assets/fonts/Silkscreen-Bold.ttf" id="9_70vjj"]
+[ext_resource type="AudioStream" uid="uid://df0ieo7y4syo4" path="res://assets/sounds/footstep1.wav" id="11_0bhvu"]
+[ext_resource type="AudioStream" uid="uid://cgxtbn12y23if" path="res://assets/sounds/ui/confirm1.wav" id="12_0bhvu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_70vjj"]
 font_size = 80
@@ -21,7 +24,7 @@ shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.2509804)
 shadow_offset = Vector2(-1, 1)
 
-[node name="ParkingMeter" type="Control" unique_id=1470506198 node_paths=PackedStringArray("meter_screen", "coins_label", "parking_meter_anim", "hand_deposit_anim", "add_time_button", "go_button")]
+[node name="ParkingMeter" type="Control" unique_id=1470506198 node_paths=PackedStringArray("meter_audio_player", "music_player", "meter_screen", "coins_label", "parking_meter_anim", "hand_deposit_anim", "add_time_button", "go_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +32,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y4a7b")
+meter_audio_player = NodePath("AudioStreamPlayer")
+music_player = NodePath("MusicPlayer")
+meter_sounds = Array[AudioStreamWAV]([ExtResource("2_ef6s3")])
 meter_screen = NodePath("MeterScreen")
 coins_label = NodePath("CoinsLabel")
 parking_meter_anim = NodePath("ParkingMeterAnim")
@@ -100,6 +106,15 @@ label_settings = SubResource("LabelSettings_akgpf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1539604267]
+stream = ExtResource("11_0bhvu")
+autoplay = true
+bus = &"SFX"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=868429236]
+stream = ExtResource("12_0bhvu")
+
 [connection signal="animation_finished" from="ParkingMeterAnim" to="." method="_on_parking_meter_anim_animation_finished"]
 [connection signal="pressed" from="AddTimeButton" to="." method="_on_plus_button_pressed"]
 [connection signal="pressed" from="GoButton" to="." method="_on_start_button_pressed"]
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]

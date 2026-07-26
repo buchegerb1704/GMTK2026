@@ -1,5 +1,167 @@
 [gd_scene format=3 uid="uid://em4ehan5xlqu"]
 
+[ext_resource type="Script" uid="uid://cy8serf8l86sm" path="res://ui/win_screen.gd" id="1_1qcl6"]
+[ext_resource type="PackedScene" uid="uid://6vob8aqgwlwg" path="res://anim/win_anim.tscn" id="1_7dp3f"]
+[ext_resource type="Texture2D" uid="uid://c45gwkh0tjo7c" path="res://assets/sprites/Transition/Transition_BackgroundSky_Other.png" id="3_0n5ju"]
+[ext_resource type="AudioStream" uid="uid://c67tbfd8nqniu" path="res://assets/sounds/carcrash.wav" id="3_usekm"]
+[ext_resource type="Texture2D" uid="uid://dtw3aoioby6im" path="res://assets/sprites/Transition/Transition_Background_Sun.png" id="4_usekm"]
+[ext_resource type="AudioStream" uid="uid://ruthsw3h0u44" path="res://assets/sounds/footstep3.wav" id="4_uvos5"]
+[ext_resource type="AudioStream" uid="uid://csp544g42h44s" path="res://assets/sounds/Rustle1.wav" id="5_lhkgm"]
+[ext_resource type="Texture2D" uid="uid://bqqsmjwria67a" path="res://assets/sprites/Transition/Transition_Building_Background.png" id="5_uvos5"]
+[ext_resource type="AudioStream" uid="uid://ctt17d8p1ci31" path="res://assets/sounds/bagrustle2.wav" id="6_jitmb"]
+[ext_resource type="Texture2D" uid="uid://b3c48nyxbrb3t" path="res://assets/sprites/Transition/Transition_Building_Middleground.png" id="6_lhkgm"]
+[ext_resource type="AudioStream" uid="uid://dmj0fpvktlwxc" path="res://assets/sounds/Thump1.wav" id="7_3gj4n"]
+[ext_resource type="AudioStream" uid="uid://bly2cirbor1aw" path="res://assets/sounds/Crack.wav" id="7_fvcv5"]
+[ext_resource type="Texture2D" uid="uid://bqx34y3oegkds" path="res://assets/sprites/Transition/Transition_Building_Middleground_Blured.png" id="7_jitmb"]
+[ext_resource type="Texture2D" uid="uid://wrqf03mk5aa7" path="res://assets/sprites/Transition/Transition_Building_Foreground.png" id="8_fvcv5"]
+[ext_resource type="Texture2D" uid="uid://dnh1lik5wo3k0" path="res://assets/sprites/Transition/Transition_Building_Foreground_Blured.png" id="9_3gj4n"]
+[ext_resource type="Texture2D" uid="uid://cjxk8sldna1tw" path="res://assets/sprites/Transition/Transition_Road_2.png" id="10_2k76d"]
+[ext_resource type="PackedScene" uid="uid://cel63mf4vsf4k" path="res://anim/car_anim.tscn" id="11_yrdaa"]
+[ext_resource type="AudioStream" uid="uid://bhypeqddrxu7g" path="res://assets/sounds/carnoise.wav" id="12_43ovl"]
+[ext_resource type="AudioStream" uid="uid://dh0n5b88fc3oc" path="res://assets/music/gameplayC.wav" id="19_3gj4n"]
+
+[sub_resource type="Animation" id="Animation_350o7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CarAnim:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CarAnim:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [199.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TransitionRect:color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_x0smv"]
+resource_name = "car_crossing"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CarAnim:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"default", &"launch", &"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionRect:color:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CarAnim:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-228.0, 199.0]
+}
+
+[sub_resource type="Animation" id="Animation_ybfsm"]
+resource_name = "car_move_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CarAnim:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [199.0, 1504.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CarAnim:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TransitionRect:color:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_0n5ju"]
+resource_name = "fade_in"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1njvl"]
+_data = {
+&"RESET": SubResource("Animation_350o7"),
+&"car_crossing": SubResource("Animation_x0smv"),
+&"car_move_animation": SubResource("Animation_ybfsm"),
+&"fade_in": SubResource("Animation_0n5ju")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_akgpf"]
 font_size = 72
 
@@ -13,15 +175,105 @@ func _on_pressed() -> void:
 	Scenes.goto_by_name(\"res://ui/main_menu.tscn\")
 "
 
-[node name="WinScreen" type="Control" unique_id=427337819]
+[node name="WinScreen" type="Control" unique_id=427337819 node_paths=PackedStringArray("win_anim", "anim_player", "music_audio", "sfx_audio")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1qcl6")
+win_anim = NodePath("WinAnim")
+anim_player = NodePath("AnimationPlayer")
+music_audio = NodePath("MusicPlayer")
+sfx_audio = NodePath("SfxPlayer")
+sound_list = Array[AudioStreamWAV]([ExtResource("12_43ovl"), ExtResource("3_usekm"), ExtResource("4_uvos5"), ExtResource("5_lhkgm"), ExtResource("6_jitmb"), ExtResource("7_3gj4n"), ExtResource("7_fvcv5")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1193589351]
+libraries/ = SubResource("AnimationLibrary_1njvl")
+autoplay = &"RESET"
+playback_auto_capture = false
+next/RESET = &"car_crossing"
+next/car_crossing = &"car_move_animation"
+
+[node name="Parallax" type="Node2D" parent="." unique_id=328058607]
+
+[node name="Background" type="Parallax2D" parent="Parallax" unique_id=1512995029]
+repeat_size = Vector2(2560, 0)
+autoscroll = Vector2(-80, 0)
+
+[node name="BackgroundSprite" type="Sprite2D" parent="Parallax/Background" unique_id=395686461]
+position = Vector2(1280, 360)
+texture = ExtResource("3_0n5ju")
+
+[node name="Sun" type="Parallax2D" parent="Parallax" unique_id=148456178]
+repeat_size = Vector2(2560, 0)
+autoscroll = Vector2(-120, 0)
+
+[node name="SunSprite" type="Sprite2D" parent="Parallax/Sun" unique_id=92830743]
+position = Vector2(1280, 360)
+texture = ExtResource("4_usekm")
+
+[node name="BuildingBackground" type="Parallax2D" parent="Parallax" unique_id=1224226183]
+repeat_size = Vector2(2560, 0)
+autoscroll = Vector2(-520, 0)
+
+[node name="BuildingBackgroundSprite" type="Sprite2D" parent="Parallax/BuildingBackground" unique_id=1551516322]
+position = Vector2(1280, 360)
+texture = ExtResource("5_uvos5")
+
+[node name="BuildingMiddleground" type="Parallax2D" parent="Parallax" unique_id=989808595]
+repeat_size = Vector2(2560, 0)
+autoscroll = Vector2(-560, 0)
+
+[node name="BuildingMiddlegroundSprite" type="Sprite2D" parent="Parallax/BuildingMiddleground" unique_id=203573249]
+position = Vector2(1280, 360)
+texture = ExtResource("6_lhkgm")
+
+[node name="BuildingMiddlegroundBlurred" type="Parallax2D" parent="Parallax" unique_id=253990325]
+repeat_size = Vector2(2560, 0)
+autoscroll = Vector2(-560, 0)
+
+[node name="BuildingMiddlegroundBlurredSprite" type="Sprite2D" parent="Parallax/BuildingMiddlegroundBlurred" unique_id=537559169]
+position = Vector2(1280, 360)
+texture = ExtResource("7_jitmb")
+
+[node name="BuildingForeground" type="Parallax2D" parent="Parallax" unique_id=1444283639]
+repeat_size = Vector2(2560, 0)
+autoscroll = Vector2(-640, 0)
+
+[node name="BuildingForegroundSprite" type="Sprite2D" parent="Parallax/BuildingForeground" unique_id=1855254144]
+position = Vector2(1280, 360)
+texture = ExtResource("8_fvcv5")
+
+[node name="BuildingForegroundBlurred" type="Parallax2D" parent="Parallax" unique_id=703670810]
+repeat_size = Vector2(2560, 0)
+autoscroll = Vector2(-640, 0)
+
+[node name="BuildingForegroundBlurredSprite" type="Sprite2D" parent="Parallax/BuildingForegroundBlurred" unique_id=1352921769]
+position = Vector2(1280, 360)
+texture = ExtResource("9_3gj4n")
+
+[node name="Road" type="Parallax2D" parent="Parallax" unique_id=1759356054]
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(2560, 0)
+autoscroll = Vector2(-1600, 0)
+
+[node name="RoadSprite" type="Sprite2D" parent="Parallax/Road" unique_id=257223140]
+position = Vector2(640.5, 360)
+texture = ExtResource("10_2k76d")
+
+[node name="CarAnim" parent="." unique_id=236629270 instance=ExtResource("11_yrdaa")]
+texture_filter = 1
+position = Vector2(199, 627)
+scale = Vector2(3, 3)
+animation = &"default"
+autoplay = "default"
+frame = 0
+frame_progress = 0.0
 
 [node name="Label" type="Label" parent="." unique_id=2031238725]
+visible = false
 layout_mode = 0
 offset_left = 478.0
 offset_top = 220.0
@@ -31,6 +283,7 @@ text = "you win!"
 label_settings = SubResource("LabelSettings_akgpf")
 
 [node name="Label2" type="Label" parent="." unique_id=1112232801]
+visible = false
 layout_mode = 0
 offset_left = 580.0
 offset_top = 332.0
@@ -40,6 +293,7 @@ text = "yay!"
 label_settings = SubResource("LabelSettings_dfa8t")
 
 [node name="Button" type="Button" parent="." unique_id=527040951]
+visible = false
 layout_mode = 0
 offset_left = 512.0
 offset_top = 416.0
@@ -48,4 +302,31 @@ offset_bottom = 486.0
 text = "main menu"
 script = SubResource("GDScript_7dp3f")
 
+[node name="WinAnim" parent="." unique_id=1581861212 instance=ExtResource("1_7dp3f")]
+position = Vector2(640, 360)
+frame = 7
+frame_progress = 1.0
+
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=1027461467]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=154413560]
+stream = ExtResource("12_43ovl")
+autoplay = true
+bus = &"SFX"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=728464081]
+stream = ExtResource("19_3gj4n")
+autoplay = true
+bus = &"Music"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="animation_finished" from="WinAnim" to="." method="_on_win_anim_animation_finished"]
+[connection signal="finished" from="SfxPlayer" to="." method="_on_sfx_player_finished"]

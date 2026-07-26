@@ -2,6 +2,10 @@ extends Control
 
 const SECS_PER_COIN: int = 15
 
+@export var meter_audio_player: AudioStreamPlayer
+@export var music_player: AudioStreamPlayer
+@export var meter_sounds: Array[AudioStreamWAV]
+
 @export var meter_screen: Label
 @export var coins_label: Label
 
@@ -19,12 +23,18 @@ func _ready() -> void:
 	coins_label.text = "%d" % coins_left
 
 func _on_start_button_pressed() -> void:
+	if (!music_player.playing):
+		music_player.play()
+
+func _on_music_player_finished() -> void:
 	Errands.coins -= current_inserted_coins
 	Errands.meter_time = current_meter_time
 	Errands.start()
 
 func _on_plus_button_pressed() -> void:
 	if current_inserted_coins <= Errands.coins:
+		meter_audio_player.stream = meter_sounds[0]
+		meter_audio_player.play()
 		add_coin()
 
 func _on_minus_button_pressed() -> void:
