@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://f4017mqgcr54" path="res://errands/balloons.gd" id="1_hlgcd"]
 [ext_resource type="Texture2D" uid="uid://d1jrwa40a4xmi" path="res://resources/sprites/balloons/balloon1.tres" id="2_15yu5"]
+[ext_resource type="AudioStream" uid="uid://cs0434xf14p47" path="res://assets/sounds/pop1.wav" id="2_b82yd"]
 [ext_resource type="Texture2D" uid="uid://d0qg5r1lablqy" path="res://assets/sprites/Game_Balloons/BKG_Balloons_Room01.png" id="2_werku"]
+[ext_resource type="AudioStream" uid="uid://dfyknn4ajnmbe" path="res://assets/sounds/pop2.wav" id="3_iesw0"]
 [ext_resource type="Texture2D" uid="uid://b5vcyfnqaqpl8" path="res://resources/sprites/balloons/balloon2.tres" id="3_werku"]
+[ext_resource type="AudioStream" uid="uid://mu518kw23ara" path="res://assets/sounds/pop3.wav" id="4_2uxha"]
 [ext_resource type="Texture2D" uid="uid://cblb6mq56rjie" path="res://resources/sprites/balloons/balloon3.tres" id="4_5r3la"]
 [ext_resource type="Texture2D" uid="uid://cvcrxd6qg1n1j" path="res://resources/sprites/balloons/balloon4.tres" id="5_wffru"]
 [ext_resource type="Texture2D" uid="uid://maq3cbc1tafn" path="res://resources/sprites/balloons/balloon5.tres" id="6_i2dip"]
@@ -65,6 +68,7 @@ mouse_filter = 2
 script = ExtResource("1_hlgcd")
 balloon_parent = NodePath("Node2D")
 hand = NodePath("Hand")
+pop_sounds = Array[AudioStream]([ExtResource("2_b82yd"), ExtResource("3_iesw0"), ExtResource("4_2uxha")])
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1849762294]

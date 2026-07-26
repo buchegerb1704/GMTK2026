@@ -25,10 +25,11 @@ buses/default_bus_layout="uid://ct33mw21k8ao4"
 
 [autoload]
 
+Config="*uid://bgsixefgrxrjs"
+Music="*uid://b8djy15l5ggh5"
+SFX="*uid://cpcpnrgnkh483"
 Scenes="*uid://c4igynb6rm8hh"
 Errands="*uid://bipq2xl1x6tpq"
-Music="*uid://b8djy15l5ggh5"
-Config="*uid://bgsixefgrxrjs"
 
 [debug]
 

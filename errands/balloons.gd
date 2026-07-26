@@ -7,6 +7,8 @@ extends Errand
 @export var balloon_parent: Node
 @export var hand: AnimatedSprite2D
 
+@export var pop_sounds: Array[AudioStream]
+
 @export_group("Placement")
 ## Minimum gap between a sprite's edge and the edge of the screen.
 @export var screen_margin: float = 24.0
@@ -27,7 +29,6 @@ extends Errand
 @export var sway_duration_min: float = 2.5
 @export var sway_duration_max: float = 4.5
 
-
 func _ready() -> void:
 	scatter()
 
@@ -43,6 +44,7 @@ func scatter() -> void:
 
 func pop_balloon(balloon: Sprite2D) -> void:
 	var current_ballons := balloon_parent.get_child_count()
+	SFX.play_sound(pop_sounds.pick_random())
 	balloon.queue_free()
 	current_ballons -= 1
 	if current_ballons == 0:
