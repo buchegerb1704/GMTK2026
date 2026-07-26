@@ -4,6 +4,9 @@ extends Errand
 @export var fly_swatter_area: Area2D
 @export var fly_scene: PackedScene
 
+@export var fly_swatter_audio: AudioStreamPlayer
+@export var thwap_sounds: Array[AudioStreamWAV]
+
 var _fly_count: int
 
 func _ready() -> void:
@@ -11,10 +14,13 @@ func _ready() -> void:
 	for n in _fly_count:
 		var fly_node: Node2D = fly_scene.instantiate()
 		self.add_child(fly_node)
+		self.move_child(fly_node, 1)
 
 func _input(event: InputEvent) -> void:
 	if fly_swatter_anim.is_playing(): return
 	if event is InputEventMouseButton:
+		fly_swatter_audio.stream = thwap_sounds.pick_random()
+		fly_swatter_audio.play()
 		fly_swatter_anim.play("swat_down")
 
 func _on_fly_swatter_anim_animation_finished() -> void:

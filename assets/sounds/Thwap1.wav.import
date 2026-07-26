@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://csabp462vy1vs"
-path="res://.godot/imported/Thwap.wav-c50f3ed231c98e0a598ee1aa3da1078b.sample"
+path="res://.godot/imported/Thwap1.wav-d447b7300a6b1bac8ee5f0793ada3e36.sample"
 
 [deps]
 
-source_file="res://assets/sounds/Thwap.wav"
-dest_files=["res://.godot/imported/Thwap.wav-c50f3ed231c98e0a598ee1aa3da1078b.sample"]
+source_file="res://assets/sounds/Thwap1.wav"
+dest_files=["res://.godot/imported/Thwap1.wav-d447b7300a6b1bac8ee5f0793ada3e36.sample"]
 
 [params]
 

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dnh1lik5wo3k0" path="res://assets/sprites/Transition/Transition_Building_Foreground_Blured.png" id="9_koxrv"]
 [ext_resource type="Texture2D" uid="uid://cjxk8sldna1tw" path="res://assets/sprites/Transition/Transition_Road_2.png" id="10_wnu3t"]
 [ext_resource type="PackedScene" uid="uid://cel63mf4vsf4k" path="res://anim/car_anim.tscn" id="11_ed50m"]
+[ext_resource type="AudioStream" uid="uid://bhypeqddrxu7g" path="res://assets/sounds/carnoise.wav" id="11_wi7rs"]
 
 [sub_resource type="Animation" id="Animation_350o7"]
 length = 0.001
@@ -237,5 +238,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1628870650]
+stream = ExtResource("11_wi7rs")
+autoplay = true
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
