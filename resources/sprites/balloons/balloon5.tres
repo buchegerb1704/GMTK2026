@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://maq3cbc1tafn"]
+
+[ext_resource type="Texture2D" uid="uid://dbr2x70gd8c8w" path="res://assets/sprites/balloons with strings.png" id="1_ar7dl"]
+
+[resource]
+atlas = ExtResource("1_ar7dl")
+region = Rect2(3095.2031, 274.13345, 688.5322, 1853.2057)

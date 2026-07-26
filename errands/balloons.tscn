@@ -1,20 +1,108 @@
 [gd_scene format=3 uid="uid://bveo1qxpqbsbo"]
 
 [ext_resource type="Script" uid="uid://f4017mqgcr54" path="res://errands/balloons.gd" id="1_hlgcd"]
+[ext_resource type="Texture2D" uid="uid://d1jrwa40a4xmi" path="res://resources/sprites/balloons/balloon1.tres" id="2_15yu5"]
+[ext_resource type="Texture2D" uid="uid://d0qg5r1lablqy" path="res://assets/sprites/Game_Balloons/BKG_Balloons_Room01.png" id="2_werku"]
+[ext_resource type="Texture2D" uid="uid://b5vcyfnqaqpl8" path="res://resources/sprites/balloons/balloon2.tres" id="3_werku"]
+[ext_resource type="Texture2D" uid="uid://cblb6mq56rjie" path="res://resources/sprites/balloons/balloon3.tres" id="4_5r3la"]
+[ext_resource type="Texture2D" uid="uid://cvcrxd6qg1n1j" path="res://resources/sprites/balloons/balloon4.tres" id="5_wffru"]
+[ext_resource type="Texture2D" uid="uid://maq3cbc1tafn" path="res://resources/sprites/balloons/balloon5.tres" id="6_i2dip"]
+[ext_resource type="Texture2D" uid="uid://cqs5v2gbx6yv4" path="res://resources/sprites/balloons/balloon6.tres" id="7_ppvjv"]
 
-[node name="Balloons" type="Control" unique_id=688174250]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e71bs"]
+radius = 267.15
+height = 625.22
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ogp2i"]
+radius = 321.03
+
+[node name="Balloons" type="Control" unique_id=688174250 node_paths=PackedStringArray("balloon_parent")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_hlgcd")
+balloon_parent = NodePath("Node2D")
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
-[node name="Button" type="Button" parent="." unique_id=1097964147]
-layout_mode = 0
-offset_left = 505.0
-offset_top = 373.0
-offset_right = 821.0
-offset_bottom = 457.0
-theme_override_font_sizes/font_size = 32
-text = "click to pass"
+[node name="Background" type="Sprite2D" parent="." unique_id=1849762294]
+position = Vector2(640, 360)
+texture = ExtResource("2_werku")
 
-[connection signal="pressed" from="Button" to="." method="finish_errand"]
+[node name="Node2D" type="Node2D" parent="." unique_id=390788706]
+
+[node name="Balloon1" type="Sprite2D" parent="Node2D" unique_id=697505225]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_15yu5")
+offset = Vector2(0, 600)
+
+[node name="Area2D" type="Area2D" parent="Node2D/Balloon1" unique_id=1085115589]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Balloon1/Area2D" unique_id=1700338444]
+position = Vector2(4.9993896, 29.999924)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_e71bs")
+
+[node name="Balloon2" type="Sprite2D" parent="Node2D" unique_id=746649580]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_werku")
+offset = Vector2(0, 600)
+
+[node name="Area2D2" type="Area2D" parent="Node2D/Balloon2" unique_id=30537958]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Balloon2/Area2D2" unique_id=62352462]
+position = Vector2(-10, 4.9999237)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_ogp2i")
+
+[node name="Balloon3" type="Sprite2D" parent="Node2D" unique_id=847187766]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_5r3la")
+offset = Vector2(0, 600)
+
+[node name="Area2D2" type="Area2D" parent="Node2D/Balloon3" unique_id=837165877]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Balloon3/Area2D2" unique_id=885790419]
+position = Vector2(0, 39.999924)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_ogp2i")
+
+[node name="Balloon4" type="Sprite2D" parent="Node2D" unique_id=1231438802]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_wffru")
+offset = Vector2(0, 600)
+
+[node name="Area2D2" type="Area2D" parent="Node2D/Balloon4" unique_id=1612993358]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Balloon4/Area2D2" unique_id=943840578]
+position = Vector2(-10, 29.999924)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_ogp2i")
+
+[node name="Balloon5" type="Sprite2D" parent="Node2D" unique_id=170937406]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_i2dip")
+offset = Vector2(0, 600)
+
+[node name="Area2D2" type="Area2D" parent="Node2D/Balloon5" unique_id=1578536699]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Balloon5/Area2D2" unique_id=1295784844]
+position = Vector2(-10, 4.9999237)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_ogp2i")
+
+[node name="Balloon6" type="Sprite2D" parent="Node2D" unique_id=1885683946]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_ppvjv")
+offset = Vector2(0, 600)
+
+[node name="Area2D2" type="Area2D" parent="Node2D/Balloon6" unique_id=489648694]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Balloon6/Area2D2" unique_id=1001033244]
+position = Vector2(-10, 4.9999237)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_ogp2i")
+
+[connection signal="input_event" from="Node2D/Balloon1/Area2D" to="." method="_on_area_2d_input_event" flags=18]
