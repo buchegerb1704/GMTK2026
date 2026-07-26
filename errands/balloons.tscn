@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://maq3cbc1tafn" path="res://resources/sprites/balloons/balloon5.tres" id="6_i2dip"]
 [ext_resource type="Texture2D" uid="uid://cqs5v2gbx6yv4" path="res://resources/sprites/balloons/balloon6.tres" id="7_ppvjv"]
 [ext_resource type="Texture2D" uid="uid://ds8q2cm7wf6ix" path="res://assets/sprites/Game_Balloons/PokingHand_464x376.png" id="9_5r3la"]
-[ext_resource type="Script" uid="uid://cho8j57tci3su" path="res://scripts/sprite_mouse.gd" id="10_wffru"]
+[ext_resource type="Script" uid="uid://ip5rbqj33uqr" path="res://scripts/anim_sprite_mouse.gd" id="13_b82yd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e71bs"]
 radius = 267.15
@@ -155,4 +155,4 @@ animation = &"poke"
 frame = 3
 frame_progress = 1.0
 offset = Vector2(-60, 200)
-script = ExtResource("10_wffru")
+script = ExtResource("13_b82yd")

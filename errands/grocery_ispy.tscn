@@ -1,20 +1,111 @@
 [gd_scene format=3 uid="uid://4r052velm0wy"]
 
 [ext_resource type="Script" uid="uid://dpugcxmhquy7w" path="res://errands/grocery_ispy.gd" id="1_t7tyg"]
+[ext_resource type="Texture2D" uid="uid://c0irrq8niy2vd" path="res://assets/sprites/groceries/grocery_apple.png" id="2_dd8i8"]
+[ext_resource type="Texture2D" uid="uid://ccf1ussep5lh1" path="res://assets/sprites/groceries/grocery_banana.png" id="3_lukow"]
+[ext_resource type="Texture2D" uid="uid://sfb3r6x3ldll" path="res://assets/sprites/groceries/grocery_bourbon.png" id="4_dfmbk"]
+[ext_resource type="Texture2D" uid="uid://bhrtpysl0neno" path="res://assets/sprites/groceries/grocery_chickie_noodle.png" id="5_go5i8"]
+[ext_resource type="Texture2D" uid="uid://dy7ish8nek3rx" path="res://assets/sprites/groceries/grocery_cinnnamon_toast_guys.png" id="6_xd8c0"]
+[ext_resource type="Texture2D" uid="uid://bap8s4ynmwvwx" path="res://assets/sprites/groceries/grocery_dragon_fruit.png" id="7_d2vvp"]
+[ext_resource type="Texture2D" uid="uid://rl5r2vdgkhm8" path="res://assets/sprites/groceries/grocery_marlboo.png" id="8_d6c2m"]
+[ext_resource type="Texture2D" uid="uid://cjm1up3ua1m7n" path="res://assets/sprites/groceries/grocery_pancakes.png" id="9_0w2m5"]
+[ext_resource type="Texture2D" uid="uid://bbvdcmjwsm6xx" path="res://assets/sprites/groceries/grocery_pasta.png" id="10_qmsvg"]
+[ext_resource type="Texture2D" uid="uid://chhkvrrrawpjh" path="res://assets/sprites/groceries/grocery_sardines.png" id="11_i6wh6"]
+[ext_resource type="Texture2D" uid="uid://bloxa42xsq6p6" path="res://assets/sprites/groceries/grocery_strawberries.png" id="12_sh6dj"]
+[ext_resource type="Texture2D" uid="uid://carqxtcepqjvo" path="res://assets/sprites/groceries/grocery_taco.png" id="13_qhbl0"]
+[ext_resource type="Texture2D" uid="uid://b35fgtjb17j5g" path="res://assets/sprites/groceries/grocery_vanilla_bean.png" id="14_qursl"]
+[ext_resource type="Texture2D" uid="uid://chg5700183g3e" path="res://assets/sprites/Game_GrabGrocery/BKG_Store.png" id="15_lukow"]
+[ext_resource type="Texture2D" uid="uid://n0ykqg2swcms" path="res://assets/sprites/paper.png" id="16_dfmbk"]
+[ext_resource type="Texture2D" uid="uid://ctpef7qqlc2ne" path="res://assets/sprites/Hands/HandPointer.png" id="16_xd8c0"]
+[ext_resource type="Script" uid="uid://cho8j57tci3su" path="res://scripts/sprite_mouse.gd" id="17_d2vvp"]
 
-[node name="GroceryIspy" type="Control" unique_id=1292759755]
+[node name="GroceryIspy" type="Control" unique_id=1292759755 node_paths=PackedStringArray("grocery_control")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_t7tyg")
+GROCERY_DB = Dictionary[String, Texture2D]({
+"apple": ExtResource("2_dd8i8"),
+"banana": ExtResource("3_lukow"),
+"bourbon": ExtResource("4_dfmbk"),
+"chickie_noodle": ExtResource("5_go5i8"),
+"cinnnamon_toast_guys": ExtResource("6_xd8c0"),
+"dragon_fruit": ExtResource("7_d2vvp"),
+"marlboo": ExtResource("8_d6c2m"),
+"pancakes": ExtResource("9_0w2m5"),
+"pasta": ExtResource("10_qmsvg"),
+"sardines": ExtResource("11_i6wh6"),
+"strawberries": ExtResource("12_sh6dj"),
+"taco": ExtResource("13_qhbl0"),
+"vanilla_bean": ExtResource("14_qursl")
+})
+grocery_control = NodePath("GroceryControl")
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
-[node name="Button" type="Button" parent="." unique_id=344060295]
-layout_mode = 0
-offset_left = 505.0
-offset_top = 373.0
-offset_right = 821.0
-offset_bottom = 457.0
-theme_override_font_sizes/font_size = 32
-text = "click to pass"
+[node name="Background" type="Sprite2D" parent="." unique_id=2018784651]
+texture = ExtResource("15_lukow")
+centered = false
 
-[connection signal="pressed" from="Button" to="." method="finish_errand"]
+[node name="GroceryControl" type="Control" parent="." unique_id=1916125599]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_left = 20.0
+offset_top = 84.0
+offset_right = 880.0
+offset_bottom = 620.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GrabingHandAnim" type="Sprite2D" parent="." unique_id=330019255]
+modulate = Color(1, 1, 1, 0.8235294)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("16_xd8c0")
+offset = Vector2(-16, 173)
+script = ExtResource("17_d2vvp")
+
+[node name="ListHand" type="Sprite2D" parent="." unique_id=566527844]
+position = Vector2(1056, 496.99997)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("16_dfmbk")
+
+[node name="GroceryListHeader" type="Label" parent="ListHand" unique_id=1199057158]
+offset_left = -572.7273
+offset_top = -713.6362
+offset_right = 636.2727
+offset_bottom = -41.727173
+rotation = -0.13962634
+theme_override_colors/font_color = Color(0.02, 0.02, 0.02, 0.9647059)
+theme_override_font_sizes/font_size = 130
+text = "Just take em!"
+
+[node name="GroceryListItem1" type="Label" parent="ListHand" unique_id=1119816519]
+offset_left = -449.99988
+offset_top = -227.27254
+offset_right = 851.0001
+offset_bottom = 444.63654
+rotation = -0.13962634
+theme_override_colors/font_color = Color(0.02, 0.02, 0.02, 0.9647059)
+theme_override_font_sizes/font_size = 115
+text = "- Grocery List Item 1"
+
+[node name="GroceryListItem2" type="Label" parent="ListHand" unique_id=563544973]
+offset_left = -399.99988
+offset_top = 68.18204
+offset_right = 901.0001
+offset_bottom = 740.09106
+rotation = -0.13962634
+theme_override_colors/font_color = Color(0.02, 0.02, 0.02, 0.9647059)
+theme_override_font_sizes/font_size = 115
+text = "- Grocery List Item 2"
+
+[node name="GroceryListItem3" type="Label" parent="ListHand" unique_id=707633190]
+offset_left = -349.99988
+offset_top = 340.90933
+offset_right = 951.0001
+offset_bottom = 1012.81836
+rotation = -0.13962634
+theme_override_colors/font_color = Color(0.02, 0.02, 0.02, 0.9647059)
+theme_override_font_sizes/font_size = 115
+text = "- Grocery List Item 3"
