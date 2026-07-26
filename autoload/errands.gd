@@ -13,13 +13,13 @@ var meter_running: bool = false
 var coins: int
 
 func _init() -> void:
-	ERRAND_DB.assign(preload("res://config/errand_db.tres").data)
+	ERRAND_DB.assign(preload("res://config/errand_db_trim.tres").data)
 	reset_errands()
 
 func reset_errands() -> void:
 	coins = Config.START_COINS
 	
-	var number_of_errands := randi_range(Config.ERRANDS_MIN, Config.ERRANDS_MAX)
+	var number_of_errands := Config.NUM_ERRANDS # randi_range(Config.ERRANDS_MIN, Config.ERRANDS_MAX)
 	
 	selected_errands.clear()
 	

@@ -1,6 +1,6 @@
 extends Control
 
-const SECS_PER_COIN: int = 15
+const SECS_PER_COIN: int = 10
 
 @export var meter_audio_player: AudioStreamPlayer
 @export var music_player: AudioStreamPlayer
@@ -33,8 +33,6 @@ func _on_music_player_finished() -> void:
 
 func _on_plus_button_pressed() -> void:
 	if current_inserted_coins <= Errands.coins:
-		meter_audio_player.stream = meter_sounds[0]
-		meter_audio_player.play()
 		add_coin()
 
 func _on_minus_button_pressed() -> void:
@@ -43,6 +41,8 @@ func _on_minus_button_pressed() -> void:
 
 func add_coin() -> void:
 	if hand_deposit_anim.is_playing(): return
+	meter_audio_player.stream = meter_sounds[0]
+	meter_audio_player.play()
 	hand_deposit_anim.play("deposit")
 	parking_meter_anim.play("deposit")
 	current_inserted_coins += 1

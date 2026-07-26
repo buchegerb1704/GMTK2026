@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="ResourceDict" format=3 uid="uid://dwbcvy66qjmr6"]
+
+[ext_resource type="Script" uid="uid://dhidqsnep3drw" path="res://classes/user_resource.gd" id="1_5ng1g"]
+[ext_resource type="Script" uid="uid://x7awhwcgr2wr" path="res://classes/resources/user/errand_info.gd" id="2_32mmo"]
+[ext_resource type="Script" uid="uid://bfeyyxwcubioc" path="res://classes/resources/resource_dict.gd" id="3_bqkta"]
+
+[sub_resource type="Resource" id="Resource_f076m"]
+script = ExtResource("2_32mmo")
+title = "Ruin a bitrhday party"
+description = "Some kids are having fun. Don't let them."
+scene_file = "uid://bveo1qxpqbsbo"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_s2tq7"]
+script = ExtResource("2_32mmo")
+title = "Put on a dance show"
+description = "Give the people what they want!"
+scene_file = "uid://biyb0bqh0xwv8"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_0c62p"]
+script = ExtResource("2_32mmo")
+title = "Swat some flies"
+description = "They're gross."
+scene_file = "uid://m684heup8lfb"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_m6wdc"]
+script = ExtResource("2_32mmo")
+title = "Clean up graffiti"
+description = "Some hooligans tagged a wall. Do your civic duty!"
+scene_file = "uid://dyu38bcxqxjy4"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_ia6oi"]
+script = ExtResource("2_32mmo")
+title = "Go grocery shopping"
+description = "Hope you find everything on your shopping list!"
+scene_file = "uid://4r052velm0wy"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_15yu5"]
+script = ExtResource("2_32mmo")
+title = "Run your laundry"
+description = "So much to wash, so much to sort."
+scene_file = "uid://p5xjketgrqjm"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[sub_resource type="Resource" id="Resource_werku"]
+script = ExtResource("2_32mmo")
+title = "Make Nicos pay"
+description = "He borrowed some money from you. Get it back."
+scene_file = "uid://b0j5divivmk2r"
+metadata/_custom_type_script = "uid://x7awhwcgr2wr"
+
+[resource]
+script = ExtResource("3_bqkta")
+data = Dictionary[StringName, ExtResource("1_5ng1g")]({
+&"balloons": SubResource("Resource_f076m"),
+&"dance": SubResource("Resource_s2tq7"),
+&"flyswat": SubResource("Resource_0c62p"),
+&"graffiti": SubResource("Resource_m6wdc"),
+&"grocery_ispy": SubResource("Resource_ia6oi"),
+&"laundry": SubResource("Resource_15yu5"),
+&"nicos": SubResource("Resource_werku")
+})
+metadata/_custom_type_script = "uid://bfeyyxwcubioc"

@@ -44,12 +44,11 @@ go_button = NodePath("GoButton")
 
 [node name="ParkingMeterAnim" parent="." unique_id=1376439558 instance=ExtResource("2_ft7yh")]
 position = Vector2(640, 360)
-frame = 9
-frame_progress = 1.0
 
 [node name="HandDepositAnim" parent="." unique_id=1628991893 instance=ExtResource("3_7lx55")]
 visible = false
 position = Vector2(640, 360)
+frame_progress = 0.0
 
 [node name="AddTimeButton" type="TextureButton" parent="." unique_id=357721632]
 visible = false

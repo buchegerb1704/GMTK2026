@@ -1,7 +1,5 @@
 extends Node
 
-var player: AudioStreamPlayer
-
 enum Stem { INTRO, MENU_A, MENU_B, MENU_TRANS, IDLE_A, IDLE_B, IDLE_C, IDLE_TRANS, GAME_A, GAME_B, GAME_C, LULLABY, NONE }
 
 var _stems: Dictionary[Stem, AudioStreamWAV] = {
@@ -19,6 +17,7 @@ var _stems: Dictionary[Stem, AudioStreamWAV] = {
 	Stem.LULLABY: preload("res://assets/music/Lullabyforalegendbutlouder.wav")
 }
 
+var _player: AudioStreamPlayer
 var _current_stem: Stem
 var next_stem: Stem
 
@@ -26,19 +25,19 @@ func play_stem(stem: Stem) -> void:
 	if stem == Stem.NONE:
 		stop()
 	else:
-		player.stream = _stems[stem]
-		player.play()
+		_player.stream = _stems[stem]
+		_player.play()
 		_current_stem = stem
 		next_stem = _calculate_next()
 
 func play_stem_next(stem: Stem) -> void:
-	if player.playing:
+	if _player.playing:
 		next_stem = stem
 	else:
 		play_stem(stem)
 
 func stop() -> void:
-	player.stop()
+	_player.stop()
 	_current_stem = Stem.NONE
 	next_stem = Stem.NONE
 
@@ -67,12 +66,10 @@ func _calculate_next() -> Stem:
 	return Stem.NONE
 
 func _ready() -> void:
-	player = AudioStreamPlayer.new()
-	player.bus = &"Music"
-	player.finished.connect(_handle_finished)
-	self.add_child(player)
-	
-	play_stem(Stem.INTRO)
+	_player = AudioStreamPlayer.new()
+	_player.bus = &"Music"
+	_player.finished.connect(_handle_finished)
+	self.add_child(_player)
 
 func _handle_finished() -> void:
 	play_stem(next_stem)

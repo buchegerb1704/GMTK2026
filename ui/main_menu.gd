@@ -16,7 +16,7 @@ var _sfx_volume: float = 1.0
 var _music_volume: float = 1.0
 
 func _ready() -> void:
-	Music.play_stem_next(Music.Stem.MENU_A)
+	Music.play_stem_next(Music.Stem.INTRO)
 	options_menu.visible = false
 	_sfx_volume = AudioServer.get_bus_volume_linear(sfx)
 	_music_volume =AudioServer.get_bus_volume_linear(music)
@@ -28,8 +28,8 @@ func _on_quit_button_pressed() -> void:
 func _on_start_button_pressed() -> void:
 	Music.switch_gameplay()
 	Errands.reset_errands()
-	Scenes.next = load("res://ui/errand_picker.tscn")
-	Scenes.goto_by_name("res://cutscenes/driving.tscn")
+	Scenes.next = preload("res://ui/errand_picker.tscn")
+	Scenes.goto(preload("res://cutscenes/driving.tscn"))
 
 func _on_options_button_pressed() -> void:
 	options_menu.visible = true
