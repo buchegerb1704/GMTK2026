@@ -4,7 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://d4lcbpkr0kxhb" path="res://anim/game_fly_swat/fly_swatter_anim.tscn" id="2_k47kp"]
 [ext_resource type="Script" uid="uid://dui87wv5xaimf" path="res://classes/follow_mouse.gd" id="3_5i7m4"]
 [ext_resource type="Texture2D" uid="uid://cowj43e4hbvpq" path="res://assets/sprites/Game_Swatter/BKG_FlySwatter_Turkey.png" id="3_8pwix"]
+[ext_resource type="AudioStream" uid="uid://csabp462vy1vs" path="res://assets/sounds/Thwap1.wav" id="3_c4m5s"]
 [ext_resource type="PackedScene" uid="uid://c5rgmuxrdj4mc" path="res://errands/errand_objects/fly.tscn" id="3_ftmtb"]
+[ext_resource type="AudioStream" uid="uid://bgrrstfn7v28k" path="res://assets/sounds/Thwap2.wav" id="4_qt5tn"]
+[ext_resource type="AudioStream" uid="uid://b7kspj4dmntmk" path="res://assets/sounds/Thwap3.wav" id="5_vlprn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nuey1"]
 size = Vector2(126, 127.666664)
@@ -12,7 +15,7 @@ size = Vector2(126, 127.666664)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g443r"]
 size = Vector2(159.56458, 97.21225)
 
-[node name="Flyswat" type="Control" unique_id=1816390931 node_paths=PackedStringArray("fly_swatter_anim", "fly_swatter_area")]
+[node name="Flyswat" type="Control" unique_id=1816390931 node_paths=PackedStringArray("fly_swatter_anim", "fly_swatter_area", "fly_swatter_audio")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +26,8 @@ script = ExtResource("1_debba")
 fly_swatter_anim = NodePath("SwatterRect/FlySwatterAnim")
 fly_swatter_area = NodePath("SwatterRect/FlySwatterStaticBody")
 fly_scene = ExtResource("3_ftmtb")
+fly_swatter_audio = NodePath("AudioStreamPlayer")
+thwap_sounds = Array[AudioStreamWAV]([ExtResource("3_c4m5s"), ExtResource("4_qt5tn"), ExtResource("5_vlprn")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1444133624]
 modulate = Color(1, 1, 1, 0.7607843)
@@ -95,5 +100,8 @@ input_pickable = false
 position = Vector2(374, 326.99997)
 rotation = 0.12940967
 shape = SubResource("RectangleShape2D_g443r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1821280492]
+bus = &"SFX"
 
 [connection signal="animation_finished" from="SwatterRect/FlySwatterAnim" to="." method="_on_fly_swatter_anim_animation_finished"]

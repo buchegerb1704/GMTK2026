@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://c5rgmuxrdj4mc"]
 
 [ext_resource type="Script" uid="uid://dunb1b4qcd0lh" path="res://errands/fly_movement.gd" id="1_0od1q"]
+[ext_resource type="AudioStream" uid="uid://b7sdiqjgux1ei" path="res://assets/sounds/splat1.wav" id="2_c4smg"]
 [ext_resource type="PackedScene" uid="uid://d1hrwtafs2gv3" path="res://anim/game_fly_swat/fly_anim.tscn" id="2_n1i87"]
+[ext_resource type="AudioStream" uid="uid://jcpcoxfqgpg1" path="res://assets/sounds/splat2.wav" id="3_fxkbo"]
+[ext_resource type="AudioStream" uid="uid://2p7ot2c2kn1c" path="res://assets/sounds/splat3.wav" id="4_q8ftl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4f3dm"]
 size = Vector2(41, 31)
 
-[node name="Fly" type="StaticBody2D" unique_id=1913693035 node_paths=PackedStringArray("fly_anim")]
+[node name="Fly" type="StaticBody2D" unique_id=1913693035 node_paths=PackedStringArray("fly_anim", "fly_audio")]
 collision_mask = 4
 script = ExtResource("1_0od1q")
 fly_anim = NodePath("FlyAnim")
+fly_audio = NodePath("AudioStreamPlayer")
+splat_sounds = Array[AudioStreamWAV]([ExtResource("2_c4smg"), ExtResource("3_fxkbo"), ExtResource("4_q8ftl")])
 
 [node name="FlyAnim" parent="." unique_id=1236643682 instance=ExtResource("2_n1i87")]
 position = Vector2(-8.5, -4.5)
@@ -17,6 +22,9 @@ animation = &"default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=565212227]
 shape = SubResource("RectangleShape2D_4f3dm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1894024184]
+bus = &"SFX"
 
 [connection signal="animation_changed" from="FlyAnim" to="." method="_on_fly_anim_animation_changed"]
 [connection signal="animation_finished" from="FlyAnim" to="." method="_on_fly_anim_animation_finished"]

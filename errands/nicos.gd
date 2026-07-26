@@ -4,6 +4,7 @@ extends Errand
 @export var punch_audio: AudioStreamPlayer
 
 @export var punches: Array[AudioStreamWAV]
+@export var steps: Array[AudioStreamWAV]
 @export var nicos_dizzy: AudioStreamWAV
 @export var nicos_defeat: Array[AudioStreamWAV]
 @export var nicos_pain: Array[AudioStreamWAV]
@@ -15,6 +16,8 @@ extends Errand
 var _punches_required: int = -1
 
 func _ready() -> void:
+	punch_audio.stream = steps.pick_random()
+	punch_audio.play()
 	a_button_anim.visible = false
 	d_button_anim.visible = false
 	_punches_required = randi_range(5, 15)

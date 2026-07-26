@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cwe6xxfkw71ud"]
 
 [ext_resource type="Script" uid="uid://csumji2pbe8ec" path="res://cutscenes/drive_off.gd" id="1_b45to"]
+[ext_resource type="AudioStream" uid="uid://bhypeqddrxu7g" path="res://assets/sounds/carnoise.wav" id="2_7saw1"]
 [ext_resource type="PackedScene" uid="uid://6xa5tv7kwwhl" path="res://anim/car_drive_off_anim.tscn" id="2_b45to"]
+[ext_resource type="AudioStream" uid="uid://dq8dscvbadjgh" path="res://assets/sounds/footstep4.wav" id="4_ksw78"]
 
 [sub_resource type="Animation" id="Animation_qoe00"]
 length = 0.001
@@ -40,7 +42,7 @@ _data = {
 &"fade_out": SubResource("Animation_7saw1")
 }
 
-[node name="DriveOff" type="Control" unique_id=196953814]
+[node name="DriveOff" type="Control" unique_id=196953814 node_paths=PackedStringArray("car_anim", "sfx_player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,6 +50,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b45to")
+car_anim = NodePath("CarDriveOffAnim")
+sfx_player = NodePath("AudioStreamPlayer")
+sfx_sounds = Array[AudioStreamWAV]([ExtResource("2_7saw1")])
 
 [node name="CarDriveOffAnim" parent="." unique_id=1024234668 instance=ExtResource("2_b45to")]
 position = Vector2(640, 360)
@@ -68,4 +73,9 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=212156438]
+stream = ExtResource("4_ksw78")
+autoplay = true
+
+[connection signal="animation_finished" from="CarDriveOffAnim" to="." method="_on_car_drive_off_anim_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

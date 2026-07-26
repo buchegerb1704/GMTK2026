@@ -19,12 +19,16 @@ boot_splash/stretch_mode=3
 boot_splash/image="uid://c556d04yp3mkv"
 config/icon="uid://c556d04yp3mkv"
 
+[audio]
+
+buses/default_bus_layout="uid://ct33mw21k8ao4"
+
 [autoload]
 
-Config="*uid://bgsixefgrxrjs"
 Scenes="*uid://c4igynb6rm8hh"
 Errands="*uid://bipq2xl1x6tpq"
 Music="*uid://b8djy15l5ggh5"
+Config="*uid://bgsixefgrxrjs"
 
 [debug]
 
