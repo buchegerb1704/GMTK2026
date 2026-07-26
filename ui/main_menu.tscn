@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://c7omfug6o77vj"]
 
 [ext_resource type="Script" uid="uid://cpccv46pe820s" path="res://ui/main_menu.gd" id="1_t7e0r"]
+[ext_resource type="AudioStream" uid="uid://cgxtbn12y23if" path="res://assets/sounds/ui/confirm1.wav" id="2_7mcg4"]
 [ext_resource type="PackedScene" uid="uid://c0xsr37bpo72e" path="res://anim/main_menu_anim.tscn" id="2_lsdqh"]
+[ext_resource type="AudioStream" uid="uid://cqjdndgjv5ojb" path="res://assets/sounds/ui/confirm2.wav" id="3_10sdn"]
 [ext_resource type="AudioStream" uid="uid://hxsj75ahnqgm" path="res://assets/music/menuA.wav" id="3_mxs5a"]
 [ext_resource type="AudioStream" uid="uid://cevnqrbjq4ar6" path="res://assets/music/menuB.wav" id="4_0c1wp"]
 [ext_resource type="Theme" uid="uid://bdo0r1xwf3gkc" path="res://themes/menu_button_theme.tres" id="4_ei257"]
 [ext_resource type="Texture2D" uid="uid://cq6hi1tmu7woy" path="res://assets/sprites/GUI/MainMenu/menu_options_base.png" id="4_lsdqh"]
 [ext_resource type="Script" uid="uid://bmf3a2m3cmycj" path="res://classes/texture_button_automask.gd" id="4_p8ri8"]
+[ext_resource type="AudioStream" uid="uid://chs3ejnf0pqtu" path="res://assets/sounds/ui/MenuCrossout.wav" id="4_yaf6j"]
 [ext_resource type="Texture2D" uid="uid://dn8pb18r3uekr" path="res://assets/sprites/GUI/MainMenu/menu_options.png" id="5_jiymt"]
 [ext_resource type="AudioStream" uid="uid://dm8v6ugj824nw" path="res://assets/music/menutransition.wav" id="5_l4cq4"]
+[ext_resource type="AudioStream" uid="uid://5frpvneq3rxj" path="res://assets/sounds/ui/UIBack.wav" id="5_wj15g"]
+[ext_resource type="AudioStream" uid="uid://dbiiayxh4l7v7" path="res://assets/sounds/ui/UIHover.wav" id="6_e8e8i"]
 [ext_resource type="Texture2D" uid="uid://b1j5ffabs7868" path="res://assets/sprites/GUI/MainMenu/menu_quit_base.png" id="7_bgtsx"]
 [ext_resource type="Texture2D" uid="uid://dsj4b4yofmngx" path="res://assets/sprites/GUI/MainMenu/menu_quit.png" id="8_kaxbk"]
 [ext_resource type="Texture2D" uid="uid://d356luween16i" path="res://assets/sprites/GUI/MainMenu/menu_pole.png" id="9_racxt"]
@@ -30,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://bsnum72rou5bx" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_sound_quieter_hover.png" id="23_rqnt3"]
 [ext_resource type="AudioStream" uid="uid://0ybcg80p05ns" path="res://assets/music/intro.wav" id="26_dooca"]
 
-[node name="MainMenu" type="Control" unique_id=681916578 node_paths=PackedStringArray("options_menu", "sound_volume_label", "music_volume_label", "menu_music")]
+[node name="MainMenu" type="Control" unique_id=681916578 node_paths=PackedStringArray("options_menu", "sound_volume_label", "music_volume_label", "menu_sfx", "menu_music")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +46,9 @@ script = ExtResource("1_t7e0r")
 options_menu = NodePath("OptionsBackground")
 sound_volume_label = NodePath("OptionsBackground/OptionsSignSoundsIndicator/SoundVolumeLabel")
 music_volume_label = NodePath("OptionsBackground/OptionsSignMusicIndicator/MusicVolumeLabel")
-menu_music = NodePath("AudioStreamPlayer")
+menu_sfx = NodePath("SfxPlayer")
+menu_music = NodePath("MusicPlayer")
+sfx_list = Array[AudioStreamWAV]([ExtResource("2_7mcg4"), ExtResource("3_10sdn"), ExtResource("4_yaf6j"), ExtResource("5_wj15g"), ExtResource("6_e8e8i")])
 music_list = Array[AudioStreamWAV]([ExtResource("26_dooca"), ExtResource("3_mxs5a"), ExtResource("4_0c1wp"), ExtResource("5_l4cq4")])
 
 [node name="MainMenuAnim" parent="." unique_id=774052823 instance=ExtResource("2_lsdqh")]
@@ -118,6 +125,7 @@ script = ExtResource("4_p8ri8")
 metadata/_custom_type_script = "uid://bmf3a2m3cmycj"
 
 [node name="OptionsBackground" type="TextureRect" parent="." unique_id=1649563332]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -254,9 +262,12 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1719166330]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1719166330]
 stream = ExtResource("26_dooca")
 bus = &"Music"
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=505979351]
+bus = &"SFX"
 
 [connection signal="pressed" from="MainMenuAnim/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainMenuAnim/QuitButton" to="." method="_on_quit_button_pressed"]
@@ -266,4 +277,4 @@ bus = &"Music"
 [connection signal="pressed" from="OptionsBackground/OptionsSignSoundsIndicator/SoundsQuieterButton" to="." method="_on_sounds_quieter_button_pressed"]
 [connection signal="pressed" from="OptionsBackground/OptionsSignMusicIndicator/MusicLouderButton" to="." method="_on_music_louder_button_pressed"]
 [connection signal="pressed" from="OptionsBackground/OptionsSignMusicIndicator/MusicQuieterButton" to="." method="_on_music_quieter_button_pressed"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="MusicPlayer" to="." method="_on_audio_stream_player_finished"]

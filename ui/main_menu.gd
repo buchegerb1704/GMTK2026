@@ -5,7 +5,10 @@ extends Control
 @export var sound_volume_label: Label
 @export var music_volume_label: Label
 
+@export var menu_sfx: AudioStreamPlayer
 @export var menu_music: AudioStreamPlayer
+
+@export var sfx_list: Array[AudioStreamWAV]
 @export var music_list: Array[AudioStreamWAV]
 
 var sfx := AudioServer.get_bus_index("SFX")
@@ -27,35 +30,44 @@ func _on_quit_button_pressed() -> void:
 
 func _on_start_button_pressed() -> void:
 	if menu_music.stream != music_list[3]:
+		menu_sfx.stream = sfx_list[2]
+		menu_sfx.play()
 		menu_music.stream = music_list[3]
 		menu_music.play()
-	#Errands.reset_errands()
-	#Scenes.next = preload("res://ui/errand_picker.tscn")
-	#Scenes.goto(preload("res://cutscenes/driving.tscn"))
 
 func _on_options_button_pressed() -> void:
 	options_menu.visible = true
 
 func _on_options_back_button_pressed() -> void:
+	menu_sfx.stream = sfx_list[3]
+	menu_sfx.play()
 	options_menu.visible = false
 
 func _on_sounds_louder_button_pressed() -> void:
 	if (_sfx_volume + 0.1 <= 1):
+		menu_sfx.stream = sfx_list[0]
+		menu_sfx.play()
 		_sfx_volume = _sfx_volume + 0.1
 		_reset_label_text()
 
 func _on_sounds_quieter_button_pressed() -> void:
 	if (_sfx_volume - 0.1 >= 0):
+		menu_sfx.stream = sfx_list[1]
+		menu_sfx.play()
 		_sfx_volume = _sfx_volume - 0.1
 		_reset_label_text()
 
 func _on_music_louder_button_pressed() -> void:
 	if (_music_volume + 0.1 <= 1):
+		menu_sfx.stream = sfx_list[0]
+		menu_sfx.play()
 		_music_volume = _music_volume + 0.1
 		_reset_label_text()
 
 func _on_music_quieter_button_pressed() -> void:
 	if (_music_volume - 0.1 >= 0):
+		menu_sfx.stream = sfx_list[1]
+		menu_sfx.play()
 		_music_volume = _music_volume - 0.1
 		_reset_label_text()
 
