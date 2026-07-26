@@ -15,10 +15,21 @@
 [ext_resource type="Texture2D" uid="uid://bqx34y3oegkds" path="res://assets/sprites/Transition/Transition_Building_Middleground_Blured.png" id="7_jitmb"]
 [ext_resource type="Texture2D" uid="uid://wrqf03mk5aa7" path="res://assets/sprites/Transition/Transition_Building_Foreground.png" id="8_fvcv5"]
 [ext_resource type="Texture2D" uid="uid://dnh1lik5wo3k0" path="res://assets/sprites/Transition/Transition_Building_Foreground_Blured.png" id="9_3gj4n"]
+[ext_resource type="AudioStream" uid="uid://cgj3doy3cg3xf" path="res://assets/music/Lullabyforalegendbutlouder.wav" id="9_8ndq6"]
 [ext_resource type="Texture2D" uid="uid://cjxk8sldna1tw" path="res://assets/sprites/Transition/Transition_Road_2.png" id="10_2k76d"]
 [ext_resource type="PackedScene" uid="uid://cel63mf4vsf4k" path="res://anim/car_anim.tscn" id="11_yrdaa"]
 [ext_resource type="AudioStream" uid="uid://bhypeqddrxu7g" path="res://assets/sounds/carnoise.wav" id="12_43ovl"]
 [ext_resource type="AudioStream" uid="uid://dh0n5b88fc3oc" path="res://assets/music/gameplayC.wav" id="19_3gj4n"]
+[ext_resource type="Texture2D" uid="uid://oijhe44wxeb7" path="res://assets/sprites/WIN GAME/Credits_Alice.png" id="20_7l6og"]
+[ext_resource type="Texture2D" uid="uid://dos3un1etp5f4" path="res://assets/sprites/WIN GAME/Credits_Ash.png" id="21_ux0qd"]
+[ext_resource type="Texture2D" uid="uid://dd8ub5g0op8y" path="res://assets/sprites/WIN GAME/Credits_Cat.png" id="22_4tnl5"]
+[ext_resource type="Texture2D" uid="uid://bwsk0lhp6533t" path="res://assets/sprites/WIN GAME/Credits_Deven.png" id="23_cldb3"]
+[ext_resource type="Texture2D" uid="uid://cktjutn0jpv2q" path="res://assets/sprites/WIN GAME/Credits_Herb.png" id="24_dx2k0"]
+[ext_resource type="Texture2D" uid="uid://bfomuygvt5h3p" path="res://assets/sprites/WIN GAME/Credits_Max.png" id="25_2ln0i"]
+[ext_resource type="Texture2D" uid="uid://ml1boq1kabf" path="res://assets/sprites/WIN GAME/Credits_Molly.png" id="26_o0att"]
+[ext_resource type="Texture2D" uid="uid://ckmhfhujhjlsn" path="res://assets/sprites/WIN GAME/Credits_Nicos.png" id="27_it50h"]
+[ext_resource type="Texture2D" uid="uid://3vjdj2v7qfwk" path="res://assets/sprites/WIN GAME/Credits_Riley.png" id="28_il32h"]
+[ext_resource type="Texture2D" uid="uid://dosr31oi4cw8e" path="res://assets/sprites/WIN GAME/Credits_Thanks.png" id="29_py611"]
 
 [sub_resource type="Animation" id="Animation_350o7"]
 length = 0.001
@@ -57,6 +68,142 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TransitionRect/AliceCredits:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TransitionRect/AshCredits:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TransitionRect/CatCredits:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TransitionRect/DevinCredits:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TransitionRect/HerbCredits:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TransitionRect/MaxCredits:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TransitionRect/MollyCredits:modulate:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TransitionRect/NicosCredits:modulate:a")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TransitionRect/RileyCredits:modulate:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TransitionRect/ThanksCredits:modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8ndq6"]
+resource_name = "blackscreen"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_x0smv"]
@@ -138,9 +285,133 @@ tracks/2/keys = {
 "values": [0.0, 1.0]
 }
 
+[sub_resource type="Animation" id="Animation_3gj4n"]
+resource_name = "credits"
+length = 45.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect/AliceCredits:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.8, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionRect/AshCredits:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4, 5.2, 6.8, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TransitionRect/CatCredits:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(8, 9.2, 10.8, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TransitionRect/DevinCredits:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(12, 13.2, 14.8, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TransitionRect/HerbCredits:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(16, 17.2, 18.8, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TransitionRect/MaxCredits:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(20, 21.2, 22.8, 24),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TransitionRect/MollyCredits:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(24, 25.2, 26.8, 28),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TransitionRect/NicosCredits:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(28, 29.2, 31.8, 34),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TransitionRect/RileyCredits:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(37, 38.2, 39.8, 41),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TransitionRect/ThanksCredits:modulate:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(41, 42.2, 43.8, 45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
 [sub_resource type="Animation" id="Animation_0n5ju"]
 resource_name = "fade_in"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -157,16 +428,12 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1njvl"]
 _data = {
 &"RESET": SubResource("Animation_350o7"),
+&"blackscreen": SubResource("Animation_8ndq6"),
 &"car_crossing": SubResource("Animation_x0smv"),
 &"car_move_animation": SubResource("Animation_ybfsm"),
+&"credits": SubResource("Animation_3gj4n"),
 &"fade_in": SubResource("Animation_0n5ju")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_akgpf"]
-font_size = 72
-
-[sub_resource type="LabelSettings" id="LabelSettings_dfa8t"]
-font_size = 24
 
 [sub_resource type="GDScript" id="GDScript_7dp3f"]
 script/source = "extends Button
@@ -175,7 +442,7 @@ func _on_pressed() -> void:
 	Scenes.goto_by_name(\"res://ui/main_menu.tscn\")
 "
 
-[node name="WinScreen" type="Control" unique_id=427337819 node_paths=PackedStringArray("win_anim", "anim_player", "music_audio", "sfx_audio")]
+[node name="WinScreen" type="Control" unique_id=427337819 node_paths=PackedStringArray("main_menu_button", "win_anim", "anim_player", "music_audio", "sfx_audio", "credits_list")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -183,11 +450,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1qcl6")
+main_menu_button = NodePath("Button")
 win_anim = NodePath("WinAnim")
 anim_player = NodePath("AnimationPlayer")
 music_audio = NodePath("MusicPlayer")
 sfx_audio = NodePath("SfxPlayer")
 sound_list = Array[AudioStreamWAV]([ExtResource("12_43ovl"), ExtResource("3_usekm"), ExtResource("4_uvos5"), ExtResource("5_lhkgm"), ExtResource("6_jitmb"), ExtResource("7_3gj4n"), ExtResource("7_fvcv5")])
+music_list = Array[AudioStreamWAV]([ExtResource("9_8ndq6")])
+credits_list = [NodePath("TransitionRect/AliceCredits"), NodePath("TransitionRect/AshCredits"), NodePath("TransitionRect/CatCredits"), NodePath("TransitionRect/DevinCredits"), NodePath("TransitionRect/HerbCredits"), NodePath("TransitionRect/MaxCredits"), NodePath("TransitionRect/MollyCredits"), NodePath("TransitionRect/NicosCredits"), NodePath("TransitionRect/RileyCredits"), NodePath("TransitionRect/ThanksCredits")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1193589351]
 libraries/ = SubResource("AnimationLibrary_1njvl")
@@ -272,36 +542,6 @@ autoplay = "default"
 frame = 0
 frame_progress = 0.0
 
-[node name="Label" type="Label" parent="." unique_id=2031238725]
-visible = false
-layout_mode = 0
-offset_left = 478.0
-offset_top = 220.0
-offset_right = 745.0
-offset_bottom = 331.0
-text = "you win!"
-label_settings = SubResource("LabelSettings_akgpf")
-
-[node name="Label2" type="Label" parent="." unique_id=1112232801]
-visible = false
-layout_mode = 0
-offset_left = 580.0
-offset_top = 332.0
-offset_right = 847.0
-offset_bottom = 443.0
-text = "yay!"
-label_settings = SubResource("LabelSettings_dfa8t")
-
-[node name="Button" type="Button" parent="." unique_id=527040951]
-visible = false
-layout_mode = 0
-offset_left = 512.0
-offset_top = 416.0
-offset_right = 737.0
-offset_bottom = 486.0
-text = "main menu"
-script = SubResource("GDScript_7dp3f")
-
 [node name="WinAnim" parent="." unique_id=1581861212 instance=ExtResource("1_7dp3f")]
 position = Vector2(640, 360)
 frame = 7
@@ -316,6 +556,135 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="AliceCredits" type="TextureRect" parent="TransitionRect" unique_id=447230407]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_7l6og")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="AshCredits" type="TextureRect" parent="TransitionRect" unique_id=435067200]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_ux0qd")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="CatCredits" type="TextureRect" parent="TransitionRect" unique_id=1306779930]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("22_4tnl5")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="DevinCredits" type="TextureRect" parent="TransitionRect" unique_id=600705352]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("23_cldb3")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="HerbCredits" type="TextureRect" parent="TransitionRect" unique_id=1437181650]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_dx2k0")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="MaxCredits" type="TextureRect" parent="TransitionRect" unique_id=495523006]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_2ln0i")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="MollyCredits" type="TextureRect" parent="TransitionRect" unique_id=825660230]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_o0att")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="NicosCredits" type="TextureRect" parent="TransitionRect" unique_id=564039921]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_it50h")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="RileyCredits" type="TextureRect" parent="TransitionRect" unique_id=872493360]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_il32h")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="ThanksCredits" type="TextureRect" parent="TransitionRect" unique_id=2137957432]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_py611")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="Button" type="Button" parent="." unique_id=527040951]
+visible = false
+layout_mode = 0
+offset_left = 512.0
+offset_top = 354.0
+offset_right = 737.0
+offset_bottom = 424.0
+text = "main menu"
+script = SubResource("GDScript_7dp3f")
+
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=154413560]
 stream = ExtResource("12_43ovl")
 autoplay = true
@@ -323,10 +692,11 @@ bus = &"SFX"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=728464081]
 stream = ExtResource("19_3gj4n")
+volume_db = -6.0
 autoplay = true
 bus = &"Music"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="animation_finished" from="WinAnim" to="." method="_on_win_anim_animation_finished"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="finished" from="SfxPlayer" to="." method="_on_sfx_player_finished"]
