@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3x26bapcky4i" path="res://classes/cutscene.gd" id="1_350o7"]
 [ext_resource type="PackedScene" uid="uid://bh27f25d1beo7" path="res://anim/car_slide_park_anim.tscn" id="3_1q57g"]
+[ext_resource type="AudioStream" uid="uid://4pxhq6gljtgq" path="res://assets/sounds/enginestop.wav" id="3_22572"]
 
 [sub_resource type="Animation" id="Animation_350o7"]
 length = 0.001
@@ -20,6 +21,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ktabf"]
 resource_name = "car_crossing"
+length = 1.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -55,8 +57,6 @@ autoplay = &"car_parking"
 
 [node name="CarSlideParkAnim" parent="." unique_id=11782902 instance=ExtResource("3_1q57g")]
 position = Vector2(640, 360)
-frame = 16
-frame_progress = 1.0
 
 [node name="TransitionRect" type="ColorRect" parent="." unique_id=1850857079]
 layout_mode = 1
@@ -66,5 +66,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1908461875]
+stream = ExtResource("3_22572")
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="end_cutscene"]

@@ -42,31 +42,31 @@ region = Rect2(3840, 720, 1280, 720)
 atlas = ExtResource("1_oqa10")
 region = Rect2(5120, 720, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_le0pt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqa10"]
 atlas = ExtResource("1_oqa10")
 region = Rect2(0, 1440, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ej2al"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftdkw"]
 atlas = ExtResource("1_oqa10")
 region = Rect2(1280, 1440, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kncy4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kc0o"]
 atlas = ExtResource("1_oqa10")
 region = Rect2(2560, 1440, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q3and"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yykb"]
 atlas = ExtResource("1_oqa10")
 region = Rect2(3840, 1440, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8x1dx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5gss"]
 atlas = ExtResource("1_oqa10")
 region = Rect2(5120, 1440, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hq3lq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv75c"]
 atlas = ExtResource("1_oqa10")
 region = Rect2(0, 2160, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8h3js"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_06myq"]
 atlas = ExtResource("1_oqa10")
 region = Rect2(1280, 2160, 1280, 720)
 
@@ -102,34 +102,37 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hm2of")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_le0pt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ej2al")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kncy4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q3and")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8x1dx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hq3lq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8h3js")
 }],
 "loop": 0,
 "name": &"default",
-"speed": 12.0
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqa10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftdkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kc0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yykb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5gss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv75c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06myq")
+}],
+"loop": 0,
+"name": &"drive_off",
+"speed": 10.0
 }]
 
 [node name="CarDriveOffAnim" type="AnimatedSprite2D" unique_id=1024234668]
 sprite_frames = SubResource("SpriteFrames_g443r")
-frame = 16
-frame_progress = 1.0
