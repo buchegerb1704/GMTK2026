@@ -21,6 +21,6 @@ script = ExtResource("1_b8mll")
 GRAFFITI_DB = Array[Texture2D]([ExtResource("6_kfqnu"), ExtResource("5_3aeeb"), ExtResource("7_j5eyu"), ExtResource("4_06555"), ExtResource("2_l13dd"), ExtResource("3_img5p")])
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=174020827]
+[node name="Background" type="Sprite2D" parent="." unique_id=174020827]
 position = Vector2(640, 360)
 texture = ExtResource("8_img5p")

@@ -5,6 +5,7 @@ extends Errand
 ## subtle bobbing + swaying loop.
 
 @export var balloon_parent: Node
+@export var hand: AnimatedSprite2D
 
 @export_group("Placement")
 ## Minimum gap between a sprite's edge and the edge of the screen.
@@ -36,6 +37,16 @@ func scatter() -> void:
 	SpriteScatter.scatter_sprites(balloons, self)
 	for sprite in balloons:
 		_animate(sprite)
+		var area2d: Area2D = sprite.get_child(0)
+		area2d.input_event.connect(_on_clickable_input_event.bind(sprite))
+
+
+func pop_balloon(balloon: Sprite2D) -> void:
+	var current_ballons := balloon_parent.get_child_count()
+	balloon.queue_free()
+	current_ballons -= 1
+	if current_ballons == 0:
+		finish_errand()
 
 
 func _balloons() -> Array[Sprite2D]:
@@ -76,5 +87,11 @@ func _animate(sprite: Sprite2D) -> void:
 	@warning_ignore_restore("return_value_discarded")
 
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int, source: CollisionObject2D) -> void:
-	pass # Replace with function body.
+func _on_clickable_input_event(viewport: Node, event: InputEvent, shape_idx: int, balloon: Sprite2D) -> void:
+	if event is not InputEventMouseButton:
+		return
+	
+	var button: InputEventMouseButton = event
+	if button.pressed && button.button_index == MouseButton.MOUSE_BUTTON_LEFT:
+		hand.play("poke")
+		hand.animation_finished.connect(pop_balloon.bind(balloon), ConnectFlags.CONNECT_ONE_SHOT)

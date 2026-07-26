@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cvcrxd6qg1n1j" path="res://resources/sprites/balloons/balloon4.tres" id="5_wffru"]
 [ext_resource type="Texture2D" uid="uid://maq3cbc1tafn" path="res://resources/sprites/balloons/balloon5.tres" id="6_i2dip"]
 [ext_resource type="Texture2D" uid="uid://cqs5v2gbx6yv4" path="res://resources/sprites/balloons/balloon6.tres" id="7_ppvjv"]
+[ext_resource type="Texture2D" uid="uid://ds8q2cm7wf6ix" path="res://assets/sprites/Game_Balloons/PokingHand_464x376.png" id="9_5r3la"]
+[ext_resource type="Script" uid="uid://cho8j57tci3su" path="res://scripts/sprite_mouse.gd" id="10_wffru"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e71bs"]
 radius = 267.15
@@ -16,15 +18,53 @@ height = 625.22
 [sub_resource type="CircleShape2D" id="CircleShape2D_ogp2i"]
 radius = 321.03
 
-[node name="Balloons" type="Control" unique_id=688174250 node_paths=PackedStringArray("balloon_parent")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wffru"]
+atlas = ExtResource("9_5r3la")
+region = Rect2(0, 0, 376, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2dip"]
+atlas = ExtResource("9_5r3la")
+region = Rect2(376, 0, 376, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppvjv"]
+atlas = ExtResource("9_5r3la")
+region = Rect2(752, 0, 376, 464)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b82yd"]
+atlas = ExtResource("9_5r3la")
+region = Rect2(1128, 0, 376, 464)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_akgpf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wffru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2dip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppvjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b82yd")
+}],
+"loop": 0,
+"name": &"poke",
+"speed": 8.0
+}]
+
+[node name="Balloons" type="Control" unique_id=688174250 node_paths=PackedStringArray("balloon_parent", "hand")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_hlgcd")
 balloon_parent = NodePath("Node2D")
+hand = NodePath("Hand")
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1849762294]
@@ -105,4 +145,10 @@ position = Vector2(-10, 4.9999237)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_ogp2i")
 
-[connection signal="input_event" from="Node2D/Balloon1/Area2D" to="." method="_on_area_2d_input_event" flags=18]
+[node name="Hand" type="AnimatedSprite2D" parent="." unique_id=882215475]
+sprite_frames = SubResource("SpriteFrames_akgpf")
+animation = &"poke"
+frame = 3
+frame_progress = 1.0
+offset = Vector2(-60, 200)
+script = ExtResource("10_wffru")

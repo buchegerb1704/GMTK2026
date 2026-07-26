@@ -1,7 +1,7 @@
 extends Errand
 
 @export var CLOTHES_DB: Array[LaundryItem]
-@export var washers: Dictionary[LaundryItem.CLOTH_COLOR, Button]
+@export var washers: Dictionary[LaundryItem.CLOTH_COLOR, ClickableArea2D]
 
 var clothes: Array[LaundryItem]
 var current_item: Sprite2D
@@ -9,6 +9,12 @@ var current_item: Sprite2D
 var can_click: bool = true
 
 func _ready() -> void:
+	@warning_ignore_start("return_value_discarded")
+	($Blue as ClickableArea2D).clicked.connect(throw_item.bind(LaundryItem.CLOTH_COLOR.Blue))
+	($White as ClickableArea2D).clicked.connect(throw_item.bind(LaundryItem.CLOTH_COLOR.White))
+	($Red as ClickableArea2D).clicked.connect(throw_item.bind(LaundryItem.CLOTH_COLOR.Red))
+	@warning_ignore_restore("return_value_discarded")
+	
 	var number_of_clothes := randi_range(9, 15)
 	
 	for x in number_of_clothes:
@@ -17,9 +23,6 @@ func _ready() -> void:
 	spawn_front()
 
 func spawn_front() -> void:
-	if clothes.is_empty():
-		finish_errand()
-	
 	var new_item: LaundryItem = clothes.front()
 	var item_sprite := Sprite2D.new()
 	item_sprite.texture = new_item.texture
@@ -37,24 +40,30 @@ func throw_item(color: LaundryItem.CLOTH_COLOR) -> void:
 	var item: LaundryItem = clothes.front()
 	
 	var tween := get_tree().create_tween()
-	tween.tween_property(current_item, "position", washers[color].get_child(0).global_position, 1)
+	tween.tween_property(current_item, "global_position", washers[color].get_child(0).global_position, 1)
+	tween.parallel().tween_property(current_item, "scale", Vector2(0.2, 0.2), 1)
+	tween.parallel().tween_property(current_item, "rotation", 5, 1)
 		
 	if color == item.color:
 		tween.tween_callback(item_correct)
 	else:
 		tween.tween_callback(item_wrong)
-	
-	# TODO: anime clothes flying to washer
 
 func item_correct() -> void:
 	current_item.queue_free()
 	clothes.pop_front()
-	spawn_front()
+	
+	if clothes.is_empty():
+		finish_errand()
+	else:
+		spawn_front()
 
 func item_wrong() -> void:
 	print("wrong")
 	var tween := get_tree().create_tween()
-	tween.tween_property(current_item, "position", $Marker2D.position, 2)
+	tween.tween_property(current_item, "global_position", $Marker2D.position, 1)
+	tween.tween_property(current_item, "scale", Vector2(0.5, 0.5), 1)
+	tween.parallel().tween_property(current_item, "rotation", 0, 1)
 	tween.tween_callback(reset_click)
 
 func reset_click() -> void:

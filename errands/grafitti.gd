@@ -1,8 +1,7 @@
 extends Errand
 
 ## Cap on a single graffiti's size, as a fraction of the play area.
-const MAX_FRAC := 0.65
-const EDGE_PADDING := 32.0
+const MAX_FRAC := 0.6
 
 @export var GRAFFITI_DB: Array[Texture2D]
 
@@ -35,7 +34,7 @@ func _ready() -> void:
 	# scale and rotation are set. assign() converts the typed array in place.
 	var sprites: Array[Sprite2D] = []
 	sprites.assign(_scrubbers)
-	SpriteScatter.scatter_sprites(sprites, self, EDGE_PADDING)
+	SpriteScatter.scatter_sprites(sprites, self)
 
 func _process(_delta: float) -> void:
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
