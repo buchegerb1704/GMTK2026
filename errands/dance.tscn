@@ -508,7 +508,7 @@ sprite_frames = SubResource("SpriteFrames_ogp2i")
 animation = &"bg1"
 
 [node name="Demo Key" type="Sprite2D" parent="." unique_id=1159916286]
-position = Vector2(640, 250)
+position = Vector2(640, 160)
 texture = ExtResource("2_vs1oc")
 hframes = 10
 
