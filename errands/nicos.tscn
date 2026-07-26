@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dw052mgf4stw" path="res://errands/nicos.gd" id="1_4mqsy"]
 [ext_resource type="PackedScene" uid="uid://b7vc1mmw04c1o" path="res://anim/game_nicos_punch/nicos_anim.tscn" id="2_8m2t3"]
+[ext_resource type="PackedScene" uid="uid://c1t2lppf0fb76" path="res://anim/buttons/button_anim.tscn" id="3_gju0u"]
 
-[node name="Nicos" type="Control" unique_id=1283970993 node_paths=PackedStringArray("nicos_anim")]
+[node name="Nicos" type="Control" unique_id=1283970993 node_paths=PackedStringArray("nicos_anim", "a_button_anim", "d_button_anim")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,11 +13,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4mqsy")
 nicos_anim = NodePath("NicosAnim")
+a_button_anim = NodePath("AButtonAnim")
+d_button_anim = NodePath("DButtonAnim")
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
 [node name="NicosAnim" parent="." unique_id=1255409841 instance=ExtResource("2_8m2t3")]
 position = Vector2(640, 360)
 frame = 12
 frame_progress = 1.0
+
+[node name="AButtonAnim" parent="." unique_id=593024711 instance=ExtResource("3_gju0u")]
+position = Vector2(164, 240)
+animation = &"button_a"
+
+[node name="DButtonAnim" parent="." unique_id=756874362 instance=ExtResource("3_gju0u")]
+position = Vector2(1116, 240)
+animation = &"button_d"
 
 [connection signal="animation_finished" from="NicosAnim" to="." method="_on_nicos_anim_animation_finished"]
