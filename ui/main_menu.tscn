@@ -2,24 +2,35 @@
 
 [ext_resource type="Script" uid="uid://cpccv46pe820s" path="res://ui/main_menu.gd" id="1_t7e0r"]
 [ext_resource type="PackedScene" uid="uid://c0xsr37bpo72e" path="res://anim/main_menu_anim.tscn" id="2_lsdqh"]
+[ext_resource type="AudioStream" uid="uid://hxsj75ahnqgm" path="res://assets/music/menuA.wav" id="3_mxs5a"]
+[ext_resource type="AudioStream" uid="uid://cevnqrbjq4ar6" path="res://assets/music/menuB.wav" id="4_0c1wp"]
 [ext_resource type="Theme" uid="uid://bdo0r1xwf3gkc" path="res://themes/menu_button_theme.tres" id="4_ei257"]
 [ext_resource type="Texture2D" uid="uid://cq6hi1tmu7woy" path="res://assets/sprites/GUI/MainMenu/menu_options_base.png" id="4_lsdqh"]
 [ext_resource type="Script" uid="uid://bmf3a2m3cmycj" path="res://classes/texture_button_automask.gd" id="4_p8ri8"]
 [ext_resource type="Texture2D" uid="uid://dn8pb18r3uekr" path="res://assets/sprites/GUI/MainMenu/menu_options.png" id="5_jiymt"]
+[ext_resource type="AudioStream" uid="uid://dm8v6ugj824nw" path="res://assets/music/menutransition.wav" id="5_l4cq4"]
 [ext_resource type="Texture2D" uid="uid://b1j5ffabs7868" path="res://assets/sprites/GUI/MainMenu/menu_quit_base.png" id="7_bgtsx"]
 [ext_resource type="Texture2D" uid="uid://dsj4b4yofmngx" path="res://assets/sprites/GUI/MainMenu/menu_quit.png" id="8_kaxbk"]
+[ext_resource type="Texture2D" uid="uid://d356luween16i" path="res://assets/sprites/GUI/MainMenu/menu_pole.png" id="9_racxt"]
 [ext_resource type="Texture2D" uid="uid://b8gjy75m4fvvd" path="res://assets/sprites/GUI/MainMenu/menu_play_base.png" id="10_0nobx"]
 [ext_resource type="Texture2D" uid="uid://b84nk86pj1jkc" path="res://assets/sprites/GUI/MainMenu/menu_play.png" id="11_iyrh0"]
 [ext_resource type="Texture2D" uid="uid://bkkqkur0q2kyv" path="res://assets/sprites/GUI/MainMenu/Options/options_bgoverlay.png" id="11_jiymt"]
 [ext_resource type="Texture2D" uid="uid://crrkjsu25al6s" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_back.png" id="12_bgtsx"]
+[ext_resource type="Texture2D" uid="uid://dijixctnj11hn" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_back_hover.png" id="13_i5ydv"]
 [ext_resource type="Texture2D" uid="uid://bpc7n3tly1fi7" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_base.png" id="13_iyrh0"]
 [ext_resource type="Texture2D" uid="uid://qjhqfkc2rb2y" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_indicator_maybe.png" id="14_8jgmr"]
 [ext_resource type="Texture2D" uid="uid://blgiyoti3lnoc" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_louder.png" id="15_q75kt"]
 [ext_resource type="Texture2D" uid="uid://c7osjtfnmrjsy" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_louder_hover.png" id="16_0i0gl"]
 [ext_resource type="Texture2D" uid="uid://bw3hkdwtnft8g" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_quieter.png" id="17_q75kt"]
 [ext_resource type="Texture2D" uid="uid://cdg4svfgnwvgv" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_music_quieter_hover.png" id="18_0i0gl"]
+[ext_resource type="Texture2D" uid="uid://b1ba701mv1mun" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_sound_indicator_maybe.png" id="19_s1050"]
+[ext_resource type="Texture2D" uid="uid://bpkqaxfdiukwg" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_sound_louder.png" id="20_i5ydv"]
+[ext_resource type="Texture2D" uid="uid://cp3l0lu2bpwx4" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_sound_louder_hover.png" id="21_racxt"]
+[ext_resource type="Texture2D" uid="uid://cbd5gjoh65v17" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_sound_quieter.png" id="22_dooca"]
+[ext_resource type="Texture2D" uid="uid://bsnum72rou5bx" path="res://assets/sprites/GUI/MainMenu/Options/options_sign_sound_quieter_hover.png" id="23_rqnt3"]
+[ext_resource type="AudioStream" uid="uid://0ybcg80p05ns" path="res://assets/music/intro.wav" id="26_dooca"]
 
-[node name="MainMenu" type="Control" unique_id=681916578]
+[node name="MainMenu" type="Control" unique_id=681916578 node_paths=PackedStringArray("options_menu", "sound_volume_label", "music_volume_label", "menu_music")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +38,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t7e0r")
+options_menu = NodePath("OptionsBackground")
+sound_volume_label = NodePath("OptionsBackground/OptionsSignSoundsIndicator/SoundVolumeLabel")
+music_volume_label = NodePath("OptionsBackground/OptionsSignMusicIndicator/MusicVolumeLabel")
+menu_music = NodePath("AudioStreamPlayer")
+music_list = Array[AudioStreamWAV]([ExtResource("26_dooca"), ExtResource("3_mxs5a"), ExtResource("4_0c1wp"), ExtResource("5_l4cq4")])
 
 [node name="MainMenuAnim" parent="." unique_id=774052823 instance=ExtResource("2_lsdqh")]
 position = Vector2(640, 360)
@@ -70,6 +86,18 @@ stretch_mode = 5
 script = ExtResource("4_p8ri8")
 metadata/_custom_type_script = "uid://bmf3a2m3cmycj"
 
+[node name="TextureRect" type="TextureRect" parent="MainMenuAnim/QuitButton" unique_id=2133243820]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_racxt")
+expand_mode = 3
+stretch_mode = 3
+
 [node name="PlayButton" type="TextureButton" parent="MainMenuAnim" unique_id=1649975333]
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,7 +128,7 @@ texture = ExtResource("11_jiymt")
 expand_mode = 3
 stretch_mode = 3
 
-[node name="OptionsBackButton" type="TextureButton" parent="." unique_id=387967612]
+[node name="OptionsBackButton" type="TextureButton" parent="OptionsBackground" unique_id=387967612]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,31 +136,86 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("12_bgtsx")
+texture_hover = ExtResource("13_i5ydv")
+texture_focused = ExtResource("13_i5ydv")
 ignore_texture_size = true
 stretch_mode = 5
+script = ExtResource("4_p8ri8")
 
-[node name="OptionsSignBase" type="TextureRect" parent="." unique_id=867118193]
+[node name="OptionsSignBase" type="TextureRect" parent="OptionsBackground" unique_id=867118193]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("13_iyrh0")
 expand_mode = 3
 stretch_mode = 3
 
-[node name="OptionsSignMusicIndicator" type="TextureRect" parent="." unique_id=694645091]
+[node name="OptionsSignSoundsIndicator" type="TextureRect" parent="OptionsBackground" unique_id=1408586185]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("19_s1050")
+stretch_mode = 5
+
+[node name="SoundsLouderButton" type="TextureButton" parent="OptionsBackground/OptionsSignSoundsIndicator" unique_id=1498772013]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("20_i5ydv")
+texture_hover = ExtResource("21_racxt")
+texture_focused = ExtResource("21_racxt")
+stretch_mode = 5
+script = ExtResource("4_p8ri8")
+
+[node name="SoundsQuieterButton" type="TextureButton" parent="OptionsBackground/OptionsSignSoundsIndicator" unique_id=2144735291]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("22_dooca")
+texture_hover = ExtResource("23_rqnt3")
+texture_focused = ExtResource("23_rqnt3")
+stretch_mode = 5
+script = ExtResource("4_p8ri8")
+
+[node name="SoundVolumeLabel" type="Label" parent="OptionsBackground/OptionsSignSoundsIndicator" unique_id=628388209]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 228.0
+offset_right = 767.1974
+offset_bottom = 350.0
+rotation = -0.22702862
+theme_override_colors/font_color = Color(0.25490198, 0.18039216, 0.24313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsSignMusicIndicator" type="TextureRect" parent="OptionsBackground" unique_id=694645091]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("14_8jgmr")
 stretch_mode = 5
 
-[node name="MusicLouderButton" type="TextureButton" parent="." unique_id=35954242]
+[node name="MusicLouderButton" type="TextureButton" parent="OptionsBackground/OptionsSignMusicIndicator" unique_id=35954242]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,8 +226,9 @@ texture_normal = ExtResource("15_q75kt")
 texture_hover = ExtResource("16_0i0gl")
 texture_focused = ExtResource("16_0i0gl")
 stretch_mode = 5
+script = ExtResource("4_p8ri8")
 
-[node name="MusicQuieterButton" type="TextureButton" parent="." unique_id=1661763560]
+[node name="MusicQuieterButton" type="TextureButton" parent="OptionsBackground/OptionsSignMusicIndicator" unique_id=1661763560]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -155,7 +239,31 @@ texture_normal = ExtResource("17_q75kt")
 texture_hover = ExtResource("18_0i0gl")
 texture_focused = ExtResource("18_0i0gl")
 stretch_mode = 5
+script = ExtResource("4_p8ri8")
+
+[node name="MusicVolumeLabel" type="Label" parent="OptionsBackground/OptionsSignMusicIndicator" unique_id=123297948]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 409.0
+offset_right = 792.1974
+offset_bottom = 531.0
+rotation = -0.22702862
+theme_override_colors/font_color = Color(0.25490198, 0.18039216, 0.24313726, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1719166330]
+stream = ExtResource("26_dooca")
+bus = &"Music"
 
 [connection signal="pressed" from="MainMenuAnim/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainMenuAnim/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MainMenuAnim/PlayButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptionsBackground/OptionsBackButton" to="." method="_on_options_back_button_pressed"]
+[connection signal="pressed" from="OptionsBackground/OptionsSignSoundsIndicator/SoundsLouderButton" to="." method="_on_sounds_louder_button_pressed"]
+[connection signal="pressed" from="OptionsBackground/OptionsSignSoundsIndicator/SoundsQuieterButton" to="." method="_on_sounds_quieter_button_pressed"]
+[connection signal="pressed" from="OptionsBackground/OptionsSignMusicIndicator/MusicLouderButton" to="." method="_on_music_louder_button_pressed"]
+[connection signal="pressed" from="OptionsBackground/OptionsSignMusicIndicator/MusicQuieterButton" to="." method="_on_music_quieter_button_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
