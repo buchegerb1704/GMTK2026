@@ -24,6 +24,7 @@ config/icon="uid://c556d04yp3mkv"
 Config="*uid://bgsixefgrxrjs"
 Scenes="*uid://c4igynb6rm8hh"
 Errands="*uid://bipq2xl1x6tpq"
+Music="*uid://b8djy15l5ggh5"
 
 [debug]
 
