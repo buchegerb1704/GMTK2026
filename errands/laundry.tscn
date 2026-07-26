@@ -401,7 +401,78 @@ stream_count = 2
 stream_0 = ExtResource("28_5sh2i")
 stream_1 = ExtResource("29_jsoam")
 
-[node name="Laundry" type="Control" unique_id=1071540385 node_paths=PackedStringArray("washers")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w171q"]
+atlas = ExtResource("4_il5uy")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqxch"]
+atlas = ExtResource("4_il5uy")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyrav"]
+atlas = ExtResource("4_il5uy")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e28gy"]
+atlas = ExtResource("4_il5uy")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbvhn"]
+atlas = ExtResource("4_il5uy")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnts2"]
+atlas = ExtResource("4_il5uy")
+region = Rect2(6400, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf5w2"]
+atlas = ExtResource("4_il5uy")
+region = Rect2(7680, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn7rx"]
+atlas = ExtResource("4_il5uy")
+region = Rect2(8960, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xectr"]
+atlas = ExtResource("4_il5uy")
+region = Rect2(10240, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ogp2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w171q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqxch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyrav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e28gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbvhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnts2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf5w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn7rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xectr")
+}],
+"loop": 0,
+"name": &"upset",
+"speed": 10.0
+}]
+
+[node name="Laundry" type="Control" unique_id=1071540385 node_paths=PackedStringArray("washers", "hands", "upset_hands")]
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
@@ -413,6 +484,8 @@ washers = {
 2: NodePath("Blue")
 }
 throw_sounds = Array[AudioStream]([ExtResource("18_sxaqu"), ExtResource("19_n30pa"), ExtResource("20_5sh2i")])
+hands = NodePath("Hands")
+upset_hands = NodePath("UpsetHands")
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
 [node name="WashingMachines" type="AnimatedSprite2D" parent="." unique_id=1765161843]
@@ -468,3 +541,9 @@ stream = SubResource("AudioStreamPlaylist_5sh2i")
 volume_db = -3.0
 autoplay = true
 bus = &"SFX"
+
+[node name="UpsetHands" type="AnimatedSprite2D" parent="." unique_id=1340606323]
+visible = false
+position = Vector2(640, 360)
+sprite_frames = SubResource("SpriteFrames_ogp2i")
+animation = &"upset"

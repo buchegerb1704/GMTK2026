@@ -11,9 +11,12 @@ func _ready() -> void:
 		var errand_option := Button.new()
 		var rich_text := RichTextLabel.new()
 		
-		errand_option.text = " " #errand.title
+		errand_option.text = ""
 		errand_option.focus_mode = Control.FOCUS_ALL
 		errand_option.disabled = completed
+		errand_option.custom_minimum_size = Vector2(1, 50)
+		
+		errand_option.theme = preload("res://themes/invis_buttons.tres")
 		
 		@warning_ignore_start("return_value_discarded")
 		errand_option.pressed.connect(func() -> void: errand_selected(errand_id))

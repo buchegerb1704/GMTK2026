@@ -4,6 +4,9 @@ extends Errand
 @export var washers: Dictionary[LaundryItem.CLOTH_COLOR, ClickableArea2D]
 @export var throw_sounds: Array[AudioStream]
 
+@export var hands: Sprite2D
+@export var upset_hands: AnimatedSprite2D
+
 var clothes: Array[LaundryItem]
 var current_item: Sprite2D
 
@@ -70,7 +73,7 @@ func item_correct() -> void:
 
 func item_wrong() -> void:
 	SFX.play_sound(preload("res://assets/sounds/incorrectbuzzer.wav"))
-	SFX.play_sound(Config.SFX_DEMEANING.pick_random())
+	@warning_ignore("unsafe_call_argument") SFX.play_sound(Config.SFX_DEMEANING.pick_random())
 	
 	var tween := create_tween()
 	@warning_ignore_start("return_value_discarded")
@@ -78,6 +81,24 @@ func item_wrong() -> void:
 	tween.tween_property(current_item, "scale", Vector2(0.5, 0.5), 1)
 	tween.parallel().tween_property(current_item, "rotation", 0, 1)
 	tween.tween_callback(reset_click)
+	@warning_ignore_restore("return_value_discarded")
+	
+	hands.visible = false
+	upset_hands.visible = true
+	upset_hands.play(&"upset")
+	
+	@warning_ignore_start("return_value_discarded")
+	upset_hands.animation_finished.connect(func() -> void:
+		hands.visible = false
+		upset_hands.visible = true
+		upset_hands.play(&"upset")
+		
+		upset_hands.animation_finished.connect(func() -> void:
+			upset_hands.stop()
+			upset_hands.visible = false
+			hands.visible = true
+		)
+	)
 	@warning_ignore_restore("return_value_discarded")
 
 func reset_click() -> void:
