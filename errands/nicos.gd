@@ -34,11 +34,8 @@ func _input(event: InputEvent) -> void:
 		_hurt_nicos()
 
 func _hurt_nicos() -> void:
-	#TODO -> Play hurt audio
-	punch_audio.stream = punches.pick_random()
-	nicos_audio.stream = nicos_pain.pick_random()
-	punch_audio.play()
-	nicos_audio.play()
+	SFX.play_sound(punches.pick_random())
+	SFX.play_sound(nicos_pain.pick_random())
 	_punches_required = _punches_required - 1
 
 func _on_nicos_anim_animation_finished() -> void:
@@ -47,11 +44,9 @@ func _on_nicos_anim_animation_finished() -> void:
 		d_button_anim.visible = true
 	elif (nicos_anim.animation == "punch_left" or nicos_anim.animation == "punch_right") and _punches_required == 0:
 		nicos_anim.play("dizzy_windup")
-		nicos_audio.stream = nicos_dizzy
-		nicos_audio.play()
+		SFX.play_sound(nicos_dizzy)
 	elif (nicos_anim.animation == "dizzy_windup"):
-		nicos_audio.stream = nicos_defeat.pick_random()
-		nicos_audio.play()
+		SFX.play_sound(nicos_defeat.pick_random())
 		nicos_anim.play("dizzy")
 	elif (nicos_anim.animation == "dizzy"):
 		self.finish_errand()

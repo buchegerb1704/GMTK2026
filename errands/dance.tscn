@@ -486,7 +486,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Dance" type="Control" unique_id=1803756147 node_paths=PackedStringArray("demo_key", "hit_player", "sfx_player", "guy", "bg")]
+[node name="Dance" type="Control" unique_id=1803756147 node_paths=PackedStringArray("demo_key", "guy", "bg")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_0v2xy")
@@ -498,33 +498,21 @@ KEY_FRAMES = Dictionary[int, int]({
 })
 AUDIO_HITS = Array[AudioStream]([ExtResource("2_4c7g4"), ExtResource("3_y5t6g"), ExtResource("4_203ur"), ExtResource("5_qdvle"), ExtResource("6_7frkg"), ExtResource("7_5f2q7"), ExtResource("8_3gf0a")])
 demo_key = NodePath("Demo Key")
-hit_player = NodePath("HitPlayer")
-sfx_player = NodePath("SFXPlayer")
 guy = NodePath("Guy")
 bg = NodePath("BG")
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
-
-[node name="HitPlayer" type="AudioStreamPlayer2D" parent="." unique_id=259536338]
-position = Vector2(640, 360)
-max_polyphony = 3
-bus = &"SFX"
-
-[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=885021959]
-position = Vector2(640, 360)
-max_polyphony = 3
-bus = &"SFX"
 
 [node name="BG" type="AnimatedSprite2D" parent="." unique_id=1928275833]
 position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_ogp2i")
 animation = &"bg1"
 
+[node name="Demo Key" type="Sprite2D" parent="." unique_id=1159916286]
+position = Vector2(640, 250)
+texture = ExtResource("2_vs1oc")
+hframes = 10
+
 [node name="Guy" type="AnimatedSprite2D" parent="." unique_id=699339161]
 position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_e71bs")
 animation = &"dance2"
-
-[node name="Demo Key" type="Sprite2D" parent="." unique_id=1159916286]
-position = Vector2(640, 360)
-texture = ExtResource("2_vs1oc")
-hframes = 10

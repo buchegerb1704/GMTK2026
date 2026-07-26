@@ -21,7 +21,14 @@
 [ext_resource type="Texture2D" uid="uid://c1usmxhpvw8bb" path="res://assets/sprites/Gane_Laundry/clothes/laundry blue shirt.png" id="15_80mdo"]
 [ext_resource type="Texture2D" uid="uid://b1ogdunr4ai75" path="res://assets/sprites/Gane_Laundry/clothes/laundry blue sock.png" id="16_4u8n7"]
 [ext_resource type="Texture2D" uid="uid://dmdwurro8i150" path="res://assets/sprites/Gane_Laundry/clothes/laundry blue underwear.png" id="17_yaqwt"]
+[ext_resource type="AudioStream" uid="uid://bk67ryx561dqs" path="res://assets/sounds/Whoosh1.wav" id="18_sxaqu"]
+[ext_resource type="AudioStream" uid="uid://c6p6smgrlvugk" path="res://assets/sounds/Whoosh2.wav" id="19_n30pa"]
+[ext_resource type="AudioStream" uid="uid://bmklce2t3o6ph" path="res://assets/sounds/Whoosh3.wav" id="20_5sh2i"]
+[ext_resource type="Texture2D" uid="uid://ctpef7qqlc2ne" path="res://assets/sprites/Hands/HandPointer.png" id="22_dsxxj"]
 [ext_resource type="Script" uid="uid://dj8mng5o3xfts" path="res://classes/resources/clickable_sprite2d.gd" id="22_wuwgy"]
+[ext_resource type="Script" uid="uid://cho8j57tci3su" path="res://scripts/sprite_mouse.gd" id="23_4q3lh"]
+[ext_resource type="AudioStream" uid="uid://pkpf3cwt6m77" path="res://assets/sounds/washingmachine1.wav" id="28_5sh2i"]
+[ext_resource type="AudioStream" uid="uid://djmrvo07t2egi" path="res://assets/sounds/washingmachine2.wav" id="29_jsoam"]
 
 [sub_resource type="Resource" id="Resource_46ecn"]
 script = ExtResource("2_xee87")
@@ -388,6 +395,12 @@ radius = 150.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_wuwgy"]
 radius = 150.0
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_5sh2i"]
+fade_time = 0.5
+stream_count = 2
+stream_0 = ExtResource("28_5sh2i")
+stream_1 = ExtResource("29_jsoam")
+
 [node name="Laundry" type="Control" unique_id=1071540385 node_paths=PackedStringArray("washers")]
 layout_mode = 3
 anchors_preset = 0
@@ -399,6 +412,7 @@ washers = {
 1: NodePath("White"),
 2: NodePath("Blue")
 }
+throw_sounds = Array[AudioStream]([ExtResource("18_sxaqu"), ExtResource("19_n30pa"), ExtResource("20_5sh2i")])
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
 [node name="WashingMachines" type="AnimatedSprite2D" parent="." unique_id=1765161843]
@@ -408,11 +422,19 @@ autoplay = "default"
 frame_progress = 0.20823854
 
 [node name="HandsTop" type="AnimatedSprite2D" parent="." unique_id=473034931]
+visible = false
 position = Vector2(640, 360)
 sprite_frames = SubResource("SpriteFrames_e71bs")
 animation = &"fail"
 frame = 8
 frame_progress = 1.0
+
+[node name="Hands" type="Sprite2D" parent="." unique_id=1811676362]
+modulate = Color(1, 1, 1, 0.75000006)
+z_index = 1
+texture = ExtResource("22_dsxxj")
+offset = Vector2(-15, 200)
+script = ExtResource("23_4q3lh")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=308193725]
 position = Vector2(672, 697)
@@ -440,3 +462,9 @@ metadata/_custom_type_script = "uid://dj8mng5o3xfts"
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Red" unique_id=1577955052]
 shape = SubResource("CircleShape2D_wuwgy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=602496374]
+stream = SubResource("AudioStreamPlaylist_5sh2i")
+volume_db = -3.0
+autoplay = true
+bus = &"SFX"

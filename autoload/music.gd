@@ -68,7 +68,7 @@ func _calculate_next() -> Stem:
 func _ready() -> void:
 	_player = AudioStreamPlayer.new()
 	_player.bus = &"Music"
-	_player.finished.connect(_handle_finished)
+	@warning_ignore("return_value_discarded") _player.finished.connect(_handle_finished)
 	self.add_child(_player)
 
 func _handle_finished() -> void:

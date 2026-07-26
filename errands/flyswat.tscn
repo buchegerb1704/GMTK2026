@@ -15,7 +15,7 @@ size = Vector2(126, 127.666664)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g443r"]
 size = Vector2(159.56458, 97.21225)
 
-[node name="Flyswat" type="Control" unique_id=1816390931 node_paths=PackedStringArray("fly_swatter_anim", "fly_swatter_area", "fly_swatter_audio")]
+[node name="Flyswat" type="Control" unique_id=1816390931 node_paths=PackedStringArray("fly_swatter_anim", "fly_swatter_area")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,6 @@ script = ExtResource("1_debba")
 fly_swatter_anim = NodePath("SwatterRect/FlySwatterAnim")
 fly_swatter_area = NodePath("SwatterRect/FlySwatterStaticBody")
 fly_scene = ExtResource("3_ftmtb")
-fly_swatter_audio = NodePath("AudioStreamPlayer")
 thwap_sounds = Array[AudioStreamWAV]([ExtResource("3_c4m5s"), ExtResource("4_qt5tn"), ExtResource("5_vlprn")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=1444133624]
@@ -100,8 +99,5 @@ input_pickable = false
 position = Vector2(374, 326.99997)
 rotation = 0.12940967
 shape = SubResource("RectangleShape2D_g443r")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1821280492]
-bus = &"SFX"
 
 [connection signal="animation_finished" from="SwatterRect/FlySwatterAnim" to="." method="_on_fly_swatter_anim_animation_finished"]

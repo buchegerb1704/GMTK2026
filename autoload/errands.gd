@@ -48,6 +48,9 @@ func start() -> void:
 	Scenes.goto_by_name("res://ui/errand_runner.tscn")
 
 func finish() -> void:
+	if current_errand_id.is_empty():
+		Scenes.goto_by_name("res://ui/main_menu.tscn")
+	
 	self.selected_errands[self.current_errand_id] = true
 	
 	var done_with_errands: bool = true

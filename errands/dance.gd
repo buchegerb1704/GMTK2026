@@ -4,12 +4,11 @@ extends Errand
 @export var KEY_FRAMES: Dictionary[DANCE_DIRECTIONS, int]
 @export var AUDIO_HITS: Array[AudioStream]
 @export var demo_key: Sprite2D
-@export var hit_player: AudioStreamPlayer2D
-@export var sfx_player: AudioStreamPlayer2D
 @export var guy: AnimatedSprite2D
 @export var bg: AnimatedSprite2D
 
 enum DANCE_DIRECTIONS { UP, DOWN, LEFT, RIGHT }
+const HIDE_MODULATE: Color = Color(1, 1, 1, 0.1)
 
 var dance_sequence: Array[DANCE_DIRECTIONS]
 var dance_play: Array[DANCE_DIRECTIONS]
@@ -30,7 +29,7 @@ func _ready() -> void:
 
 func demo_dance() -> void:
 	can_input = false
-	demo_key.visible = true
+	demo_key.self_modulate = Color.WHITE
 	guy.visible = false
 	dance_play = dance_sequence.duplicate()
 	next_key()
@@ -38,13 +37,12 @@ func demo_dance() -> void:
 func play_game() -> void:
 	current_step = 0
 	can_input = true
-	demo_key.visible = false
+	demo_key.self_modulate = HIDE_MODULATE
 	guy.visible = true
 	dance_play = dance_sequence.duplicate()
+	show_key_noadvance(dance_play.front())
 
 func next_key() -> void:
-	demo_key.self_modulate = Color.WHITE
-	
 	if dance_play.is_empty():
 		play_game()
 	else:
@@ -56,15 +54,22 @@ func show_key(key: DANCE_DIRECTIONS) -> void:
 	
 	var tween := demo_key.create_tween()
 	@warning_ignore_start("return_value_discarded")
-	tween.tween_property(demo_key, "scale", Vector2(1.25, 1.25), 0.025).set_ease(Tween.EASE_IN)
-	tween.tween_property(demo_key, "scale", Vector2(1.0, 1.0), 0.6)
-	tween.parallel().tween_property(demo_key, "self_modulate", Color(1, 1, 1, 0.9), 0.6).set_ease(Tween.EASE_IN)
+	tween.tween_property(demo_key, "scale", Vector2(1.33, 1.33), 0.025).set_ease(Tween.EASE_IN)
+	tween.tween_property(demo_key, "scale", Vector2(1.0, 1.0), 0.5)
 	tween.tween_callback(next_key)
 	@warning_ignore_restore("return_value_discarded")
 
+func show_key_noadvance(key: DANCE_DIRECTIONS) -> void:
+	demo_key.frame = KEY_FRAMES[key]
+	
+	var tween := demo_key.create_tween()
+	@warning_ignore_start("return_value_discarded")
+	tween.tween_property(demo_key, "scale", Vector2(1.33, 1.33), 0.025).set_ease(Tween.EASE_IN)
+	tween.tween_property(demo_key, "scale", Vector2(1.0, 1.0), 0.5)
+	@warning_ignore_restore("return_value_discarded")
+
 func correct() -> void:
-	hit_player.stream = AUDIO_HITS[current_step]
-	hit_player.play()
+	SFX.play_sound(AUDIO_HITS[current_step])
 	
 	match current_step:
 		0:
@@ -91,19 +96,20 @@ func correct() -> void:
 	
 	current_step += 1
 	
-	if current_step == dance_sequence.size():
+	if dance_play.is_empty():
 		can_input = false
-		sfx_player.stream = win_sound
-		sfx_player.play()
-		sfx_player.finished.connect(finish_errand)
+		SFX.play_sound(win_sound)
+		await get_tree().create_timer(2).timeout
+		finish_errand()
+	else:
+		show_key_noadvance(dance_play.front())
 
 func failure() -> void:
 	bg.play("bg1")
 	bg.stop()
 	guy.play("dance1")
 	guy.visible = false
-	sfx_player.stream = lose_sound
-	sfx_player.play()
+	SFX.play_sound(lose_sound)
 	demo_dance()
 
 func _input(event: InputEvent) -> void:

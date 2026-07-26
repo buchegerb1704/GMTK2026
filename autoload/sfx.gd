@@ -21,7 +21,7 @@ class SFXPlayer extends Resource:
 		self._callback = Callable()
 		self._player = AudioStreamPlayer.new()
 		self._player.bus = &"SFX"
-		self._player.finished.connect(self._player_ended)
+		@warning_ignore("return_value_discarded") self._player.finished.connect(self._player_ended)
 	
 	func _player_ended() -> void:
 		if self._callback.is_valid():
@@ -32,14 +32,10 @@ var _sfx_players: Array[SFXPlayer]
 var _free_players: Array[SFXPlayer]
 
 ## Returns false if no players available.
-func play_sound(sfx: AudioStream, callback: Callable = Callable()) -> bool:
+func play_sound(sfx: AudioStream, callback: Callable = Callable()) -> void:
 	var player: SFXPlayer = _free_players.pop_front()
-	if not player:
-		return false
-	
-	player.play(sfx, callback)
-	
-	return true
+	if player:
+		player.play(sfx, callback)
 
 func _ready_player(player: SFXPlayer) -> void:
 	player.reset()
@@ -48,7 +44,7 @@ func _ready_player(player: SFXPlayer) -> void:
 func _ready() -> void:
 	for idx in POLYPHONY:
 		var new_player := SFXPlayer.new()
-		new_player.ready.connect(_ready_player.bind(new_player))
+		@warning_ignore("return_value_discarded") new_player.ready.connect(_ready_player.bind(new_player))
 		self.add_child(new_player._player)
 		_sfx_players.append(new_player)
 	
