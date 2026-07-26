@@ -1,20 +1,56 @@
 [gd_scene format=3 uid="uid://b0j5divivmk2r"]
 
 [ext_resource type="Script" uid="uid://dw052mgf4stw" path="res://errands/nicos.gd" id="1_4mqsy"]
+[ext_resource type="PackedScene" uid="uid://b7vc1mmw04c1o" path="res://anim/game_nicos_punch/nicos_anim.tscn" id="2_8m2t3"]
+[ext_resource type="AudioStream" uid="uid://ep11xya4obxy" path="res://assets/sounds/punch1.wav" id="2_cq7xl"]
+[ext_resource type="PackedScene" uid="uid://c1t2lppf0fb76" path="res://anim/buttons/button_anim.tscn" id="3_gju0u"]
+[ext_resource type="AudioStream" uid="uid://cksmqgajt2dwv" path="res://assets/sounds/punch2.wav" id="3_vsbk1"]
+[ext_resource type="AudioStream" uid="uid://dgdlbicithtxm" path="res://assets/sounds/character_voices/nicos/nicospain2.wav" id="4_ln3sd"]
+[ext_resource type="AudioStream" uid="uid://cwtksdl37grfx" path="res://assets/sounds/punch3.wav" id="4_q2sji"]
+[ext_resource type="AudioStream" uid="uid://cmeqaufxlgecl" path="res://assets/sounds/character_voices/nicos/nicospain4.wav" id="5_bxpwx"]
+[ext_resource type="AudioStream" uid="uid://bt3flmeeya2jw" path="res://assets/sounds/character_voices/nicos/nicosdiag1.wav" id="6_om6mp"]
+[ext_resource type="AudioStream" uid="uid://bxqql8ytc5myo" path="res://assets/sounds/character_voices/nicos/nicosdiag2.wav" id="7_hijnu"]
+[ext_resource type="AudioStream" uid="uid://bviwrhxp70vp" path="res://assets/sounds/character_voices/nicos/nicosdiag3.wav" id="8_7iwrb"]
+[ext_resource type="AudioStream" uid="uid://5e36bshh150r" path="res://assets/sounds/character_voices/nicos/nicosdiag4.wav" id="9_wke3g"]
+[ext_resource type="AudioStream" uid="uid://p16px35ghlyb" path="res://assets/sounds/character_voices/nicos/nicospain1.wav" id="10_jm3cj"]
+[ext_resource type="AudioStream" uid="uid://dmad2wp6qpvvn" path="res://assets/sounds/character_voices/nicos/nicospain3.wav" id="12_53v4w"]
 
-[node name="Nicos" type="Control" unique_id=1283970993]
+[node name="Nicos" type="Control" unique_id=1283970993 node_paths=PackedStringArray("nicos_audio", "punch_audio", "nicos_anim", "a_button_anim", "d_button_anim")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_4mqsy")
+nicos_audio = NodePath("NicosAudioPlayer")
+punch_audio = NodePath("PunchAudioPlayer")
+punches = Array[AudioStreamWAV]([ExtResource("2_cq7xl"), ExtResource("3_vsbk1"), ExtResource("4_q2sji")])
+nicos_dizzy = ExtResource("5_bxpwx")
+nicos_defeat = Array[AudioStreamWAV]([ExtResource("6_om6mp"), ExtResource("7_hijnu"), ExtResource("8_7iwrb"), ExtResource("9_wke3g")])
+nicos_pain = Array[AudioStreamWAV]([ExtResource("10_jm3cj"), ExtResource("4_ln3sd"), ExtResource("12_53v4w")])
+nicos_anim = NodePath("NicosAnim")
+a_button_anim = NodePath("AButtonAnim")
+d_button_anim = NodePath("DButtonAnim")
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
-[node name="Button" type="Button" parent="." unique_id=382134349]
-layout_mode = 0
-offset_left = 505.0
-offset_top = 373.0
-offset_right = 821.0
-offset_bottom = 457.0
-theme_override_font_sizes/font_size = 32
-text = "click to pass"
+[node name="NicosAnim" parent="." unique_id=1255409841 instance=ExtResource("2_8m2t3")]
+position = Vector2(640, 360)
 
-[connection signal="pressed" from="Button" to="." method="finish_errand"]
+[node name="AButtonAnim" parent="." unique_id=593024711 instance=ExtResource("3_gju0u")]
+position = Vector2(164, 240)
+animation = &"button_a"
+
+[node name="DButtonAnim" parent="." unique_id=756874362 instance=ExtResource("3_gju0u")]
+position = Vector2(1116, 240)
+animation = &"button_d"
+
+[node name="NicosAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=457522713]
+stream = ExtResource("4_ln3sd")
+bus = &"SFX"
+
+[node name="PunchAudioPlayer" type="AudioStreamPlayer" parent="." unique_id=856078129]
+stream = ExtResource("2_cq7xl")
+bus = &"SFX"
+
+[connection signal="animation_finished" from="NicosAnim" to="." method="_on_nicos_anim_animation_finished"]

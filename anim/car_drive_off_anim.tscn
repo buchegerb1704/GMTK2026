@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://6xa5tv7kwwhl"]
+
+[ext_resource type="Texture2D" uid="uid://ci7fm5g67dsvx" path="res://assets/sprites/Car/CarJumpGuy_720x1280.png" id="1_oqa10"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhu6j"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qncvq"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su6mx"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu6tl"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmyni"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48kvn"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(0, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ci3n"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(1280, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38kpw"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(2560, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qupi"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(3840, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm2of"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(5120, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le0pt"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(0, 1440, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej2al"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(1280, 1440, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kncy4"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(2560, 1440, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3and"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(3840, 1440, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x1dx"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(5120, 1440, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq3lq"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(0, 2160, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h3js"]
+atlas = ExtResource("1_oqa10")
+region = Rect2(1280, 2160, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g443r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhu6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qncvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su6mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu6tl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmyni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48kvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ci3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38kpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qupi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm2of")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le0pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej2al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kncy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3and")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x1dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq3lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h3js")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="CarDriveOffAnim" type="AnimatedSprite2D" unique_id=1024234668]
+sprite_frames = SubResource("SpriteFrames_g443r")
+frame = 16
+frame_progress = 1.0

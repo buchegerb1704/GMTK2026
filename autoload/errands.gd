@@ -56,4 +56,4 @@ func finish() -> void:
 	if done_with_errands:
 		Scenes.goto_by_name("res://ui/win_screen.tscn")
 	else:
-		Scenes.goto_by_name("res://ui/errand_picker.tscn")
+		Scenes.goto_by_name("res://cutscenes/drive_off.tscn")

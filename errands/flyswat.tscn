@@ -1,20 +1,99 @@
 [gd_scene format=3 uid="uid://m684heup8lfb"]
 
 [ext_resource type="Script" uid="uid://cjmhsab8e1u5l" path="res://errands/flyswat.gd" id="1_debba"]
+[ext_resource type="PackedScene" uid="uid://d4lcbpkr0kxhb" path="res://anim/game_fly_swat/fly_swatter_anim.tscn" id="2_k47kp"]
+[ext_resource type="Script" uid="uid://dui87wv5xaimf" path="res://classes/follow_mouse.gd" id="3_5i7m4"]
+[ext_resource type="Texture2D" uid="uid://cowj43e4hbvpq" path="res://assets/sprites/Game_Swatter/BKG_FlySwatter_Turkey.png" id="3_8pwix"]
+[ext_resource type="PackedScene" uid="uid://c5rgmuxrdj4mc" path="res://errands/errand_objects/fly.tscn" id="3_ftmtb"]
 
-[node name="Flyswat" type="Control" unique_id=253384316]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nuey1"]
+size = Vector2(126, 127.666664)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g443r"]
+size = Vector2(159.56458, 97.21225)
+
+[node name="Flyswat" type="Control" unique_id=1816390931 node_paths=PackedStringArray("fly_swatter_anim", "fly_swatter_area")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_debba")
-metadata/_custom_type_script = "uid://ckpjtc51qps3c"
+fly_swatter_anim = NodePath("SwatterRect/FlySwatterAnim")
+fly_swatter_area = NodePath("SwatterRect/FlySwatterStaticBody")
+fly_scene = ExtResource("3_ftmtb")
 
-[node name="Button" type="Button" parent="." unique_id=213294005]
-layout_mode = 0
-offset_left = 505.0
-offset_top = 373.0
-offset_right = 821.0
-offset_bottom = 457.0
-theme_override_font_sizes/font_size = 32
-text = "click to pass"
+[node name="Background" type="TextureRect" parent="." unique_id=1444133624]
+modulate = Color(1, 1, 1, 0.7607843)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8pwix")
+expand_mode = 3
+stretch_mode = 3
 
-[connection signal="pressed" from="Button" to="." method="finish_errand"]
+[node name="Wall" type="StaticBody2D" parent="." unique_id=864187600]
+position = Vector2(-13, 360)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1517846240]
+position = Vector2(1, -3)
+scale = Vector2(0.2, 6)
+shape = SubResource("RectangleShape2D_nuey1")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=202135813]
+position = Vector2(1291, 360)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=1345769817]
+position = Vector2(1, -3)
+scale = Vector2(0.2, 6)
+shape = SubResource("RectangleShape2D_nuey1")
+
+[node name="Wall3" type="StaticBody2D" parent="." unique_id=57600989]
+position = Vector2(640, -12)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3" unique_id=943744481]
+scale = Vector2(10.5, 0.2)
+shape = SubResource("RectangleShape2D_nuey1")
+
+[node name="Wall4" type="StaticBody2D" parent="." unique_id=39244521]
+position = Vector2(640, 732)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4" unique_id=392943548]
+scale = Vector2(10.5, 0.2)
+shape = SubResource("RectangleShape2D_nuey1")
+
+[node name="SwatterRect" type="TextureRect" parent="." unique_id=482200075]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(351, 356)
+mouse_filter = 2
+expand_mode = 3
+stretch_mode = 3
+script = ExtResource("3_5i7m4")
+
+[node name="FlySwatterAnim" parent="SwatterRect" unique_id=706974749 instance=ExtResource("2_k47kp")]
+position = Vector2(319, 593)
+
+[node name="FlySwatterStaticBody" type="Area2D" parent="SwatterRect" unique_id=82547981]
+disable_mode = 2
+collision_layer = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwatterRect/FlySwatterStaticBody" unique_id=754373300]
+position = Vector2(374, 326.99997)
+rotation = 0.12940967
+shape = SubResource("RectangleShape2D_g443r")
+
+[connection signal="animation_finished" from="SwatterRect/FlySwatterAnim" to="." method="_on_fly_swatter_anim_animation_finished"]

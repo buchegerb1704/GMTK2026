@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://rs8omah20ixi"]
 
 [ext_resource type="Script" uid="uid://dbunyimx2ea2i" path="res://ui/parking_meter.gd" id="1_y4a7b"]
-[ext_resource type="Texture2D" uid="uid://iaki824wt6k6" path="res://assets/sprites/parkingmeter/meter_plain.png" id="2_70vjj"]
-[ext_resource type="Texture2D" uid="uid://bfib0e8yft6m0" path="res://assets/sprites/parkingmeter/blue_unpressed.png" id="3_ia61d"]
-[ext_resource type="Texture2D" uid="uid://2u1vtlndbvjw" path="res://assets/sprites/parkingmeter/blue_pressed.png" id="4_ef6s3"]
-[ext_resource type="Texture2D" uid="uid://de860gqw2e2qx" path="res://assets/sprites/parkingmeter/green_unpressed.png" id="5_0bhvu"]
-[ext_resource type="Texture2D" uid="uid://dhg6yhywkqng7" path="res://assets/sprites/parkingmeter/green_pressed.png" id="6_uas0w"]
-[ext_resource type="Texture2D" uid="uid://diwgn1u7dfmye" path="res://assets/sprites/parkingmeter/red_unpressed.png" id="7_ft7yh"]
-[ext_resource type="Texture2D" uid="uid://dic118ydk5qbk" path="res://assets/sprites/parkingmeter/red_pressed.png" id="8_7lx55"]
+[ext_resource type="PackedScene" uid="uid://cto5aeij4gffy" path="res://anim/parking_meter/parking_meter_anim.tscn" id="2_ft7yh"]
+[ext_resource type="PackedScene" uid="uid://cmk0hfh5pybpe" path="res://anim/parking_meter/hand_deposit_anim.tscn" id="3_7lx55"]
+[ext_resource type="Texture2D" uid="uid://dnevggx63kmj6" path="res://assets/sprites/GUI/parkingmeter/sign_addtime.png" id="4_jiovp"]
+[ext_resource type="Script" uid="uid://bmf3a2m3cmycj" path="res://classes/texture_button_automask.gd" id="5_7lx55"]
+[ext_resource type="Texture2D" uid="uid://evt2jn2681ce" path="res://assets/sprites/GUI/parkingmeter/sign_addtime_hover.png" id="5_830a1"]
+[ext_resource type="Texture2D" uid="uid://cl016j8oi4l8e" path="res://assets/sprites/GUI/parkingmeter/sign_go.png" id="6_jiovp"]
+[ext_resource type="Texture2D" uid="uid://cmkwvuh3t7usu" path="res://assets/sprites/GUI/parkingmeter/sign_go_hover.png" id="8_1rck0"]
 [ext_resource type="FontFile" uid="uid://cqjtwqtn3ltto" path="res://assets/fonts/Silkscreen-Bold.ttf" id="9_70vjj"]
-[ext_resource type="Texture2D" uid="uid://xy3w6afqv6xd" path="res://assets/sprites/Game_GrabGrocery/HandPointer_FlipME.png" id="10_0bhvu"]
-[ext_resource type="Script" uid="uid://cx8wy6agky1c2" path="res://ui/follow_mouse_with_click.gd" id="11_0bhvu"]
-[ext_resource type="PackedScene" uid="uid://2s3p2svrae6d" path="res://anim/hand_poke_anim.tscn" id="12_ft7yh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_70vjj"]
+font_size = 80
 
 [sub_resource type="LabelSettings" id="LabelSettings_akgpf"]
 font = ExtResource("9_70vjj")
@@ -21,10 +21,7 @@ shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.2509804)
 shadow_offset = Vector2(-1, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_70vjj"]
-font_size = 32
-
-[node name="ParkingMeter" type="Control" unique_id=1470506198 node_paths=PackedStringArray("meter_screen", "coins_label")]
+[node name="ParkingMeter" type="Control" unique_id=1470506198 node_paths=PackedStringArray("meter_screen", "coins_label", "parking_meter_anim", "hand_deposit_anim", "add_time_button", "go_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,101 +31,73 @@ grow_vertical = 2
 script = ExtResource("1_y4a7b")
 meter_screen = NodePath("MeterScreen")
 coins_label = NodePath("CoinsLabel")
+parking_meter_anim = NodePath("ParkingMeterAnim")
+hand_deposit_anim = NodePath("HandDepositAnim")
+add_time_button = NodePath("AddTimeButton")
+go_button = NodePath("GoButton")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1207991273]
-color = Color(0.7125, 0.9341666, 0.95, 1)
-polygon = PackedVector2Array(591, 102, 677, 75, 773, 89, 854, 169, 873, 253, 530, 376, 506, 278, 519, 168)
-uv = PackedVector2Array(1, -2, 137, -59, 295, -45, 316, 46)
+[node name="ParkingMeterAnim" parent="." unique_id=1376439558 instance=ExtResource("2_ft7yh")]
+position = Vector2(640, 360)
+frame = 9
+frame_progress = 1.0
 
-[node name="MeterSprite" type="TextureRect" parent="." unique_id=1782755427]
+[node name="HandDepositAnim" parent="." unique_id=1628991893 instance=ExtResource("3_7lx55")]
+visible = false
+position = Vector2(640, 360)
+
+[node name="AddTimeButton" type="TextureButton" parent="." unique_id=357721632]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_70vjj")
-expand_mode = 1
+texture_normal = ExtResource("4_jiovp")
+texture_hover = ExtResource("5_830a1")
 stretch_mode = 5
+script = ExtResource("5_7lx55")
 
-[node name="StartButton" type="TextureButton" parent="MeterSprite" unique_id=1759182570]
-layout_mode = 0
-offset_left = 561.00006
-offset_top = 285.00003
-offset_right = 995.00006
-offset_bottom = 521.0
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("3_ia61d")
-texture_pressed = ExtResource("4_ef6s3")
+[node name="GoButton" type="TextureButton" parent="." unique_id=1157881327]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_jiovp")
+texture_hover = ExtResource("8_1rck0")
+stretch_mode = 5
+script = ExtResource("5_7lx55")
 
-[node name="PlusButton" type="TextureButton" parent="MeterSprite" unique_id=1180750707]
+[node name="CoinsLabel" type="Label" parent="." unique_id=470933387]
+visible = false
 layout_mode = 0
-offset_left = 733.00006
-offset_top = 375.0
-offset_right = 919.00006
+offset_left = 90.00001
+offset_top = 424.00003
+offset_right = 251.91275
 offset_bottom = 546.0
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("5_0bhvu")
-texture_pressed = ExtResource("6_uas0w")
-
-[node name="MinusButton" type="TextureButton" parent="MeterSprite" unique_id=1595822809]
-layout_mode = 0
-offset_left = 579.0
-offset_top = 423.0
-offset_right = 806.0
-offset_bottom = 601.0
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("7_ft7yh")
-texture_pressed = ExtResource("8_7lx55")
+rotation = -0.0795827
+text = "0"
+label_settings = SubResource("LabelSettings_70vjj")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MeterScreen" type="Label" parent="." unique_id=917486800]
+visible = false
 layout_mode = 0
-offset_left = 514.99994
-offset_top = 218.99997
-offset_right = 816.99994
-offset_bottom = 325.99997
-rotation = -0.34165463
+offset_left = 543.0
+offset_top = 300.0
+offset_right = 845.0
+offset_bottom = 413.0
+rotation = -0.07310538
 text = "$0.00
 00 sec."
 label_settings = SubResource("LabelSettings_akgpf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CoinsLabel" type="Label" parent="." unique_id=470933387]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 26.0
-text = "you have %d coins left"
-label_settings = SubResource("LabelSettings_70vjj")
-
-[node name="HandPoke" type="TextureRect" parent="." unique_id=1988395355 node_paths=PackedStringArray("hand_poke_anim")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 449.1507
-offset_top = -16.52948
-offset_right = 449.15063
-offset_bottom = -16.52948
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.46721554
-pivot_offset = Vector2(626.11865, 191.50531)
-mouse_filter = 2
-texture = ExtResource("10_0bhvu")
-expand_mode = 3
-stretch_mode = 3
-flip_h = true
-script = ExtResource("11_0bhvu")
-hand_poke_anim = NodePath("../HandPokeAnim")
-
-[node name="HandPokeAnim" parent="." unique_id=307547356 instance=ExtResource("12_ft7yh")]
-visible = false
-position = Vector2(430.00003, 286)
-rotation = -0.4672155
-offset = Vector2(76.39374, 203.7804)
-flip_h = true
-
-[connection signal="pressed" from="MeterSprite/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MeterSprite/PlusButton" to="." method="_on_plus_button_pressed"]
-[connection signal="pressed" from="MeterSprite/MinusButton" to="." method="_on_minus_button_pressed"]
+[connection signal="animation_finished" from="ParkingMeterAnim" to="." method="_on_parking_meter_anim_animation_finished"]
+[connection signal="pressed" from="AddTimeButton" to="." method="_on_plus_button_pressed"]
+[connection signal="pressed" from="GoButton" to="." method="_on_start_button_pressed"]

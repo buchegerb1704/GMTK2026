@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c5rgmuxrdj4mc"]
+
+[ext_resource type="Script" uid="uid://dunb1b4qcd0lh" path="res://errands/fly_movement.gd" id="1_0od1q"]
+[ext_resource type="PackedScene" uid="uid://d1hrwtafs2gv3" path="res://anim/game_fly_swat/fly_anim.tscn" id="2_n1i87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f3dm"]
+size = Vector2(41, 31)
+
+[node name="Fly" type="StaticBody2D" unique_id=1913693035 node_paths=PackedStringArray("fly_anim")]
+collision_mask = 4
+script = ExtResource("1_0od1q")
+fly_anim = NodePath("FlyAnim")
+
+[node name="FlyAnim" parent="." unique_id=1236643682 instance=ExtResource("2_n1i87")]
+position = Vector2(-8.5, -4.5)
+animation = &"default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=565212227]
+shape = SubResource("RectangleShape2D_4f3dm")
+
+[connection signal="animation_changed" from="FlyAnim" to="." method="_on_fly_anim_animation_changed"]
+[connection signal="animation_finished" from="FlyAnim" to="." method="_on_fly_anim_animation_finished"]

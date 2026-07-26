@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://d4lcbpkr0kxhb"]
+
+[ext_resource type="Texture2D" uid="uid://l2qtrgu27ips" path="res://assets/sprites/Game_Swatter/FlySwatterHand_3frames_720x1280.png" id="1_8ns6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc7ly"]
+atlas = ExtResource("1_8ns6k")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrin8"]
+atlas = ExtResource("1_8ns6k")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5lsk"]
+atlas = ExtResource("1_8ns6k")
+region = Rect2(0, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04mfh"]
+atlas = ExtResource("1_8ns6k")
+region = Rect2(0, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vag8m"]
+atlas = ExtResource("1_8ns6k")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u8dl"]
+atlas = ExtResource("1_8ns6k")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5mxoi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc7ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrin8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5lsk")
+}],
+"loop": 0,
+"name": &"swat_down",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04mfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vag8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u8dl")
+}],
+"loop": 0,
+"name": &"swat_up",
+"speed": 16.0
+}]
+
+[node name="FlySwatterAnim" type="AnimatedSprite2D" unique_id=706974749]
+sprite_frames = SubResource("SpriteFrames_5mxoi")
+animation = &"swat_down"

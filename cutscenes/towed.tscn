@@ -1,9 +1,86 @@
 [gd_scene format=3 uid="uid://tjqrjith8hta"]
 
 [ext_resource type="Script" uid="uid://c3x26bapcky4i" path="res://classes/cutscene.gd" id="1_kka6a"]
+[ext_resource type="PackedScene" uid="uid://dj68xc44vf70v" path="res://anim/car_tow_guy_anim.tscn" id="2_jdi7i"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_akgpf"]
-font_size = 72
+[sub_resource type="Animation" id="Animation_hoekc"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [763.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CarTowGuyAnim:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_jdi7i"]
+resource_name = "button_in"
+length = 3.1666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2, 2.7666667, 2.9333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [763.0, 763.0, 480.0, 531.0]
+}
+
+[sub_resource type="Animation" id="Animation_bd1cg"]
+resource_name = "fade-in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bd1cg"]
+_data = {
+&"RESET": SubResource("Animation_hoekc"),
+&"button_in": SubResource("Animation_jdi7i"),
+&"fade-in": SubResource("Animation_bd1cg")
+}
 
 [node name="Towed" type="Control" unique_id=71245673]
 layout_mode = 3
@@ -11,21 +88,38 @@ anchors_preset = 0
 script = ExtResource("1_kka6a")
 metadata/_custom_type_script = "uid://c3x26bapcky4i"
 
-[node name="Label" type="Label" parent="." unique_id=1488374197]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 359.0
-offset_right = 523.0
-offset_bottom = 470.0
-text = "you got towed."
-label_settings = SubResource("LabelSettings_akgpf")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1819884494]
+libraries/ = SubResource("AnimationLibrary_bd1cg")
+autoplay = &"RESET"
+next/RESET = &"fade-in"
+next/fade-in = &"button_in"
+
+[node name="CarTowGuyAnim" parent="." unique_id=1500691246 instance=ExtResource("2_jdi7i")]
+position = Vector2(640, 360)
+autoplay = "default"
+frame = 1
+frame_progress = 0.0
 
 [node name="Button" type="Button" parent="." unique_id=878761721]
 layout_mode = 0
-offset_left = 468.0
-offset_top = 483.0
-offset_right = 730.0
-offset_bottom = 517.0
-text = "click here to go to the main menu"
+offset_left = 509.0
+offset_top = 763.0
+offset_right = 771.0
+offset_bottom = 797.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "return to the main menu"
 
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=92484142]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
 [connection signal="pressed" from="Button" to="." method="end_cutscene"]

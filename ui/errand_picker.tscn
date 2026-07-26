@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhyoqx1xstk28" path="res://ui/errand_picker.gd" id="1_kd6fg"]
 [ext_resource type="Texture2D" uid="uid://dx2dro3ajpo5v" path="res://assets/sprites/GUI/Checklist_Paper.png" id="2_ldx4k"]
-[ext_resource type="Texture2D" uid="uid://b7oweyciry2yd" path="res://assets/sprites/GUI/Backdrops/Parked_Interior_Checklist_BKG.png" id="2_s2tq7"]
+[ext_resource type="PackedScene" uid="uid://dh2h5m3yw0so7" path="res://anim/checklist_car_interior_driving.tscn" id="2_s2tq7"]
 [ext_resource type="Texture2D" uid="uid://bm7ir8qgtdeol" path="res://assets/sprites/GUI/Checklist_Hand.png" id="3_3urrw"]
 [ext_resource type="Script" uid="uid://dui87wv5xaimf" path="res://classes/follow_mouse.gd" id="3_8l3vd"]
 
@@ -25,19 +25,8 @@ script = ExtResource("1_kd6fg")
 errand_container = NodePath("PaperHand/Paper/ErrandList")
 errand_desc = NodePath("ColorRect/ErrandDesc")
 
-[node name="Background" type="TextureRect" parent="." unique_id=534455469]
-modulate = Color(1, 1, 1, 0.81960785)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = -30.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_s2tq7")
-expand_mode = 3
-stretch_mode = 3
+[node name="ChecklistCarInteriorDriving" parent="." unique_id=882573550 instance=ExtResource("2_s2tq7")]
+position = Vector2(640, 330)
 
 [node name="PaperHand" type="TextureRect" parent="." unique_id=261932526]
 layout_mode = 1
