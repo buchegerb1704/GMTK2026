@@ -1,20 +1,22 @@
 [gd_scene format=3 uid="uid://b0j5divivmk2r"]
 
 [ext_resource type="Script" uid="uid://dw052mgf4stw" path="res://errands/nicos.gd" id="1_4mqsy"]
+[ext_resource type="PackedScene" uid="uid://b7vc1mmw04c1o" path="res://anim/game_nicos_punch/nicos_anim.tscn" id="2_8m2t3"]
 
-[node name="Nicos" type="Control" unique_id=1283970993]
+[node name="Nicos" type="Control" unique_id=1283970993 node_paths=PackedStringArray("nicos_anim")]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_4mqsy")
+nicos_anim = NodePath("NicosAnim")
 metadata/_custom_type_script = "uid://ckpjtc51qps3c"
 
-[node name="Button" type="Button" parent="." unique_id=382134349]
-layout_mode = 0
-offset_left = 505.0
-offset_top = 373.0
-offset_right = 821.0
-offset_bottom = 457.0
-theme_override_font_sizes/font_size = 32
-text = "click to pass"
+[node name="NicosAnim" parent="." unique_id=1255409841 instance=ExtResource("2_8m2t3")]
+position = Vector2(640, 360)
+frame = 12
+frame_progress = 1.0
 
-[connection signal="pressed" from="Button" to="." method="finish_errand"]
+[connection signal="animation_finished" from="NicosAnim" to="." method="_on_nicos_anim_animation_finished"]
