@@ -5,12 +5,18 @@ const SECS_PER_COIN: int = 15
 @export var meter_screen: Label
 @export var coins_label: Label
 
+@export var parking_meter_anim: AnimatedSprite2D
+@export var hand_deposit_anim: AnimatedSprite2D
+
+@export var add_time_button: TextureButton
+@export var go_button: TextureButton
+
 var current_inserted_coins: int = 0
 var current_meter_time: int = 0
 
 func _ready() -> void:
 	var coins_left: int = Errands.coins - current_inserted_coins
-	coins_label.text = "you have %d coins left" % coins_left
+	coins_label.text = "%d" % coins_left
 
 func _on_start_button_pressed() -> void:
 	Errands.coins -= current_inserted_coins
@@ -26,6 +32,9 @@ func _on_minus_button_pressed() -> void:
 		remove_coin()
 
 func add_coin() -> void:
+	if hand_deposit_anim.is_playing(): return
+	hand_deposit_anim.play("deposit")
+	parking_meter_anim.play("deposit")
 	current_inserted_coins += 1
 	current_meter_time = current_inserted_coins * SECS_PER_COIN
 	update_meter_screen()
@@ -42,4 +51,13 @@ func update_meter_screen() -> void:
 	meter_screen.text = "$%d.%02d\n%d sec." % [dollars, cents, current_meter_time]
 	
 	var coins_left: int = Errands.coins - current_inserted_coins
-	coins_label.text = "you have %d coins left" % coins_left
+	coins_label.text = "%d" % coins_left
+
+func _on_parking_meter_anim_animation_finished() -> void:
+	if (parking_meter_anim.animation == "runup"):
+		hand_deposit_anim.visible = true
+		add_time_button.visible = true
+		go_button.visible = true
+		coins_label.visible = true
+		meter_screen.visible = true
+		hand_deposit_anim.play("show_hands")

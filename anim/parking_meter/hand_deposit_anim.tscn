@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cmk0hfh5pybpe"]
+
+[ext_resource type="Texture2D" uid="uid://xklhb28pkpeg" path="res://assets/sprites/GUI/parkingmeter/NEW METER SETUP/Meter_Deposit_Hands.png" id="1_o8fbh"]
+[ext_resource type="Texture2D" uid="uid://cgmjdqwc8p180" path="res://assets/sprites/GUI/parkingmeter/NEW METER SETUP/Meter_ShowHands.png" id="2_a80jn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d1fv"]
+atlas = ExtResource("1_o8fbh")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vjjd"]
+atlas = ExtResource("1_o8fbh")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5wbn"]
+atlas = ExtResource("1_o8fbh")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwr0h"]
+atlas = ExtResource("1_o8fbh")
+region = Rect2(3840, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykpji"]
+atlas = ExtResource("1_o8fbh")
+region = Rect2(5120, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwtah"]
+atlas = ExtResource("1_o8fbh")
+region = Rect2(6400, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jly7p"]
+atlas = ExtResource("2_a80jn")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oil5x"]
+atlas = ExtResource("2_a80jn")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r75o"]
+atlas = ExtResource("2_a80jn")
+region = Rect2(0, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72in2"]
+atlas = ExtResource("2_a80jn")
+region = Rect2(1280, 720, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yq4oj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d1fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vjjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5wbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwr0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykpji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwtah")
+}],
+"loop": 0,
+"name": &"deposit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jly7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oil5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r75o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72in2")
+}],
+"loop": 0,
+"name": &"show_hands",
+"speed": 10.0
+}]
+
+[node name="HandDepositAnim" type="AnimatedSprite2D" unique_id=1628991893]
+sprite_frames = SubResource("SpriteFrames_yq4oj")
+animation = &"deposit"
+frame = 5
+frame_progress = 1.0
