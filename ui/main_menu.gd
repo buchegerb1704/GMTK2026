@@ -4,6 +4,7 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_start_button_pressed() -> void:
+	Errands.reset_errands()
 	Scenes.next = preload("res://ui/errand_picker.tscn")
 	Scenes.goto(preload("res://cutscenes/driving.tscn"))
 

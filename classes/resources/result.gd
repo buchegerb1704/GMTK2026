@@ -1,5 +1,4 @@
-class_name Result
-extends RefCounted
+class_name Result extends Resource
 
 var _is_ok: bool
 var _value: Variant

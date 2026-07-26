@@ -5,7 +5,7 @@ extends Control
 
 func _ready() -> void:
 	for errand_id: StringName in Errands.selected_errands:
-		var errand: ErrandInfo = Config.ERRAND_DB[errand_id]
+		var errand: ErrandInfo = Errands.ERRAND_DB[errand_id]
 		var completed: bool = Errands.selected_errands[errand_id]
 		
 		var errand_option := Button.new()
@@ -38,7 +38,7 @@ func _ready() -> void:
 		errand_container.add_child(errand_option)
 
 func errand_focused(errand_id: StringName) -> void:
-	var errand: ErrandInfo = Config.ERRAND_DB[errand_id]
+	var errand: ErrandInfo = Errands.ERRAND_DB[errand_id]
 	errand_desc.text = errand.description
 
 func errand_selected(errand_id: StringName) -> void:

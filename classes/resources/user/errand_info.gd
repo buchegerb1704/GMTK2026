@@ -1,4 +1,4 @@
-class_name ErrandInfo extends Resource
+class_name ErrandInfo extends UserResource
 
 @export var title: String
 @export var description: String

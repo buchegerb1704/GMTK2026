@@ -1,20 +1,29 @@
 extends Node
 
+var ERRAND_DB: Dictionary[StringName, ErrandInfo]
+
 var selected_errands: Dictionary[StringName, bool] # bool is whether completed
 var current_errand_id: StringName
 var current_errand_scene_file: String
 var current_errand_packed_scene: PackedScene
 
-var coins: int = 20
 var meter_time: int = 0
 var meter_running: bool = false
 
+var coins: int
+
+func _init() -> void:
+	ERRAND_DB.assign(preload("res://config/errand_db.tres").data)
+	reset_errands()
+
 func reset_errands() -> void:
-	var number_of_errands := randi_range(3, 5)
+	coins = Config.START_COINS
+	
+	var number_of_errands := randi_range(Config.ERRANDS_MIN, Config.ERRANDS_MAX)
 	
 	selected_errands.clear()
 	
-	var errand_ids := Config.ERRAND_DB.keys()
+	var errand_ids := ERRAND_DB.keys()
 	errand_ids.shuffle()
 	
 	var id_slice := errand_ids.slice(0, number_of_errands)
@@ -22,7 +31,7 @@ func reset_errands() -> void:
 		selected_errands[id] = false
 
 func select(errand_id: StringName) -> void:
-	var errand: ErrandInfo = Config.ERRAND_DB[errand_id]
+	var errand: ErrandInfo = ERRAND_DB[errand_id]
 	
 	current_errand_id = errand_id
 	current_errand_scene_file = errand.scene_file
@@ -47,7 +56,4 @@ func finish() -> void:
 	if done_with_errands:
 		Scenes.goto_by_name("res://ui/win_screen.tscn")
 	else:
-		Scenes.goto(preload("res://cutscenes/drive_off.tscn"))
-
-func _ready() -> void:
-	reset_errands()
+		Scenes.goto_by_name("res://cutscenes/drive_off.tscn")
