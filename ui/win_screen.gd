@@ -5,11 +5,10 @@ extends Cutscene
 @export var win_anim: AnimatedSprite2D
 @export var anim_player: AnimationPlayer
 
-@export var music_audio: AudioStreamPlayer
 @export var sfx_audio: AudioStreamPlayer
 
 @export var sound_list: Array[AudioStreamWAV]
-@export var music_list: Array[AudioStreamWAV]
+@export var lullaby: AudioStreamWAV = load("res://assets/music/Lullabyforalegendbutlouder.wav")
 
 @export var credits_list: Array[TextureRect]
 
@@ -22,14 +21,13 @@ func _ready() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if (anim_name == "car_move_animation"):
-		music_audio.stop()
+		Music.stop()
 		sfx_audio.stream = sound_list[1]
 		sfx_audio.play()
 	elif (anim_name == "blackscreen"):
 		for credit in credits_list:
 			credit.visible = true
-		music_audio.stream = music_list[0]
-		music_audio.play()
+		Music.play_stem(Music.Stem.LULLABY)
 		anim_player.play("credits")
 	elif (anim_name == "credits"):
 		main_menu_button.visible = true

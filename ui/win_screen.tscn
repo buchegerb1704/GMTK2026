@@ -15,11 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://bqx34y3oegkds" path="res://assets/sprites/Transition/Transition_Building_Middleground_Blured.png" id="7_jitmb"]
 [ext_resource type="Texture2D" uid="uid://wrqf03mk5aa7" path="res://assets/sprites/Transition/Transition_Building_Foreground.png" id="8_fvcv5"]
 [ext_resource type="Texture2D" uid="uid://dnh1lik5wo3k0" path="res://assets/sprites/Transition/Transition_Building_Foreground_Blured.png" id="9_3gj4n"]
-[ext_resource type="AudioStream" uid="uid://cgj3doy3cg3xf" path="res://assets/music/Lullabyforalegendbutlouder.wav" id="9_8ndq6"]
 [ext_resource type="Texture2D" uid="uid://cjxk8sldna1tw" path="res://assets/sprites/Transition/Transition_Road_2.png" id="10_2k76d"]
 [ext_resource type="PackedScene" uid="uid://cel63mf4vsf4k" path="res://anim/car_anim.tscn" id="11_yrdaa"]
 [ext_resource type="AudioStream" uid="uid://bhypeqddrxu7g" path="res://assets/sounds/carnoise.wav" id="12_43ovl"]
-[ext_resource type="AudioStream" uid="uid://dh0n5b88fc3oc" path="res://assets/music/gameplayC.wav" id="19_3gj4n"]
 [ext_resource type="Texture2D" uid="uid://oijhe44wxeb7" path="res://assets/sprites/WIN GAME/Credits_Alice.png" id="20_7l6og"]
 [ext_resource type="Texture2D" uid="uid://dos3un1etp5f4" path="res://assets/sprites/WIN GAME/Credits_Ash.png" id="21_ux0qd"]
 [ext_resource type="Texture2D" uid="uid://dd8ub5g0op8y" path="res://assets/sprites/WIN GAME/Credits_Cat.png" id="22_4tnl5"]
@@ -442,7 +440,7 @@ func _on_pressed() -> void:
 	Scenes.goto_by_name(\"res://ui/main_menu.tscn\")
 "
 
-[node name="WinScreen" type="Control" unique_id=427337819 node_paths=PackedStringArray("main_menu_button", "win_anim", "anim_player", "music_audio", "sfx_audio", "credits_list")]
+[node name="WinScreen" type="Control" unique_id=427337819 node_paths=PackedStringArray("main_menu_button", "win_anim", "anim_player", "sfx_audio", "credits_list")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -453,10 +451,8 @@ script = ExtResource("1_1qcl6")
 main_menu_button = NodePath("Button")
 win_anim = NodePath("WinAnim")
 anim_player = NodePath("AnimationPlayer")
-music_audio = NodePath("MusicPlayer")
 sfx_audio = NodePath("SfxPlayer")
 sound_list = Array[AudioStreamWAV]([ExtResource("12_43ovl"), ExtResource("3_usekm"), ExtResource("4_uvos5"), ExtResource("5_lhkgm"), ExtResource("6_jitmb"), ExtResource("7_3gj4n"), ExtResource("7_fvcv5")])
-music_list = Array[AudioStreamWAV]([ExtResource("9_8ndq6")])
 credits_list = [NodePath("TransitionRect/AliceCredits"), NodePath("TransitionRect/AshCredits"), NodePath("TransitionRect/CatCredits"), NodePath("TransitionRect/DevinCredits"), NodePath("TransitionRect/HerbCredits"), NodePath("TransitionRect/MaxCredits"), NodePath("TransitionRect/MollyCredits"), NodePath("TransitionRect/NicosCredits"), NodePath("TransitionRect/RileyCredits"), NodePath("TransitionRect/ThanksCredits")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1193589351]
@@ -689,12 +685,6 @@ script = SubResource("GDScript_7dp3f")
 stream = ExtResource("12_43ovl")
 autoplay = true
 bus = &"SFX"
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=728464081]
-stream = ExtResource("19_3gj4n")
-volume_db = -6.0
-autoplay = true
-bus = &"Music"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="WinAnim" to="." method="_on_win_anim_animation_finished"]

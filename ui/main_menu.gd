@@ -6,10 +6,8 @@ extends Control
 @export var music_volume_label: Label
 
 @export var menu_sfx: AudioStreamPlayer
-@export var menu_music: AudioStreamPlayer
 
 @export var sfx_list: Array[AudioStreamWAV]
-@export var music_list: Array[AudioStreamWAV]
 
 var sfx := AudioServer.get_bus_index("SFX")
 var music := AudioServer.get_bus_index("Music")
@@ -18,22 +16,20 @@ var _sfx_volume: float = 1.0
 var _music_volume: float = 1.0
 
 func _ready() -> void:
+	Music.play_stem_next(Music.Stem.MENU_A)
 	options_menu.visible = false
 	_sfx_volume = AudioServer.get_bus_volume_linear(sfx)
 	_music_volume =AudioServer.get_bus_volume_linear(music)
 	_reset_label_text()
-	menu_music.stream = music_list[0]
-	menu_music.play()
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 func _on_start_button_pressed() -> void:
-	if menu_music.stream != music_list[3]:
-		menu_sfx.stream = sfx_list[2]
-		menu_sfx.play()
-		menu_music.stream = music_list[3]
-		menu_music.play()
+	Music.switch_gameplay()
+	Errands.reset_errands()
+	Scenes.next = load("res://ui/errand_picker.tscn")
+	Scenes.goto_by_name("res://cutscenes/driving.tscn")
 
 func _on_options_button_pressed() -> void:
 	options_menu.visible = true
@@ -76,17 +72,3 @@ func _reset_label_text() -> void:
 	AudioServer.set_bus_volume_linear(music, _music_volume)
 	sound_volume_label.text = "%d" % (_sfx_volume * 100)
 	music_volume_label.text = "%d" % (_music_volume * 100)
-
-func _on_audio_stream_player_finished() -> void:
-	if menu_music.stream == music_list[3]:
-		Errands.reset_errands()
-		Scenes.next = preload("res://ui/errand_picker.tscn")
-		Scenes.goto(preload("res://cutscenes/driving.tscn"))
-
-	elif menu_music.stream == music_list[0]:
-		menu_music.stream = music_list[1]
-	elif menu_music.stream == music_list[1]:
-		menu_music.stream = music_list[2]
-	elif menu_music.stream == music_list[2]:
-		menu_music.stream = music_list[1]
-	menu_music.play()

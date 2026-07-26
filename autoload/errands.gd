@@ -38,6 +38,8 @@ func select(errand_id: StringName) -> void:
 	@warning_ignore("return_value_discarded")
 	ResourceLoader.load_threaded_request(current_errand_scene_file, "PackedScene")
 	
+	Music.switch_gameplay()
+	
 	Scenes.next = preload("res://ui/parking_meter.tscn")
 	Scenes.goto_by_name("res://cutscenes/parking.tscn")
 

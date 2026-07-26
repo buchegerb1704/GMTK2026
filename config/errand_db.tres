@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="ResourceDict" format=3 uid="uid://csml2k0kp8f05"]
 
+[ext_resource type="Script" uid="uid://dhidqsnep3drw" path="res://classes/user_resource.gd" id="1_bm5vf"]
 [ext_resource type="Script" uid="uid://x7awhwcgr2wr" path="res://classes/resources/user/errand_info.gd" id="1_gi2se"]
 [ext_resource type="Script" uid="uid://bfeyyxwcubioc" path="res://classes/resources/resource_dict.gd" id="2_bm5vf"]
 
@@ -66,16 +67,9 @@ description = "Go green!"
 scene_file = "uid://c1e5a6tfnjey1"
 metadata/_custom_type_script = "uid://x7awhwcgr2wr"
 
-[sub_resource type="Resource" id="Resource_kd6fg"]
-script = ExtResource("1_gi2se")
-title = "Test Errand"
-description = "This errand is a test!"
-scene_file = "uid://lw8y5q87sga6"
-metadata/_custom_type_script = "uid://x7awhwcgr2wr"
-
 [resource]
 script = ExtResource("2_bm5vf")
-data = Dictionary[StringName, ExtResource("1_gi2se")]({
+data = Dictionary[StringName, ExtResource("1_bm5vf")]({
 &"balloons": SubResource("Resource_f076m"),
 &"dance": SubResource("Resource_s2tq7"),
 &"flyswat": SubResource("Resource_0c62p"),
@@ -84,7 +78,6 @@ data = Dictionary[StringName, ExtResource("1_gi2se")]({
 &"grocery_maze": SubResource("Resource_e8crw"),
 &"laundry": SubResource("Resource_15yu5"),
 &"nicos": SubResource("Resource_werku"),
-&"recycle": SubResource("Resource_5r3la"),
-&"test": SubResource("Resource_kd6fg")
+&"recycle": SubResource("Resource_5r3la")
 })
 metadata/_custom_type_script = "uid://bfeyyxwcubioc"

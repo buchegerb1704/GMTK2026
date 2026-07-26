@@ -2,7 +2,7 @@ extends Node
 
 var player: AudioStreamPlayer
 
-enum Stem { INTRO, MENU_A, MENU_B, MENU_TRANS, IDLE_A, IDLE_B, IDLE_C, IDLE_TRANS, GAME_A, GAME_B, GAME_C }
+enum Stem { INTRO, MENU_A, MENU_B, MENU_TRANS, IDLE_A, IDLE_B, IDLE_C, IDLE_TRANS, GAME_A, GAME_B, GAME_C, LULLABY, NONE }
 
 var _stems: Dictionary[Stem, AudioStreamWAV] = {
 	Stem.INTRO: preload("res://assets/music/intro.wav"),
@@ -16,23 +16,40 @@ var _stems: Dictionary[Stem, AudioStreamWAV] = {
 	Stem.GAME_A: preload("res://assets/music/gameplayA.wav"),
 	Stem.GAME_B: preload("res://assets/music/gameplayB.wav"),
 	Stem.GAME_C: preload("res://assets/music/gameplayC.wav"),
+	Stem.LULLABY: preload("res://assets/music/Lullabyforalegendbutlouder.wav")
 }
 
 var _current_stem: Stem
-
 var next_stem: Stem
 
 func play_stem(stem: Stem) -> void:
-	player.stream = _stems[stem]
-	player.play()
-	_current_stem = stem
-	next_stem = _calculate_next()
+	if stem == Stem.NONE:
+		stop()
+	else:
+		player.stream = _stems[stem]
+		player.play()
+		_current_stem = stem
+		next_stem = _calculate_next()
+
+func play_stem_next(stem: Stem) -> void:
+	if player.playing:
+		next_stem = stem
+	else:
+		play_stem(stem)
+
+func stop() -> void:
+	player.stop()
+	_current_stem = Stem.NONE
+	next_stem = Stem.NONE
 
 func switch_gameplay() -> void:
-	pass
-
-func switch_idle() -> void:
-	pass
+	match _current_stem:
+		Stem.INTRO: next_stem = Stem.MENU_TRANS
+		Stem.MENU_A: next_stem = Stem.MENU_TRANS
+		Stem.MENU_B: next_stem = Stem.MENU_TRANS
+		Stem.IDLE_A: next_stem = Stem.IDLE_TRANS
+		Stem.IDLE_B: next_stem = Stem.IDLE_TRANS
+		Stem.IDLE_C: next_stem = Stem.IDLE_TRANS
 
 func _calculate_next() -> Stem:
 	match _current_stem:
@@ -40,14 +57,14 @@ func _calculate_next() -> Stem:
 		Stem.MENU_A: return Stem.MENU_B if randf() < 0.4 else Stem.MENU_A
 		Stem.MENU_B: return Stem.MENU_A if randf() < 0.4 else Stem.MENU_B
 		Stem.MENU_TRANS: return Stem.GAME_A
-		Stem.IDLE_A: return [Stem.IDLE_B, Stem.IDLE_C].pick_random() if randf() < 0.3 else Stem.IDLE_A
-		Stem.IDLE_B: return [Stem.IDLE_A, Stem.IDLE_C].pick_random() if randf() < 0.3 else Stem.IDLE_B
-		Stem.IDLE_C: return [Stem.IDLE_A, Stem.IDLE_B].pick_random() if randf() < 0.3 else Stem.IDLE_C
+		Stem.IDLE_A: return Stem.IDLE_B if randf() < 0.4 else Stem.IDLE_A
+		Stem.IDLE_B: return Stem.IDLE_C if randf() < 0.2 else Stem.IDLE_B
+		Stem.IDLE_C: return Stem.IDLE_B if randf() < 0.2 else Stem.IDLE_C
 		Stem.IDLE_TRANS: return [Stem.GAME_A, Stem.GAME_B, Stem.GAME_C].pick_random()
 		Stem.GAME_A: return Stem.IDLE_A
-		Stem.GAME_B: return Stem.IDLE_B
-		Stem.GAME_C: return Stem.IDLE_C
-	return Stem.INTRO
+		Stem.GAME_B: return Stem.IDLE_A
+		Stem.GAME_C: return Stem.IDLE_A
+	return Stem.NONE
 
 func _ready() -> void:
 	player = AudioStreamPlayer.new()
