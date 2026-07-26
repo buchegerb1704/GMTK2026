@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://c7omfug6o77vj"]
 
 [ext_resource type="Script" uid="uid://cpccv46pe820s" path="res://ui/main_menu.gd" id="1_t7e0r"]
-[ext_resource type="Texture2D" uid="uid://ningg2wsknbn" path="res://assets/sprites/GUI/main_menu/menusign_base.png" id="2_8uxxo"]
-[ext_resource type="Texture2D" uid="uid://c8rngf243nmku" path="res://assets/sprites/main_menu/menusign_quit.png" id="2_wk0pr"]
-[ext_resource type="Texture2D" uid="uid://br63seveicvjq" path="res://assets/sprites/main_menu/menusign_options_sat.png" id="3_p8ri8"]
-[ext_resource type="Texture2D" uid="uid://1wi3elm7kx77" path="res://assets/sprites/main_menu/menusign_play.png" id="4_8uxxo"]
+[ext_resource type="PackedScene" uid="uid://c0xsr37bpo72e" path="res://anim/main_menu_anim.tscn" id="2_lsdqh"]
 [ext_resource type="Theme" uid="uid://bdo0r1xwf3gkc" path="res://themes/menu_button_theme.tres" id="4_ei257"]
+[ext_resource type="Texture2D" uid="uid://cq6hi1tmu7woy" path="res://assets/sprites/GUI/MainMenu/menu_options_base.png" id="4_lsdqh"]
 [ext_resource type="Script" uid="uid://bmf3a2m3cmycj" path="res://classes/texture_button_automask.gd" id="4_p8ri8"]
-[ext_resource type="Texture2D" uid="uid://c077lif2b8n5h" path="res://assets/sprites/main_menu/menusign_options.png" id="5_ei257"]
-[ext_resource type="Texture2D" uid="uid://dbdyan3imalp1" path="res://assets/sprites/main_menu/menusign_quit_sat.png" id="6_ubpvv"]
-[ext_resource type="Texture2D" uid="uid://d2whbd3bxfsdi" path="res://assets/sprites/main_menu/menusign_play_sat.png" id="9_arv2f"]
+[ext_resource type="Texture2D" uid="uid://dn8pb18r3uekr" path="res://assets/sprites/GUI/MainMenu/menu_options.png" id="5_jiymt"]
+[ext_resource type="Texture2D" uid="uid://b1j5ffabs7868" path="res://assets/sprites/GUI/MainMenu/menu_quit_base.png" id="7_bgtsx"]
+[ext_resource type="Texture2D" uid="uid://dsj4b4yofmngx" path="res://assets/sprites/GUI/MainMenu/menu_quit.png" id="8_kaxbk"]
+[ext_resource type="Texture2D" uid="uid://b8gjy75m4fvvd" path="res://assets/sprites/GUI/MainMenu/menu_play_base.png" id="10_0nobx"]
+[ext_resource type="Texture2D" uid="uid://b84nk86pj1jkc" path="res://assets/sprites/GUI/MainMenu/menu_play.png" id="11_iyrh0"]
 
 [node name="MainMenu" type="Control" unique_id=681916578]
 layout_mode = 3
@@ -20,13 +20,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t7e0r")
 
-[node name="BackgroundImage" type="TextureRect" parent="." unique_id=769785624]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MainMenuAnim" parent="." unique_id=774052823 instance=ExtResource("2_lsdqh")]
+position = Vector2(640, 360)
+autoplay = "default"
 
 [node name="OptionsButton" type="TextureButton" parent="." unique_id=1975456541]
 layout_mode = 1
@@ -36,9 +32,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_ei257")
-texture_normal = ExtResource("5_ei257")
-texture_hover = ExtResource("3_p8ri8")
-texture_focused = ExtResource("3_p8ri8")
+texture_normal = ExtResource("4_lsdqh")
+texture_hover = ExtResource("5_jiymt")
+texture_focused = ExtResource("5_jiymt")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("4_p8ri8")
@@ -52,25 +48,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_ei257")
-texture_normal = ExtResource("2_wk0pr")
-texture_hover = ExtResource("6_ubpvv")
-texture_focused = ExtResource("6_ubpvv")
+texture_normal = ExtResource("7_bgtsx")
+texture_hover = ExtResource("8_kaxbk")
+texture_focused = ExtResource("8_kaxbk")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("4_p8ri8")
 metadata/_custom_type_script = "uid://bmf3a2m3cmycj"
-
-[node name="MenuSprite" type="TextureRect" parent="." unique_id=634031306]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_8uxxo")
-expand_mode = 3
-stretch_mode = 5
 
 [node name="PlayButton" type="TextureButton" parent="." unique_id=1649975333]
 layout_mode = 1
@@ -80,9 +64,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_ei257")
-texture_normal = ExtResource("4_8uxxo")
-texture_hover = ExtResource("9_arv2f")
-texture_focused = ExtResource("9_arv2f")
+texture_normal = ExtResource("10_0nobx")
+texture_hover = ExtResource("11_iyrh0")
+texture_focused = ExtResource("11_iyrh0")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("4_p8ri8")
